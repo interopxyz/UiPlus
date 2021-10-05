@@ -39,15 +39,35 @@ namespace UiPlus.Elements
             { ((Wpf.Button)control).Content = value; }
         }
 
+        public virtual bool Status
+        {
+            get { return ((Wpf.Button)control).IsPressed; }
+        }
+
         #endregion
 
         #region Methods
+
+
+        #endregion
+
+        #region Overrides
 
         public override void SetInputs()
         {
             this.control = new Wpf.Button();
 
             Inputs.Add(new UiInput(UiInput.InputTypes.Param_String, "Label", "L", "The button label.", Grasshopper.Kernel.GH_ParamAccess.item));
+        }
+
+        public override List<object> GetValues()
+        {
+            return new List<object> {this.Status };
+        }
+
+        public override string ToString()
+        {
+            return "Ui Button | "+this.Name;
         }
 
         #endregion

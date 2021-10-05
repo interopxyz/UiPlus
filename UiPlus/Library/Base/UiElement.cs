@@ -10,6 +10,7 @@ namespace UiPlus.Elements
 {
     public class UiElement
     {
+
         #region Members
         //public enum ElementTypes {None,Button,Toggle };
         //protected ElementTypes elementType = ElementTypes.None;
@@ -81,11 +82,17 @@ namespace UiPlus.Elements
             }
         }
 
+        public virtual List<object> GetValues()
+        {
+            return null;
+        }
+
         public string GetElementType()
         {
             return control.GetType().Name.ToString();
         }
 
         #endregion
+
     }
 }

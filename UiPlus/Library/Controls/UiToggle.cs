@@ -45,9 +45,25 @@ namespace UiPlus.Elements
 
         #region Methods
 
+
+
+        #endregion
+
+        #region Overrides
+
         public override void SetInputs()
         {
             Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "State", "S", "The toggle state.", Grasshopper.Kernel.GH_ParamAccess.item));
+        }
+
+        public override List<object> GetValues()
+        {
+            return new List<object> { this.Status };
+        }
+
+        public override string ToString()
+        {
+            return "Ui Toggle | " + this.Name;
         }
 
         #endregion

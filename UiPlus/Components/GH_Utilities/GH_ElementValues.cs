@@ -2,6 +2,10 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+using UiPlus.Elements;
+
+using Mc = MahApps.Metro.Controls;
+using Wpf = System.Windows.Controls;
 
 namespace UiPlus.Components.GH_Utilities
 {
@@ -30,6 +34,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
+            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -37,7 +42,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-
+            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
         }
 
         /// <summary>
@@ -46,18 +51,29 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-                                        case ("RangeSlider"):
-                                MahApps.Metro.Controls.RangeSlider C7 = (MahApps.Metro.Controls.RangeSlider)E.Layout.Children[0];
-            if (!keys.Contains(E.Element.Name))
-            {
-                C7.UpperValueChanged -= (o, e) => { ExpireSolution(true); };
-                C7.UpperValueChanged += (o, e) => { ExpireSolution(true); };
-                C7.LowerValueChanged -= (o, e) => { ExpireSolution(true); };
-                C7.LowerValueChanged += (o, e) => { ExpireSolution(true); };
-            }
-            OutPut.Append(new GH_ObjectWrapper(new Interval(C7.LowerValue, C7.UpperValue)), P);
-            break;
+            UiElement uiElement = null;
+            if (!DA.GetData(0, ref uiElement)) return;
 
+            List<object> values = new List<object>();
+
+            switch (uiElement.GetElementType())
+            {
+                case ("Button"):
+                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
+                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
+                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
+
+                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
+                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
+                    break;
+                case ("ToggleSwitch"):
+                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
+                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
+                    C02.Toggled += (o, e) => { ExpireSolution(true); };
+                    break;
+            }
+
+            DA.SetDataList(0, uiElement.GetValues());
         }
 
         /// <summary>

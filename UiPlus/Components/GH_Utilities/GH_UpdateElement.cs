@@ -58,7 +58,7 @@ namespace UiPlus.Components
                 case "Button":
                     UiButton uiButton = (UiButton)uiElement;
                     string text = string.Empty;
-                    if(DA.GetData(1, ref text)) uiButton.Text = text;
+                    if(Params.Input.Count>0)if(DA.GetData(1, ref text)) uiButton.Text = text;
                     break;
                 case "ToggleSwitch":
                     UiToggle uiToggle = (UiToggle)uiElement;
