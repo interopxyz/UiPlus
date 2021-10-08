@@ -3,17 +3,19 @@ using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
 
+using Sd = System.Drawing;
+
 using UiPlus.Elements;
 
-namespace UiPlus.Components
+namespace UiPlus.Components.GH_Controls
 {
-    public class GH_Button : GH_Component
+    public class GH_ColorCanvas : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_Button class.
+        /// Initializes a new instance of the GH_ColorCanvas class.
         /// </summary>
-        public GH_Button()
-          : base("UI Button", "Button",
+        public GH_ColorCanvas()
+          : base("UI Color Canvas", "Color Canvas",
               "Description",
               "Ui", "Elements")
         {
@@ -24,7 +26,7 @@ namespace UiPlus.Components
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.primary; }
+            get { return GH_Exposure.secondary; }
         }
 
         /// <summary>
@@ -32,7 +34,7 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Label", "L", "The button label", GH_ParamAccess.item, "Ok");
+            pManager.AddColourParameter("Color", "C", "The control's color.", GH_ParamAccess.item, Sd.Color.Teal);
             pManager[0].Optional = true;
         }
 
@@ -41,7 +43,7 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Button", "B", "Ui Button", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Color Canvas", "C", "Ui Color Canvas", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -50,13 +52,13 @@ namespace UiPlus.Components
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            string text = "Ok";
-            DA.GetData(0, ref text);
+            Sd.Color color = Sd.Color.Teal;
+            DA.GetData(0, ref color);
 
-            UiButton uiButton = new UiButton();
-            uiButton.Text = text;
+            UiColorCanvas control = new UiColorCanvas();
+            control.Color = color;
 
-            DA.SetData(0, uiButton);
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -68,7 +70,7 @@ namespace UiPlus.Components
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Elements_Button_01;
+                return Properties.Resources.UiPlus_Elements_ColorCanvas_01;
             }
         }
 
@@ -77,7 +79,7 @@ namespace UiPlus.Components
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("f28079c2-e0f3-43e0-a6b0-f23e08c646f2"); }
+            get { return new Guid("a1766aaf-937e-4110-b482-4709ce5480bb"); }
         }
     }
 }

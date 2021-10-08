@@ -13,7 +13,7 @@ using Xcd = Xceed.Wpf.Toolkit;
 
 namespace UiPlus.Elements
 {
-    public class UiButton : UiElement
+    public class UiCheckBox : UiElement
     {
 
         #region Members
@@ -24,12 +24,12 @@ namespace UiPlus.Elements
 
         #region Constructors
 
-        public UiButton() : base()
+        public UiCheckBox() : base()
         {
             SetInputs();
         }
 
-        public UiButton(UiButton uiControl) : base(uiControl)
+        public UiCheckBox(UiCheckBox uiControl) : base(uiControl)
         {
             this.control = uiControl.Control;
         }
@@ -40,14 +40,14 @@ namespace UiPlus.Elements
 
         public virtual string Label
         {
-            get { return ((Wpf.Button)control).Content.ToString(); }
-            set
-            { ((Wpf.Button)control).Content = value; }
+            get { return ((Wpf.CheckBox)control).Content.ToString(); }
+            set { ((Wpf.CheckBox)control).Content = value; }
         }
 
         public virtual bool State
         {
-            get { return ((Wpf.Button)control).IsPressed; }
+            get { return (bool)((Wpf.CheckBox)control).IsChecked; }
+            set { ((Wpf.CheckBox)control).IsChecked = value; }
         }
 
         #endregion
@@ -61,19 +61,20 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            this.control = new Wpf.Button();
+            this.control = new Wpf.CheckBox();
 
             Inputs.Add(new UiInput(UiInput.InputTypes.Param_String, "Label", "L", "The control label.", Grasshopper.Kernel.GH_ParamAccess.item));
+            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "State", "S", "The control's boolean status.", Grasshopper.Kernel.GH_ParamAccess.item));
         }
 
         public override List<object> GetValues()
         {
-            return new List<object> {this.State };
+            return new List<object> { this.State };
         }
 
         public override string ToString()
         {
-            return "Ui Button | "+this.Name;
+            return "Ui Check Box | " + this.Name;
         }
 
         #endregion

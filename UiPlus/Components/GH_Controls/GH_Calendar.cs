@@ -1,21 +1,20 @@
 ﻿using Grasshopper.Kernel;
+using Grasshopper.Kernel.Parameters;
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
-using Wpf = System.Windows.Controls;
-
-namespace UiPlus.Components.GH_Utilities
+namespace UiPlus.Components.GH_Controls
 {
-    public class GH_ElementValues : GH_Component
+    public class GH_Calendar : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ElementValues class.
+        /// Initializes a new instance of the GH_Calendar class.
         /// </summary>
-        public GH_ElementValues()
-          : base("UI Values", "Get Values",
+        public GH_Calendar()
+          : base("UI Calendar", "Calendar",
               "Description",
               "Ui", "Elements")
         {
@@ -26,7 +25,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.septenary; }
+            get { return GH_Exposure.tertiary; }
         }
 
         /// <summary>
@@ -34,7 +33,17 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
+            pManager.AddTimeParameter("DateTime", "D", "The control datetime.", GH_ParamAccess.item, DateTime.Now);
+            pManager[0].Optional = true;
+            pManager.AddBooleanParameter("Single", "S", "If true, only a single date can be selected", GH_ParamAccess.item, false);
+            pManager[1].Optional = true;
+            pManager.AddIntegerParameter("Mode", "M", "Set calendar mode", GH_ParamAccess.item, 0);
+            pManager[2].Optional = true;
+
+            Param_Integer param = (Param_Integer)Params.Input[2];
+            param.AddNamedValue("Month", 0);
+            param.AddNamedValue("Year", 1);
+            param.AddNamedValue("Decade", 2);
         }
 
         /// <summary>
@@ -42,7 +51,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Calendar", "C", "Ui Calendar", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,29 +60,21 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiElement uiElement = null;
-            if (!DA.GetData(0, ref uiElement)) return;
+            DateTime time = DateTime.Now;
+            DA.GetData(0, ref time);
 
-            List<object> values = new List<object>();
+            bool single = false;
+            DA.GetData(1, ref single);
 
-            switch (uiElement.GetElementType())
-            {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
+            int mode = 0;
+            DA.GetData(2, ref mode);
 
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
-                    break;
-            }
+            UiCalendar control = new UiCalendar();
+            control.Time = time;
+            control.SelectSingle = single;
+            control.DisplayMode = (UiCalendar.Modes)mode;
 
-            DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -85,7 +86,7 @@ namespace UiPlus.Components.GH_Utilities
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Utility_Listen_01;
+                return Properties.Resources.UiPlus_Elements_Calendar_01;
             }
         }
 
@@ -94,7 +95,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("023a26ba-3e69-45ea-bee5-44cd867a6004"); }
+            get { return new Guid("261dfab2-44d1-4f42-913c-e15d2e370df8"); }
         }
     }
 }

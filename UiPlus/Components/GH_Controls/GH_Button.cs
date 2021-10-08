@@ -2,20 +2,18 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
-using Wpf = System.Windows.Controls;
-
-namespace UiPlus.Components.GH_Utilities
+namespace UiPlus.Components
 {
-    public class GH_ElementValues : GH_Component
+    public class GH_Button : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ElementValues class.
+        /// Initializes a new instance of the GH_Button class.
         /// </summary>
-        public GH_ElementValues()
-          : base("UI Values", "Get Values",
+        public GH_Button()
+          : base("UI Button", "Button",
               "Description",
               "Ui", "Elements")
         {
@@ -26,7 +24,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.septenary; }
+            get { return GH_Exposure.primary; }
         }
 
         /// <summary>
@@ -34,7 +32,8 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
+            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "Ok");
+            pManager[0].Optional = true;
         }
 
         /// <summary>
@@ -42,7 +41,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Button", "B", "Ui Button", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,29 +50,13 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiElement uiElement = null;
-            if (!DA.GetData(0, ref uiElement)) return;
+            string label = "Ok";
+            DA.GetData(0, ref label);
 
-            List<object> values = new List<object>();
+            UiButton control = new UiButton();
+            control.Label = label;
 
-            switch (uiElement.GetElementType())
-            {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
-
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
-                    break;
-            }
-
-            DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -85,7 +68,7 @@ namespace UiPlus.Components.GH_Utilities
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Utility_Listen_01;
+                return Properties.Resources.UiPlus_Elements_Button_01;
             }
         }
 
@@ -94,7 +77,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("023a26ba-3e69-45ea-bee5-44cd867a6004"); }
+            get { return new Guid("f28079c2-e0f3-43e0-a6b0-f23e08c646f2"); }
         }
     }
 }

@@ -5,15 +5,15 @@ using System.Collections.Generic;
 
 using UiPlus.Elements;
 
-namespace UiPlus.Components
+namespace UiPlus.Components.GH_Contraols
 {
-    public class GH_Toggle : GH_Component
+    public class GH_Radio : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_Toggle class.
+        /// Initializes a new instance of the GH_Radio class.
         /// </summary>
-        public GH_Toggle()
-          : base("UI Toggle", "Toggle",
+        public GH_Radio()
+          : base("UI Button", "Button",
               "Description",
               "Ui", "Elements")
         {
@@ -32,8 +32,12 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Status", "S", "The toggle status", GH_ParamAccess.item, false);
+            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "");
             pManager[0].Optional = true;
+            pManager.AddBooleanParameter("State", "S", "The control's boolean status. If multiple buttons in a group are true the last one will be true.", GH_ParamAccess.item, false);
+            pManager[1].Optional = true;
+            pManager.AddTextParameter("Group", "G", "The Radio group.", GH_ParamAccess.item, "Group 1");
+            pManager[2].Optional = true;
         }
 
         /// <summary>
@@ -41,7 +45,7 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Toggle", "T", "Ui Toggle", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Radio", "R", "Ui Radio", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -50,13 +54,21 @@ namespace UiPlus.Components
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            bool status = false;
-            DA.GetData(0, ref status);
+            string label = "";
+            DA.GetData(0, ref label);
 
-            UiToggle uiToggle = new UiToggle();
-            uiToggle.Status = status;
+            bool state = false;
+            DA.GetData(1, ref state);
 
-            DA.SetData(0, uiToggle);
+            string group = "Group 1";
+            DA.GetData(2, ref group);
+
+            UiRadio control = new UiRadio();
+            control.Label = label;
+            control.State = state;
+            control.Group = group;
+
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -68,7 +80,7 @@ namespace UiPlus.Components
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Elements_Toggle_01;
+                return Properties.Resources.UiPlus_Elements_Radio_01;
             }
         }
 
@@ -77,7 +89,7 @@ namespace UiPlus.Components
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("05108b39-00b4-4205-a107-65eb5a804810"); }
+            get { return new Guid("423355d6-6e00-4904-b59e-81f60847ed55"); }
         }
     }
 }

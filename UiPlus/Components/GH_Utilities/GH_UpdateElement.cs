@@ -58,12 +58,12 @@ namespace UiPlus.Components
                 case "Button":
                     UiButton uiButton = (UiButton)uiElement;
                     string text = string.Empty;
-                    if(Params.Input.Count>0)if(DA.GetData(1, ref text)) uiButton.Text = text;
+                    if(Params.Input.Count>1)if(DA.GetData(1, ref text)) uiButton.Label = text;
                     break;
                 case "ToggleSwitch":
                     UiToggle uiToggle = (UiToggle)uiElement;
                     bool status = false;
-                    if (DA.GetData(1, ref status)) uiToggle.Status= status;
+                    if (DA.GetData(1, ref status)) uiToggle.State= status;
                     break;
             }
         }
@@ -147,7 +147,7 @@ namespace UiPlus.Components
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return null;
+                return Properties.Resources.UiPlus_Utility_Update_01;
             }
         }
 

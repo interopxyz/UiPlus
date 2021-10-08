@@ -2,20 +2,20 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+
+using Sd = System.Drawing;
+
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
-using Wpf = System.Windows.Controls;
-
-namespace UiPlus.Components.GH_Utilities
+namespace UiPlus.Components.GH_Controls
 {
-    public class GH_ElementValues : GH_Component
+    public class GH_ColorPicker : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ElementValues class.
+        /// Initializes a new instance of the GH_ColorPicker class.
         /// </summary>
-        public GH_ElementValues()
-          : base("UI Values", "Get Values",
+        public GH_ColorPicker()
+          : base("UI Color Picker", "Color Picker",
               "Description",
               "Ui", "Elements")
         {
@@ -26,7 +26,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.septenary; }
+            get { return GH_Exposure.secondary; }
         }
 
         /// <summary>
@@ -34,7 +34,10 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
+            pManager.AddColourParameter("Color", "C", "The control's color.", GH_ParamAccess.item, Sd.Color.Teal);
+            pManager[0].Optional = true;
+            pManager.AddColourParameter("Palette", "P", "The control's optional color set.", GH_ParamAccess.list);
+            pManager[1].Optional = true;
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Color Picker", "C", "Ui Color Picker", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,29 +54,17 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiElement uiElement = null;
-            if (!DA.GetData(0, ref uiElement)) return;
+            Sd.Color color = Sd.Color.Teal;
+            DA.GetData(0, ref color);
 
-            List<object> values = new List<object>();
+            List<Sd.Color> palette = new List<Sd.Color>();
+            bool hasPalette = DA.GetDataList(1, palette);
 
-            switch (uiElement.GetElementType())
-            {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
+            UiColorPicker control = new UiColorPicker();
+            control.Color = color;
+            if(hasPalette)control.Palette = palette;
 
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
-                    break;
-            }
-
-            DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -85,7 +76,7 @@ namespace UiPlus.Components.GH_Utilities
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Utility_Listen_01;
+                return Properties.Resources.UiPlus_Elements_ColorPicker_01;
             }
         }
 
@@ -94,7 +85,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("023a26ba-3e69-45ea-bee5-44cd867a6004"); }
+            get { return new Guid("3e6d5bea-dbb7-45b7-84ae-62d0e251f459"); }
         }
     }
 }

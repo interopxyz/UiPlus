@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Wpf = System.Windows.Controls;
 
-using Mc = MahApps.Metro.Controls;
+using Rhino.Geometry;
+
+using Wpf = System.Windows.Controls;
+using Mat = MaterialDesignThemes.Wpf;
+using Mah = MahApps.Metro.Controls;
+using Xcd = Xceed.Wpf.Toolkit;
 
 namespace UiPlus.Elements
 {
@@ -22,23 +26,22 @@ namespace UiPlus.Elements
 
         public UiToggle() : base()
         {
-            this.control = new Mc.ToggleSwitch();
             SetInputs();
         }
 
-        public UiToggle(UiToggle uiToggle) : base(uiToggle)
+        public UiToggle(UiToggle uiControl) : base(uiControl)
         {
-            this.control = uiToggle.Control;
+            this.control = uiControl.Control;
         }
 
         #endregion
 
         #region Properties
 
-        public virtual bool Status
+        public virtual bool State
         {
-            get { return ((Mc.ToggleSwitch)control).IsOn; }
-            set { ((Mc.ToggleSwitch)control).IsOn = value; }
+            get { return ((Mah.ToggleSwitch)control).IsOn; }
+            set { ((Mah.ToggleSwitch)control).IsOn = value; }
         }
 
         #endregion
@@ -53,12 +56,14 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "State", "S", "The toggle state.", Grasshopper.Kernel.GH_ParamAccess.item));
+            this.control = new Mah.ToggleSwitch();
+
+            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "State", "S", "The control's boolean status.", Grasshopper.Kernel.GH_ParamAccess.item));
         }
 
         public override List<object> GetValues()
         {
-            return new List<object> { this.Status };
+            return new List<object> { this.State };
         }
 
         public override string ToString()

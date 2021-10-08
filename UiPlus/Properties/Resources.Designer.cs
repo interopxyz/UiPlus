@@ -73,6 +73,126 @@ namespace UiPlus.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_Calendar_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_Calendar_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_CheckBox_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_CheckBox_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_Clock_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_Clock_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_ColorCanvas_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_ColorCanvas_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_ColorPicker_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_ColorPicker_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_DateTime_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_DateTime_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_PickDate_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_PickDate_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_PickTime_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_PickTime_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_Radio_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_Radio_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_RangeSlider_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_RangeSlider_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_Slider_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_Slider_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Elements_TextBox_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Elements_TextBox_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap UiPlus_Elements_Toggle_01 {
             get {
                 object obj = ResourceManager.GetObject("UiPlus_Elements_Toggle_01", resourceCulture);
@@ -96,6 +216,26 @@ namespace UiPlus.Properties {
         internal static System.Drawing.Bitmap UiPlus_Logo_24 {
             get {
                 object obj = ResourceManager.GetObject("UiPlus_Logo_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Utility_Listen_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Utility_Listen_01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UiPlus_Utility_Update_01 {
+            get {
+                object obj = ResourceManager.GetObject("UiPlus_Utility_Update_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

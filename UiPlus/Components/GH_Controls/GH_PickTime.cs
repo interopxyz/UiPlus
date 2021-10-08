@@ -2,20 +2,18 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
-using Wpf = System.Windows.Controls;
-
-namespace UiPlus.Components.GH_Utilities
+namespace UiPlus.Components.GH_Controls
 {
-    public class GH_ElementValues : GH_Component
+    public class GH_PickTime : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ElementValues class.
+        /// Initializes a new instance of the GH_PickTime class.
         /// </summary>
-        public GH_ElementValues()
-          : base("UI Values", "Get Values",
+        public GH_PickTime()
+          : base("UI Pick Time", "Pick Time",
               "Description",
               "Ui", "Elements")
         {
@@ -26,7 +24,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.septenary; }
+            get { return GH_Exposure.tertiary; }
         }
 
         /// <summary>
@@ -34,7 +32,10 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
+            pManager.AddTimeParameter("Time", "T", "The control time.", GH_ParamAccess.item, DateTime.Now);
+            pManager[0].Optional = true;
+            pManager.AddBooleanParameter("Long", "L", "Long", GH_ParamAccess.item, false);
+            pManager[1].Optional = true;
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Time Picker", "P", "Ui Time Picker", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,29 +52,17 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiElement uiElement = null;
-            if (!DA.GetData(0, ref uiElement)) return;
+            DateTime date = DateTime.Now;
+            DA.GetData(0, ref date);
 
-            List<object> values = new List<object>();
+            bool mode = false;
+            DA.GetData(1, ref mode);
 
-            switch (uiElement.GetElementType())
-            {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
+            UiPickTime control = new UiPickTime();
+            control.Time = date;
+            control.Long = mode;
 
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
-                    break;
-            }
-
-            DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -85,7 +74,7 @@ namespace UiPlus.Components.GH_Utilities
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Utility_Listen_01;
+                return Properties.Resources.UiPlus_Elements_PickTime_01;
             }
         }
 
@@ -94,7 +83,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("023a26ba-3e69-45ea-bee5-44cd867a6004"); }
+            get { return new Guid("d1aeeb19-eb26-42b2-b90e-d81e97e49309"); }
         }
     }
 }

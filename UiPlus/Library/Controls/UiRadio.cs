@@ -13,7 +13,7 @@ using Xcd = Xceed.Wpf.Toolkit;
 
 namespace UiPlus.Elements
 {
-    public class UiButton : UiElement
+    public class UiRadio : UiElement
     {
 
         #region Members
@@ -24,12 +24,12 @@ namespace UiPlus.Elements
 
         #region Constructors
 
-        public UiButton() : base()
+        public UiRadio() : base()
         {
             SetInputs();
         }
 
-        public UiButton(UiButton uiControl) : base(uiControl)
+        public UiRadio(UiRadio uiControl) : base(uiControl)
         {
             this.control = uiControl.Control;
         }
@@ -40,14 +40,21 @@ namespace UiPlus.Elements
 
         public virtual string Label
         {
-            get { return ((Wpf.Button)control).Content.ToString(); }
+            get { return ((Wpf.RadioButton)control).Content.ToString(); }
+            set { ((Wpf.RadioButton)control).Content = value; }
+        }
+
+        public virtual string Group
+        {
+            get { return ((Wpf.RadioButton)control).GroupName; }
             set
-            { ((Wpf.Button)control).Content = value; }
+            { ((Wpf.RadioButton)control).GroupName = value; }
         }
 
         public virtual bool State
         {
-            get { return ((Wpf.Button)control).IsPressed; }
+            get { return (bool)((Wpf.RadioButton)control).IsChecked; }
+            set {((Wpf.RadioButton)control).IsChecked = value; }
         }
 
         #endregion
@@ -61,19 +68,21 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            this.control = new Wpf.Button();
+            this.control = new Wpf.RadioButton();
 
             Inputs.Add(new UiInput(UiInput.InputTypes.Param_String, "Label", "L", "The control label.", Grasshopper.Kernel.GH_ParamAccess.item));
+            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "State", "S", "The control's boolean status.", Grasshopper.Kernel.GH_ParamAccess.item));
+            Inputs.Add(new UiInput(UiInput.InputTypes.Param_String, "Group", "G", "The Radio group.", Grasshopper.Kernel.GH_ParamAccess.item));
         }
 
         public override List<object> GetValues()
         {
-            return new List<object> {this.State };
+            return new List<object> { this.State };
         }
 
         public override string ToString()
         {
-            return "Ui Button | "+this.Name;
+            return "Ui Radio | " + this.Name;
         }
 
         #endregion

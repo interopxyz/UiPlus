@@ -121,6 +121,42 @@
   <data name="UiPlus_Elements_Button_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UiPlus-Elements-Button-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="UiPlus_Elements_Calendar_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Calendar-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_CheckBox_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-CheckBox-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Clock_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Clock-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorCanvas_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorCanvas-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorPicker_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorPicker-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_DateTime_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-DateTime-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_PickDate_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-PickDate-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_PickTime_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-PickTime-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Radio_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Radio-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_RangeSlider_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-RangeSlider-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Slider_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Slider-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_TextBox_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-TextBox-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="UiPlus_Elements_Toggle_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UiPlus-Elements-Toggle-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -129,6 +165,12 @@
   </data>
   <data name="UiPlus_Logo_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UiPlus_Logo-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Utility_Listen_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Utility-Listen-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Utility_Update_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Utility-Update-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="UiPlus_Window_Launch_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UiPlus-Window-Launch-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

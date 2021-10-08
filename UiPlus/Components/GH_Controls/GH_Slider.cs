@@ -2,20 +2,18 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
-using Wpf = System.Windows.Controls;
-
-namespace UiPlus.Components.GH_Utilities
+namespace UiPlus.Components.GH_Contraols
 {
-    public class GH_ElementValues : GH_Component
+    public class GH_Slider : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ElementValues class.
+        /// Initializes a new instance of the GH_Slider class.
         /// </summary>
-        public GH_ElementValues()
-          : base("UI Values", "Get Values",
+        public GH_Slider()
+          : base("UI Slider", "Slider",
               "Description",
               "Ui", "Elements")
         {
@@ -26,7 +24,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.septenary; }
+            get { return GH_Exposure.primary; }
         }
 
         /// <summary>
@@ -34,7 +32,12 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Value", "V", "The slider value", GH_ParamAccess.item, 0.5);
+            pManager[0].Optional = true;
+            pManager.AddIntervalParameter("Bounds", "B", "The sliders upper and lower bounds", GH_ParamAccess.item, new Interval(0, 1));
+            pManager[1].Optional = true;
+            pManager.AddNumberParameter("Increment", "I", "The slider step increment", GH_ParamAccess.item, 0.1);
+            pManager[2].Optional = true;
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Slider", "S", "Ui Slider", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,29 +54,21 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiElement uiElement = null;
-            if (!DA.GetData(0, ref uiElement)) return;
+            double val = 0.5;
+            DA.GetData(0, ref val);
 
-            List<object> values = new List<object>();
+            Interval domain = new Interval(0,1);
+            DA.GetData(1, ref domain);
 
-            switch (uiElement.GetElementType())
-            {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
+            double increment = 0.1;
+            DA.GetData(2, ref increment);
 
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
-                    break;
-            }
+            UiSlider control = new UiSlider();
+            control.CurrentValue = val;
+            control.Increment = increment;
+            control.Domain = domain;
 
-            DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -85,7 +80,7 @@ namespace UiPlus.Components.GH_Utilities
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Utility_Listen_01;
+                return Properties.Resources.UiPlus_Elements_Slider_01;
             }
         }
 
@@ -94,7 +89,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("023a26ba-3e69-45ea-bee5-44cd867a6004"); }
+            get { return new Guid("9247a3db-d7c2-4997-933b-1dcc055940c6"); }
         }
     }
 }

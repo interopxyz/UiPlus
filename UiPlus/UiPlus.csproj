@@ -84,10 +84,37 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="WindowsBase" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\GH_Contraols\GH_Button.cs" />
-    <Compile Include="Components\GH_Contraols\GH_Toggle.cs" />
+    <Compile Include="Components\GH_Controls\GH_Button.cs" />
+    <Compile Include="Components\GH_Controls\GH_Calendar.cs" />
+    <Compile Include="Components\GH_Controls\GH_CheckBox.cs" />
+    <Compile Include="Components\GH_Controls\GH_Clock.cs" />
+    <Compile Include="Components\GH_Controls\GH_ColorCanvas.cs" />
+    <Compile Include="Components\GH_Controls\GH_ColorPicker.cs" />
+    <Compile Include="Components\GH_Controls\GH_DateTime.cs" />
+    <Compile Include="Components\GH_Controls\GH_PickDate.cs" />
+    <Compile Include="Components\GH_Controls\GH_PickTime.cs" />
+    <Compile Include="Components\GH_Controls\GH_Radio.cs" />
+    <Compile Include="Components\GH_Controls\GH_RangeSlider.cs" />
+    <Compile Include="Components\GH_Controls\GH_Slider.cs" />
+    <Compile Include="Components\GH_Controls\GH_TextBox.cs" />
+    <Compile Include="Components\GH_Controls\GH_Toggle.cs" />
     <Compile Include="Components\GH_Utilities\GH_ElementValues.cs" />
     <Compile Include="Components\GH_Utilities\GH_UpdateElement.cs" />
     <Compile Include="Components\GH_Window.cs" />
@@ -95,7 +122,20 @@
     <Compile Include="Library\Base\UiGraphic.cs" />
     <Compile Include="Library\Base\UiInput.cs" />
     <Compile Include="Library\Controls\UiButton.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiCalendar.cs" />
+    <Compile Include="Library\Controls\UiCheckBox.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiClock.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorCanvas.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorPicker.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiPickDate.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiPickTime.cs" />
+    <Compile Include="Library\Controls\UiRadio.cs" />
+    <Compile Include="Library\Controls\UiRangeSlider.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiDateTime.cs" />
+    <Compile Include="Library\Controls\UiSlider.cs" />
+    <Compile Include="Library\Controls\UiTextBox.cs" />
     <Compile Include="Library\Controls\UiToggle.cs" />
+    <Compile Include="Library\Extensions\ColorConversions.cs" />
     <Compile Include="Library\Viewer\UiViewer.xaml.cs">
       <DependentUpon>UiViewer.xaml</DependentUpon>
     </Compile>
@@ -139,6 +179,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UiPlus-Elements-Toggle-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Utility-Listen-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Utility-Update-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Slider-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Radio-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-CheckBox-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-RangeSlider-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-TextBox-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-PickDate-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-PickTime-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Clock-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-DateTime-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Calendar-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorPicker-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorCanvas-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

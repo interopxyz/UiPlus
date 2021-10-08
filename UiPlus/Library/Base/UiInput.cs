@@ -10,7 +10,7 @@ namespace UiPlus.Elements
     public class UiInput
     {
         #region Members
-        public enum InputTypes { Param_GenericObject, Param_Integer, Param_Number, Param_String, Param_Boolean, Param_Colour }
+        public enum InputTypes { Param_GenericObject, Param_Integer, Param_Number, Param_String, Param_Boolean, Param_Colour, Param_Interval, Param_Time }
         protected InputTypes inputType = InputTypes.Param_GenericObject;
         protected string name = string.Empty;
         protected string nickName = string.Empty;

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Rhino.Geometry;
+using Sd = System.Drawing;
+using Wm = System.Windows.Media;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -13,7 +15,7 @@ using Xcd = Xceed.Wpf.Toolkit;
 
 namespace UiPlus.Elements
 {
-    public class UiButton : UiElement
+    public class UiColorCanvas : UiElement
     {
 
         #region Members
@@ -24,12 +26,12 @@ namespace UiPlus.Elements
 
         #region Constructors
 
-        public UiButton() : base()
+        public UiColorCanvas() : base()
         {
             SetInputs();
         }
 
-        public UiButton(UiButton uiControl) : base(uiControl)
+        public UiColorCanvas(UiColorCanvas uiControl) : base(uiControl)
         {
             this.control = uiControl.Control;
         }
@@ -38,21 +40,16 @@ namespace UiPlus.Elements
 
         #region Properties
 
-        public virtual string Label
+        public virtual Sd.Color Color
         {
-            get { return ((Wpf.Button)control).Content.ToString(); }
-            set
-            { ((Wpf.Button)control).Content = value; }
-        }
-
-        public virtual bool State
-        {
-            get { return ((Wpf.Button)control).IsPressed; }
+            get { return ((Wm.Color)((Xcd.ColorCanvas)control).SelectedColor).ToDrawingColor(); }
+            set { ((Xcd.ColorCanvas)control).SelectedColor = value.ToMediaColor(); }
         }
 
         #endregion
 
         #region Methods
+
 
 
         #endregion
@@ -61,22 +58,18 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            this.control = new Wpf.Button();
+            Xcd.ColorCanvas ctrl = new Xcd.ColorCanvas();
 
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_String, "Label", "L", "The control label.", Grasshopper.Kernel.GH_ParamAccess.item));
-        }
+            this.control = new Xcd.ColorCanvas();
 
-        public override List<object> GetValues()
-        {
-            return new List<object> {this.State };
+            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Colour, "Color", "C", "The control color.", Grasshopper.Kernel.GH_ParamAccess.item));
         }
 
         public override string ToString()
         {
-            return "Ui Button | "+this.Name;
+            return "Ui Color Canvas | " + this.Name;
         }
 
         #endregion
-
     }
 }

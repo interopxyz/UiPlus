@@ -2,20 +2,19 @@
 using Rhino.Geometry;
 using System;
 using System.Collections.Generic;
+
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
-using Wpf = System.Windows.Controls;
 
-namespace UiPlus.Components.GH_Utilities
+namespace UiPlus.Components.GH_Controls
 {
-    public class GH_ElementValues : GH_Component
+    public class GH_TextBox : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ElementValues class.
+        /// Initializes a new instance of the GH_TextBox class.
         /// </summary>
-        public GH_ElementValues()
-          : base("UI Values", "Get Values",
+        public GH_TextBox()
+          : base("UI Text Box", "Text Box",
               "Description",
               "Ui", "Elements")
         {
@@ -26,7 +25,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override GH_Exposure Exposure
         {
-            get { return GH_Exposure.septenary; }
+            get { return GH_Exposure.primary; }
         }
 
         /// <summary>
@@ -34,7 +33,12 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Element", "E", "A Ui Control Element", GH_ParamAccess.item);
+            pManager.AddTextParameter("Text", "T", "The control text.", GH_ParamAccess.item, "");
+            pManager[0].Optional = true;
+            pManager.AddBooleanParameter("Wrap", "W", "If true the text will wrap.", GH_ParamAccess.item, true);
+            pManager[1].Optional = true;
+            pManager.AddNumberParameter("Width", "X", "An optional limiting width for the text panel.", GH_ParamAccess.item);
+            pManager[2].Optional = true;
         }
 
         /// <summary>
@@ -42,7 +46,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Button", "B", "Ui Button", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -51,29 +55,21 @@ namespace UiPlus.Components.GH_Utilities
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiElement uiElement = null;
-            if (!DA.GetData(0, ref uiElement)) return;
+            string text = "";
+            DA.GetData(0, ref text);
 
-            List<object> values = new List<object>();
+            bool wrap = true;
+            DA.GetData(1, ref wrap);
 
-            switch (uiElement.GetElementType())
-            {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
+            double width = 0;
+            bool hasWidth = DA.GetData(2, ref width);
 
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
-                    break;
-            }
+            UiTextBox control = new UiTextBox();
+            control.Content = text;
+            control.Wrap = wrap;
+            if(hasWidth)control.Width = width;
 
-            DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(0, control);
         }
 
         /// <summary>
@@ -85,7 +81,7 @@ namespace UiPlus.Components.GH_Utilities
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Utility_Listen_01;
+                return Properties.Resources.UiPlus_Elements_TextBox_01;
             }
         }
 
@@ -94,7 +90,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("023a26ba-3e69-45ea-bee5-44cd867a6004"); }
+            get { return new Guid("a503e372-3946-4c3f-a7e1-74d057c790aa"); }
         }
     }
 }
