@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Interop;
 using UiPlus.Elements;
-using UiPlus.Viewer;
 
 namespace UiPlus.Components
 {
@@ -34,9 +33,11 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Elements", "E", "The Elements or Layouts", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Elements", "E", "The Controls, Layouts, Charts and other Ui Elements", GH_ParamAccess.list);
             pManager.AddIntegerParameter("Owner", "O", "The application that owns the new Window", GH_ParamAccess.item,1);
             pManager[1].Optional = true;
+            pManager.AddBooleanParameter("Scroll", "S", "If true a scroll bar will be added to the main window", GH_ParamAccess.item);
+            pManager[2].Optional = true;
             pManager.AddBooleanParameter("Launch", "L", "Opens the Window", GH_ParamAccess.item, false);
 
             Param_Integer param = (Param_Integer)pManager[1];
@@ -51,6 +52,7 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
+            pManager.AddGenericParameter("Window", "W", "A Window Ui Element", GH_ParamAccess.item);
         }
 
         /// <summary>
@@ -65,13 +67,34 @@ namespace UiPlus.Components
             int mode = 0;
             DA.GetData(1, ref mode);
 
+            bool scroll = false;
+            bool hasScroll = DA.GetData(2, ref scroll);
+
             bool launch = false;
-            if (!DA.GetData(2, ref launch)) return;
+            if (!DA.GetData(3, ref launch)) return;
 
             UiWindow window = new UiWindow(elements);
             window.Arrangment = (UiWindow.Arrangments)mode;
 
+            if (hasScroll)
+            {
+                if (scroll)
+                {
+                    window.ScrollVisible = UiWindow.ScrollVisibily.Visible;
+                        }
+                else
+                {
+                    window.ScrollVisible = UiWindow.ScrollVisibily.Hidden;
+                }
+                    }
+            else
+            {
+                window.ScrollVisible = UiWindow.ScrollVisibily.Auto;
+            }
+
             if (launch) window.Launch();
+
+            DA.SetData(0, window);
         }
 
         /// <summary>

@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Rhino.Geometry;
+using Rg = Rhino.Geometry;
+using Gk = Grasshopper.Kernel;
+
+using Sw = System.Windows;
+using Wm = System.Windows.Media;
+using Sd = System.Drawing;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -18,7 +23,7 @@ namespace UiPlus.Elements
 
         #region Members
 
-
+        Mat.TimePicker ctrl = new Mat.TimePicker();
 
         #endregion
 
@@ -40,25 +45,25 @@ namespace UiPlus.Elements
 
         public virtual DateTime Time
         {
-            get { return ((Mat.TimePicker)control).SelectedTime.Value; }
+            get { return ctrl.SelectedTime.Value; }
             set 
             {
-                ((Mat.TimePicker)control).SelectedTime = value;
+                ctrl.SelectedTime = value;
             }
         }
 
         public virtual bool Long
         {
-            get { return ((Mat.TimePicker)control).SelectedTimeFormat == Wpf.DatePickerFormat.Long; }
+            get { return ctrl.SelectedTimeFormat == Wpf.DatePickerFormat.Long; }
             set 
             {
                 if (value)
                 {
-                    ((Mat.TimePicker)control).SelectedTimeFormat = Wpf.DatePickerFormat.Long;
+                    ctrl.SelectedTimeFormat = Wpf.DatePickerFormat.Long;
                 }
                 else
                 {
-                    ((Mat.TimePicker)control).SelectedTimeFormat = Wpf.DatePickerFormat.Short;
+                    ctrl.SelectedTimeFormat = Wpf.DatePickerFormat.Short;
                 }
             }
         }
@@ -74,10 +79,27 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            this.control = new Mat.TimePicker();
+            ElementType = ElementTypes.Border;
 
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Time, "Time", "T", "The control time.", Grasshopper.Kernel.GH_ParamAccess.item));
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "Long", "L", "The control time long format.", Grasshopper.Kernel.GH_ParamAccess.item));
+            this.control = this.ctrl;
+            this.border.Child = this.control;
+            base.SetInputs();
+        }
+
+        public override void SetPrimaryColors(Sd.Color color)
+        {
+            base.SetPrimaryColors(color);
+            ctrl.Foreground = color.ToSolidColorBrush();
+            Mat.TextFieldAssist.SetUnderlineBrush(ctrl, color.ToSolidColorBrush());
+
+        }
+
+        public override void Update(Gk.GH_Component component)
+        {
+           ctrl.MouseUp -= (o, e) => { component.ExpireSolution(true); };
+           ctrl.MouseUp += (o, e) => { component.ExpireSolution(true); };
+           ctrl.LayoutUpdated -= (o, e) => { component.ExpireSolution(true); };
+            ctrl.LayoutUpdated += (o, e) => { component.ExpireSolution(true); };
         }
 
         public override List<object> GetValues()

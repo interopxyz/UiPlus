@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Rhino.Geometry;
+using Rg = Rhino.Geometry;
+using Gk = Grasshopper.Kernel;
+
+using Sw = System.Windows;
+using Wm = System.Windows.Media;
+using Sd = System.Drawing;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -18,7 +23,7 @@ namespace UiPlus.Elements
 
         #region Members
 
-
+        Mat.Clock ctrl = new Mat.Clock();
 
         #endregion
 
@@ -40,14 +45,14 @@ namespace UiPlus.Elements
 
         public virtual bool Mode
         {
-            get { return ((Mat.Clock)control).Is24Hours; }
-            set { ((Mat.Clock)control).Is24Hours = value; }
+            get { return ctrl.Is24Hours; }
+            set { ctrl.Is24Hours = value; }
         }
 
         public virtual DateTime Time
         {
-            get { return ((Mat.Clock)control).Time; }
-            set { ((Mat.Clock)control).Time = value; }
+            get { return ctrl.Time; }
+            set { ctrl.Time = value; }
         }
 
         #endregion
@@ -58,13 +63,29 @@ namespace UiPlus.Elements
         #endregion
 
         #region Overrides
-
+        
         public override void SetInputs()
         {
-            this.control = new Mat.Clock();
+            Mat.ColorZoneAssist.SetMode(ctrl, Mat.ColorZoneMode.Custom);
 
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Time, "Time", "T", "The control time.", Grasshopper.Kernel.GH_ParamAccess.item));
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "Mode", "M", "The control mode.", Grasshopper.Kernel.GH_ParamAccess.item));
+            this.control = this.ctrl;
+            base.SetInputs();
+        }
+
+        public override void SetAccentColors(Sd.Color color)
+        {
+            Mat.ColorZoneAssist.SetBackground(ctrl, color.ToSolidColorBrush());
+        }
+
+        public override void SetPrimaryColors(Sd.Color color)
+        {
+            Mat.ColorZoneAssist.SetForeground(ctrl, color.ToSolidColorBrush());
+        }
+
+        public override void Update(Gk.GH_Component component)
+        {
+            ctrl.LayoutUpdated -= (o, e) => { component.ExpireSolution(true); };
+            ctrl.LayoutUpdated += (o, e) => { component.ExpireSolution(true); };
         }
 
         public override List<object> GetValues()

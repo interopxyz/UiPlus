@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Rhino.Geometry;
+using Rg = Rhino.Geometry;
+using Gk = Grasshopper.Kernel;
+
+using Sw = System.Windows;
+using Wm = System.Windows.Media;
+using Sd = System.Drawing;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -18,7 +23,7 @@ namespace UiPlus.Elements
 
         #region Members
 
-
+        Wpf.DatePicker ctrl = new Wpf.DatePicker();
 
         #endregion
 
@@ -40,26 +45,26 @@ namespace UiPlus.Elements
 
         public virtual DateTime Date
         {
-            get { return (DateTime)((Wpf.DatePicker)control).SelectedDate; }
+            get { return (DateTime)ctrl.SelectedDate; }
             set
             {
-                ((Wpf.DatePicker)control).SelectedDate = value;
-                ((Wpf.DatePicker)control).DisplayDate = value;
+                ctrl.SelectedDate = value;
+                ctrl.DisplayDate = value;
             }
         }
 
         public virtual bool Long
         {
-            get { return ((Wpf.DatePicker)control).SelectedDateFormat == Wpf.DatePickerFormat.Long; }
+            get { return ctrl.SelectedDateFormat == Wpf.DatePickerFormat.Long; }
             set
             {
                 if (value)
                 {
-                    ((Wpf.DatePicker)control).SelectedDateFormat = Wpf.DatePickerFormat.Long;
+                    ctrl.SelectedDateFormat = Wpf.DatePickerFormat.Long;
                 }
                 else
                 {
-                    ((Wpf.DatePicker)control).SelectedDateFormat = Wpf.DatePickerFormat.Short;
+                    ctrl.SelectedDateFormat = Wpf.DatePickerFormat.Short;
                 }
             }
         }
@@ -75,10 +80,37 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            this.control = new Wpf.DatePicker();
+            ElementType = ElementTypes.Border;
 
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Time, "Date", "D", "The control date.", Grasshopper.Kernel.GH_ParamAccess.item));
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "Long", "L", "The control date long format.", Grasshopper.Kernel.GH_ParamAccess.item));
+            this.control = this.ctrl;
+            this.border.Child = this.control;
+            Mat.ColorZoneAssist.SetMode(ctrl, Mat.ColorZoneMode.Inverted);
+
+            base.SetInputs();
+        }
+
+        public override void SetPrimaryColors(Sd.Color color)
+        {
+            base.SetPrimaryColors(color);
+            ctrl.Foreground = color.ToSolidColorBrush();
+            Mat.TextFieldAssist.SetUnderlineBrush(ctrl, color.ToSolidColorBrush());
+
+            Mat.CalendarAssist.SetSelectionColor(ctrl, color.ToSolidColorBrush());
+            Mat.CalendarAssist.SetHeaderBackground(ctrl, color.ToSolidColorBrush());
+        }
+
+        public override void SetAccentColors(Sd.Color color)
+        {
+            base.SetAccentColors(color);
+            
+            //Mat.CalendarAssist.SetSelectionForegroundColor(calendar, color.ToSolidColorBrush());
+            //Mat.CalendarAssist.SetHeaderForeground(calendar, color.ToSolidColorBrush());
+        }
+
+        public override void Update(Gk.GH_Component component)
+        {
+            ctrl.SelectedDateChanged -= (o, e) => { component.ExpireSolution(true); };
+            ctrl.SelectedDateChanged += (o, e) => { component.ExpireSolution(true); };
         }
 
         public override List<object> GetValues()

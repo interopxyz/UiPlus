@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Rhino.Geometry;
+using Rg = Rhino.Geometry;
+using Gk = Grasshopper.Kernel;
+
+using Sw = System.Windows;
+using Wm = System.Windows.Media;
+using Sd = System.Drawing;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -18,7 +23,7 @@ namespace UiPlus.Elements
 
         #region Members
 
-
+        Xcd.DateTimePicker ctrl = new Xcd.DateTimePicker();
 
         #endregion
 
@@ -40,20 +45,17 @@ namespace UiPlus.Elements
 
         public virtual DateTime Time
         {
-            get { return (DateTime)((Xcd.DateTimePicker)control).Value; }
-            set
-            {
-                ((Xcd.DateTimePicker)control).Value = value;
-            }
+            get { return (DateTime)ctrl.Value; }
+            set { ctrl.Value = value; }
         }
 
         public virtual string Format
         {
-            get { return ((Xcd.DateTimePicker)control).FormatString; }
+            get { return ctrl.FormatString; }
             set
             {
-                ((Xcd.DateTimePicker)control).Format = Xcd.DateTimeFormat.Custom;
-                ((Xcd.DateTimePicker)control).FormatString = value;
+                ctrl.Format = Xcd.DateTimeFormat.Custom;
+                ctrl.FormatString = value;
             }
         }
 
@@ -68,16 +70,19 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            Xcd.DateTimePicker ctrl = new Xcd.DateTimePicker();
             ctrl.ShowButtonSpinner = false;
             ctrl.AllowSpin = true;
             ctrl.AllowTextInput = true;
             ctrl.ButtonSpinnerLocation = Xcd.Location.Left;
 
             this.control = ctrl;
+            base.SetInputs();
+        }
 
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Time, "Time", "T", "The control time.", Grasshopper.Kernel.GH_ParamAccess.item));
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_String, "Format", "F", "The control time format.", Grasshopper.Kernel.GH_ParamAccess.item));
+        public override void Update(Gk.GH_Component component)
+        {
+            ctrl.ValueChanged -= (o, e) => { component.ExpireSolution(true); };
+            ctrl.ValueChanged += (o, e) => { component.ExpireSolution(true); };
         }
 
         public override List<object> GetValues()

@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using Rhino.Geometry;
+using Rg = Rhino.Geometry;
+using Gk = Grasshopper.Kernel;
+
+using Sw = System.Windows;
+using Wm = System.Windows.Media;
+using Sd = System.Drawing;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -17,6 +22,9 @@ namespace UiPlus.Elements
     {
 
         #region Members
+
+        Wpf.Calendar ctrl = new Wpf.Calendar();
+
         public enum Modes { Month,Year,Decade}
 
         #endregion
@@ -39,35 +47,35 @@ namespace UiPlus.Elements
 
         public virtual List<DateTime> Times
         {
-            get { return ((Wpf.Calendar)control).SelectedDates.ToList(); }
+            get { return ctrl.SelectedDates.ToList(); }
         }
 
         public virtual DateTime Time
         {
-            get { return (DateTime)((Wpf.Calendar)control).SelectedDate; }
-            set { ((Wpf.Calendar)control).SelectedDate = value; }
+            get { return (DateTime)ctrl.SelectedDate; }
+            set { ctrl.SelectedDate = value; }
         }
 
         public virtual bool SelectSingle
         {
-            get { return ((Wpf.Calendar)control).SelectionMode == Wpf.CalendarSelectionMode.SingleRange; }
+            get { return ctrl.SelectionMode == Wpf.CalendarSelectionMode.SingleRange; }
             set
             {
                 if(value)
                 {
-                    ((Wpf.Calendar)control).SelectionMode = Wpf.CalendarSelectionMode.SingleDate;
+                    ctrl.SelectionMode = Wpf.CalendarSelectionMode.SingleDate;
                 }
                 else
                 {
-                    ((Wpf.Calendar)control).SelectionMode = Wpf.CalendarSelectionMode.SingleRange;
+                    ctrl.SelectionMode = Wpf.CalendarSelectionMode.SingleRange;
                 }
             }
         }
 
         public virtual Modes DisplayMode
         {
-            get { return (Modes)((Wpf.Calendar)control).DisplayMode; }
-            set { ((Wpf.Calendar)control).DisplayMode = (Wpf.CalendarMode)value; }
+            get { return (Modes)ctrl.DisplayMode; }
+            set { ctrl.DisplayMode = (Wpf.CalendarMode)value; }
         }
 
         #endregion
@@ -81,14 +89,35 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
-            Wpf.Calendar ctrl = new Wpf.Calendar();
             ctrl.IsTodayHighlighted = false;
+            Mat.ColorZoneAssist.SetMode(ctrl, Mat.ColorZoneMode.Custom);
+            this.Time = DateTime.Now;
 
-            this.control = ctrl;
+            this.control = this.ctrl;
+            base.SetInputs();
+        }
 
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Time, "DateTime", "D", "The control time.", Grasshopper.Kernel.GH_ParamAccess.item));
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Boolean, "Single", "S", "If true, only a single date can be selected", Grasshopper.Kernel.GH_ParamAccess.item));
-            Inputs.Add(new UiInput(UiInput.InputTypes.Param_Integer, "Mode", "M", "Set calendar mode", Grasshopper.Kernel.GH_ParamAccess.item));
+        public override void Update(Gk.GH_Component component)
+        {
+            ctrl.SelectedDatesChanged -= (o, e) => { component.ExpireSolution(true); };
+            ctrl.SelectedDatesChanged += (o, e) => { component.ExpireSolution(true); };
+        }
+
+        public override void SetPrimaryColors(Sd.Color color)
+        {
+            base.SetPrimaryColors(color);
+            Mat.CalendarAssist.SetSelectionColor(ctrl, color.ToSolidColorBrush());
+            Mat.CalendarAssist.SetHeaderBackground(ctrl, color.ToSolidColorBrush());
+            ctrl.BorderBrush = color.ToSolidColorBrush();
+            Mat.ColorZoneAssist.SetForeground(ctrl, color.ToSolidColorBrush());
+        }
+
+        public override void SetAccentColors(Sd.Color color)
+        {
+            base.SetAccentColors(color);
+            Mat.CalendarAssist.SetSelectionForegroundColor(ctrl, color.ToSolidColorBrush());
+            Mat.CalendarAssist.SetHeaderForeground(ctrl, color.ToSolidColorBrush());
+            Mat.ColorZoneAssist.SetBackground(ctrl, color.ToSolidColorBrush());
         }
 
         public override List<object> GetValues()

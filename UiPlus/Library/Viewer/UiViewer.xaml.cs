@@ -19,7 +19,7 @@ using MaterialDesignThemes;
 using MaterialDesignColors;
 using MaterialDesignThemes.MahApps;
 
-namespace UiPlus.Viewer
+namespace UiPlus.Elements
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

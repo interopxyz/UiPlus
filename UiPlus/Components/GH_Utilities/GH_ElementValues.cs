@@ -4,20 +4,25 @@ using System;
 using System.Collections.Generic;
 using UiPlus.Elements;
 
-using Mc = MahApps.Metro.Controls;
 using Wpf = System.Windows.Controls;
+using Mat = MaterialDesignThemes.Wpf;
+using Mah = MahApps.Metro.Controls;
+using Xcd = Xceed.Wpf.Toolkit;
 
 namespace UiPlus.Components.GH_Utilities
 {
     public class GH_ElementValues : GH_Component
     {
+        List<Wpf.Control> controls = new List<Wpf.Control>();
+        List<Wpf.Control> tempcontrols = new List<Wpf.Control>();
+
         /// <summary>
         /// Initializes a new instance of the GH_ElementValues class.
         /// </summary>
         public GH_ElementValues()
           : base("UI Values", "Get Values",
               "Description",
-              "Ui", "Elements")
+              "Ui", "Get")
         {
         }
 
@@ -43,6 +48,19 @@ namespace UiPlus.Components.GH_Utilities
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
+            pManager.AddTextParameter("Debug", "D", "Description", GH_ParamAccess.item);
+        }
+
+        protected override void BeforeSolveInstance()
+        {
+            base.BeforeSolveInstance();
+            tempcontrols = new List<Wpf.Control>();
+        }
+
+        protected override void AfterSolveInstance()
+        {
+            base.AfterSolveInstance();
+            controls = tempcontrols;
         }
 
         /// <summary>
@@ -54,26 +72,22 @@ namespace UiPlus.Components.GH_Utilities
             UiElement uiElement = null;
             if (!DA.GetData(0, ref uiElement)) return;
 
-            List<object> values = new List<object>();
+                    tempcontrols.Add(uiElement.Control);
 
-            switch (uiElement.GetElementType())
+            switch (uiElement.ElementType)
             {
-                case ("Button"):
-                    Wpf.Button C01 = (Wpf.Button)uiElement.Control;
-                    C01.MouseDown -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseDown += (o, e) => { ExpireSolution(true); };
-
-                    C01.MouseUp -= (o, e) => { ExpireSolution(true); };
-                    C01.MouseUp += (o, e) => { ExpireSolution(true); };
-                    break;
-                case ("ToggleSwitch"):
-                    Mc.ToggleSwitch C02 = (Mc.ToggleSwitch)uiElement.Control;
-                    C02.Toggled -= (o, e) => { ExpireSolution(true); };
-                    C02.Toggled += (o, e) => { ExpireSolution(true); };
+                case UiElement.ElementTypes.Control:
+                case UiElement.ElementTypes.Border:
+                    if (!controls.Contains(uiElement.Control))
+                    {
+                        controls.Add(uiElement.Control);
+                        uiElement.Update(this);
+                    }
                     break;
             }
 
             DA.SetDataList(0, uiElement.GetValues());
+            DA.SetData(1, uiElement.Control);
         }
 
         /// <summary>

@@ -7,23 +7,32 @@ using System.Threading.Tasks;
 using Wpf = System.Windows.Forms;
 
 using UiPlus.Elements;
+
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Interop;
 
-namespace UiPlus.Viewer
+using Mat = MaterialDesignThemes.Wpf;
+
+using Sd = System.Drawing;
+using Wm = System.Windows.Media;
+
+namespace UiPlus.Elements
 {
-    public class UiWindow
+    public class UiWindow: UiElement
     {
 
         #region Members
 
+        public enum ScrollVisibily { Auto=1, Hidden=2, Visible = 3 }
+        protected ScrollVisibily scroll = ScrollVisibily.Auto;
+
         public enum Arrangments {None,Topmost,Rhino,Grasshopper }
         public Arrangments Arrangment = Arrangments.None;
-        protected UiViewer viewer = new UiViewer();
-        public StackPanel Container;
-        public ScrollViewer ScrollFrame;
 
+        public StackPanel Stack;
+        public ScrollViewer ScrollFrame = new ScrollViewer();
+        public Mat.ColorZone Container = new Mat.ColorZone();
         protected List<UiElement> elements = new List<UiElement>();
 
         #endregion
@@ -32,11 +41,14 @@ namespace UiPlus.Viewer
 
         public UiWindow()
         {
-
+            this.ElementType = ElementTypes.Window;
+            viewer = new UiViewer();
         }
 
         public UiWindow(List<UiElement> elements)
         {
+            this.ElementType = ElementTypes.Window;
+            viewer = new UiViewer();
             foreach (UiElement element in elements)
             {
                 this.elements.Add(element);
@@ -47,18 +59,22 @@ namespace UiPlus.Viewer
 
         #region Properties
 
-
-
+        public virtual ScrollVisibily ScrollVisible
+        {
+            get { return scroll; }
+            set 
+            { 
+                scroll = value;
+                ScrollFrame.VerticalScrollBarVisibility = (ScrollBarVisibility)scroll;
+            }
+        }
         #endregion
 
         #region Methods
 
         public void Launch()
         {
-            viewer = new UiViewer();
-            Container = new StackPanel();
-            ScrollFrame = new ScrollViewer();
-
+            Stack = new StackPanel();
             WindowInteropHelper H = new WindowInteropHelper(viewer);
 
             switch (Arrangment)
@@ -77,13 +93,17 @@ namespace UiPlus.Viewer
                     break;
             }
 
-            Container.Orientation = Orientation.Vertical;
-            Container.Margin = new Thickness(5);
+            Stack.Orientation = Orientation.Vertical;
+            Stack.Margin = new Thickness(5);
+            Stack.Background = Wm.Brushes.Transparent;
 
-            viewer.Closing -= (o, e) => { Container.Children.Clear(); };
-            viewer.Closing += (o, e) => { Container.Children.Clear(); };
+            viewer.Closing -= (o, e) => { Stack.Children.Clear(); };
+            viewer.Closing += (o, e) => { Stack.Children.Clear(); };
 
-            viewer.SizeToContent = SizeToContent.WidthAndHeight;
+            viewer.SizeToContent = SizeToContent.Height;
+            viewer.Width = 502;
+            Container.Content = Stack;
+
             ScrollFrame.Content = Container;
             viewer.Content = ScrollFrame;
 
@@ -92,6 +112,8 @@ namespace UiPlus.Viewer
                 AddElement(element);
             }
 
+            SetStrokeColor(Constants.DefaultDarkColor());
+            SetPrimaryColors(Constants.MaterialColor());
             viewer.OpenWindow();
         }
 
@@ -99,7 +121,7 @@ namespace UiPlus.Viewer
         {
             uiElement.DetachParent();
             uiElement.SetElement();
-            Container.Children.Add(uiElement.Container);
+            Stack.Children.Add(uiElement.Container);
         }
 
         #endregion
