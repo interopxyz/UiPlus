@@ -47,6 +47,8 @@ namespace UiPlus.Elements
         protected Wpf.WebBrowser browser = new Wpf.WebBrowser();
         protected Swf.WindowsFormsHost host = new Swf.WindowsFormsHost();
 
+        public bool AllowTransparency = true;
+
         //public List<UiInput> Inputs = new List<UiInput>();
 
         #endregion

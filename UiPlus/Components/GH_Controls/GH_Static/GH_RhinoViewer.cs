@@ -34,18 +34,12 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddTextParameter("Named View", "N", "The name of a user created Rhino Named View.", GH_ParamAccess.item);
+            pManager.AddTextParameter("Named View", "N", "The name of a user created Rhino Named View.", GH_ParamAccess.item, "Perspective");
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Display Mode", "D", "The viewport display mode.", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Display Mode", "D", "The viewport display mode.", GH_ParamAccess.item,3);
             pManager[2].Optional = true;
-            pManager.AddIntegerParameter("Projection", "P", "The camera projection type.", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Projection", "P", "The camera projection type.", GH_ParamAccess.item,1);
             pManager[3].Optional = true;
-            //pManager.AddBooleanParameter("Grid", "G", "The grid visibility", GH_ParamAccess.item);
-            //pManager[3].Optional = true;
-            //pManager.AddBooleanParameter("Construction Axis", "A", "The construction axis visibility", GH_ParamAccess.item);
-            //pManager[4].Optional = true;
-            //pManager.AddBooleanParameter("World Axis", "W", "The world axis visibility", GH_ParamAccess.item);
-            //pManager[5].Optional = true;
 
             Param_Integer paramA = (Param_Integer)pManager[2];
             foreach (UiRhinoViewer.DisplayModes value in Enum.GetValues(typeof(UiRhinoViewer.DisplayModes)))
@@ -88,23 +82,10 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             int projectionMode = 0;
             bool hasProjectionMode = DA.GetData(3, ref projectionMode);
 
-            //bool grid = false;
-            //bool hasGrid = DA.GetData(4, ref grid);
-
-            //bool constructionAxis = false;
-            //bool hasConstructionAxis = DA.GetData(5, ref constructionAxis);
-
-            //bool worldAxis = false;
-            //bool hasWorldAxis = DA.GetData(6, ref worldAxis);
-
             if (hasView) control.Viewport = viewport;
 
             if (hasDisplayMode) control.DisplayMode = (UiRhinoViewer.DisplayModes)displayMode;
             if (hasProjectionMode) control.ProjectionMode = (UiRhinoViewer.ProjectionModes)projectionMode;
-
-            //if (hasGrid) control.HasGrid = grid;
-            //if (hasConstructionAxis) control.HasConstructionAxis = constructionAxis;
-            //if (hasWorldAxis) control.HasWorldAxis = worldAxis;
 
             DA.SetData(0, control);
         }

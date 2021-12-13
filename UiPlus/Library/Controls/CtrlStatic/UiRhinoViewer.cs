@@ -10,6 +10,7 @@ using Eto.Forms;
 using Eto.Drawing;
 
 using Sw = System.Windows;
+using Wm = System.Windows.Media;
 
 using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
@@ -51,7 +52,7 @@ namespace UiPlus.Elements
 
         public UiRhinoViewer(UiRhinoViewer uiControl) : base(uiControl)
         {
-            this.control = uiControl.Control;
+            this.vport = uiControl.vport;
 
             this.displayMode = uiControl.displayMode;
             this.projectionMode = uiControl.projectionMode;
@@ -61,7 +62,9 @@ namespace UiPlus.Elements
             this.hasConstructionAxes = uiControl.hasConstructionAxes;
 
             this.viewport = uiControl.viewport;
+            this.border = uiControl.border;
 
+            SetInputs();
         }
 
         #endregion
@@ -254,16 +257,16 @@ namespace UiPlus.Elements
 
         public override void SetInputs()
         {
+
             this.ElementType = ElementTypes.Border;
 
+            this.AllowTransparency = false;
+
             SetViewport();
-
             SetDisplayMode();
-
             SetProjectionMode();
 
             Swi.WindowsFormsHost vHost = (Swi.WindowsFormsHost)vport.ControlObject;
-
             vHost.MinWidth = 300;
             vHost.MinHeight = 300;
 
@@ -286,7 +289,7 @@ namespace UiPlus.Elements
             SetWorldAxes();
 
             RefreshView();
-            base.SetInputs( Alignment.Stretch);
+            base.SetInputs(Alignment.Stretch);
         }
 
         public override string ToString()

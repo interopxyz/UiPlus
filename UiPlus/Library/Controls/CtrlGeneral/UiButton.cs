@@ -70,7 +70,7 @@ namespace UiPlus.Elements
 
             this.ctrl.MinWidth = 90;
             this.control = this.ctrl;
-            base.SetInputs(Alignment.Center);
+            base.SetInputs();
         }
 
         public override void SetAccentColors(Sd.Color color)

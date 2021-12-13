@@ -38,6 +38,8 @@ namespace UiPlus.Elements
         protected List<UiElement> elements = new List<UiElement>();
         bool isClosed = false;
 
+        private bool allowTransparency = true;
+
         #endregion
 
         #region Constructors
@@ -50,10 +52,7 @@ namespace UiPlus.Elements
         public UiWindow(List<UiElement> elements)
         {
             this.ElementType = ElementTypes.Window;
-            foreach (UiElement element in elements)
-            {
-                this.elements.Add(element);
-            }
+            Elements = elements;
         }
 
         #endregion
@@ -78,7 +77,15 @@ namespace UiPlus.Elements
 
         public virtual List<UiElement> Elements
         {
-            set { elements = value; }
+            set 
+            {
+                elements.Clear();
+                foreach (UiElement element in value)
+                {
+                    this.elements.Add(element);
+                    if (!element.AllowTransparency) allowTransparency = false;
+                }
+            }
         }
 
         public virtual bool AreControlsVisible
@@ -147,7 +154,7 @@ namespace UiPlus.Elements
 
             viewer.SizeToContent = Sw.SizeToContent.Height;
             viewer.Width = 502;
-            viewer.AllowsTransparency = true;
+            viewer.AllowsTransparency = allowTransparency;
             viewer.TitleCharacterCasing = CharacterCasing.Normal;
             
 
