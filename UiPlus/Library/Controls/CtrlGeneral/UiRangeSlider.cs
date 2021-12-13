@@ -174,6 +174,7 @@ namespace UiPlus.Elements
         {
             ctrl.Foreground = color.ToSolidColorBrush();
             brdr.Background = color.ToSolidColorBrush();
+            label.Foreground = color.ToSolidColorBrush();
         }
 
         public override void SetAccentColors(Sd.Color color)

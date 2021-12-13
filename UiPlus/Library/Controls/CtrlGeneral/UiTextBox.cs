@@ -93,6 +93,7 @@ namespace UiPlus.Elements
         public override void SetPrimaryColors(Sd.Color color)
         {
             base.SetPrimaryColors(color);
+            this.control.Foreground = color.ToSolidColorBrush();
             Mat.TextFieldAssist.SetUnderlineBrush(ctrl, color.ToSolidColorBrush());
         }
 

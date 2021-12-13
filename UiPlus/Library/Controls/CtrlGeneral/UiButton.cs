@@ -73,16 +73,6 @@ namespace UiPlus.Elements
             base.SetInputs();
         }
 
-        public override void SetAccentColors(Sd.Color color)
-        {
-            ctrl.Foreground = color.ToSolidColorBrush();
-        }
-
-        public override void SetPrimaryColors(Sd.Color color)
-        {
-            ctrl.Background = color.ToSolidColorBrush();
-        }
-
         public override void Update(Gk.GH_Component component)
         {
             ctrl.Click -= (o, e) => { component.ExpireSolution(true); };

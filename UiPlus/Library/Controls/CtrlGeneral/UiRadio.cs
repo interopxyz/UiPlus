@@ -74,10 +74,11 @@ namespace UiPlus.Elements
         {
             ElementType = ElementTypes.Border;
 
-            ctrl.Margin = new Sw.Thickness(0,0,3,0);
+            this.ctrl.Margin = new Sw.Thickness(0,0,3,0);
 
             this.control = this.ctrl;
             this.border.Child = this.control;
+
             base.SetInputs();
         }
 

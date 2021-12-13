@@ -603,7 +603,7 @@ namespace UiPlus.Elements
 
         public virtual void SetInputs(Alignment alignment = Alignment.Left)
         {
-            SetMargin(0, 2, 0, 2);
+            SetMargin(1);
             SetPadding(Constants.DefaultPadding());
             SetCornerRadius(Constants.DefaultRadius());
 
