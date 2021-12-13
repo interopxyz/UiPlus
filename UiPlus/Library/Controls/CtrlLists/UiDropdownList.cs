@@ -67,7 +67,8 @@ namespace UiPlus.Elements
         public override void SetInputs()
         {
             ElementType = ElementTypes.Border;
-            
+
+            this.ctrl.MinWidth = 80;
 
             this.control = this.ctrl;
             this.border.Child = this.control;

@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Modify
         /// </summary>
         public GH_Graphics()
           : base("Ui Set Graphics", "Graphics",
-              "Description",
+              "Change the basic graphics of an element",
               "Ui", "Modify")
         {
         }

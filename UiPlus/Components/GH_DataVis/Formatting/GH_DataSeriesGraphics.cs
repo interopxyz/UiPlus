@@ -16,8 +16,8 @@ namespace UiPlus.Components.GH_DataVis
         /// Initializes a new instance of the GH_DataSetGraphics class.
         /// </summary>
         public GH_DataSeriesGraphics()
-          : base("Ui DataSet Graphics", "Ds Graphics",
-              "Description",
+          : base("Ui Data Series Graphics", "Ds Graphics",
+              "Apply graphics to an overall data series",
               "Ui", "Chart")
         {
         }
@@ -36,9 +36,9 @@ namespace UiPlus.Components.GH_DataVis
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Data Series", "Ds", "The data series to modify.", GH_ParamAccess.item);
-            pManager.AddColourParameter("Primary Color", "P", "The series primary color", GH_ParamAccess.item);
+            pManager.AddColourParameter("Primary Color", "P", "The series's primary color", GH_ParamAccess.item);
             pManager[1].Optional = true;
-            pManager.AddColourParameter("Accent Color", "A", "The series accent color", GH_ParamAccess.item);
+            pManager.AddColourParameter("Accent Color", "A", "The series's accent color", GH_ParamAccess.item);
             pManager[2].Optional = true;
             pManager.AddNumberParameter("Weight", "W", "The stroke weight", GH_ParamAccess.item);
             pManager[3].Optional = true;

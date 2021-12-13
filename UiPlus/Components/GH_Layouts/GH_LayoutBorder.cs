@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutBorder()
           : base("UI Border Layout", "Border",
-              "Description",
+              "Place elements in a labeled border",
               "Ui", "Layout")
         {
         }

@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartLine()
           : base("Ui Line Chart", "Line Chart",
-              "Description",
+              "Visualize multiple data series of numbers as a line chart",
               "Ui", "Chart")
         {
         }

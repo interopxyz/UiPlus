@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls.GH_Color
         /// </summary>
         public GH_ColorSlider()
           : base("UI Color Slider", "Color Slider",
-              "Description",
+              "Select a color from a hue slider",
               "Ui", "Control")
         {
         }

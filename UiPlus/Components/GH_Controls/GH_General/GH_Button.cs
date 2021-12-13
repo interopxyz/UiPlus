@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_Button()
           : base("UI Button", "Button",
-              "Description",
+              "Updates the solution once when clicked",
               "Ui", "Control")
         {
         }
@@ -33,7 +33,7 @@ namespace UiPlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "Ok");
+            pManager.AddTextParameter("Label", "L", "The control label", GH_ParamAccess.item, "Ok");
             pManager[1].Optional = true;
         }
 

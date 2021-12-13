@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartTable()
           : base("Ui Table Chart", "Table Chart",
-              "Description",
+              "Display a list of editable data series in a simple table",
               "Ui", "Chart")
         {
         }

@@ -15,7 +15,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutScroll()
           : base("UI Scroll Layout", "Scroll",
-              "Description",
+              "Add scrollers to an element collection",
               "Ui", "Layout")
         {
         }

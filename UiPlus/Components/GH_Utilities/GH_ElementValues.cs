@@ -21,7 +21,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public GH_ElementValues()
           : base("UI Values", "Get Values",
-              "Description",
+              "Return element specific values from an element",
               "Ui", "Get")
         {
         }

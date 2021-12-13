@@ -18,7 +18,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public GH_Capture()
           : base("Ui Capture Image", "Capture",
-              "Description",
+              "Create a bitmap of the current state of a window with an option to save a file",
               "Ui", "Window")
         {
         }

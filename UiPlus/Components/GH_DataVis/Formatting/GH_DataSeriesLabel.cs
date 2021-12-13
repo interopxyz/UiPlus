@@ -15,8 +15,8 @@ namespace UiPlus.Components.GH_DataVis
         /// Initializes a new instance of the GH_DataLabel class.
         /// </summary>
         public GH_DataSeriesLabel()
-          : base("Ui Dataset Labels", "Ds Labels",
-              "Description",
+          : base("Ui Data Series Labels", "Ds Labels",
+              "Apply labels to a data series and modify",
               "Ui", "Chart")
         {
         }
@@ -49,7 +49,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Data Series", "Ds", "The updated data series.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Data Set", "Ds", "The updated data series.", GH_ParamAccess.item);
         }
 
         /// <summary>

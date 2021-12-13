@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_CheckBox()
           : base("UI Check Box", "Check Box",
-              "Description",
+              "Click to toggle between true and false",
               "Ui", "Control")
         {
         }

@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutGrid()
           : base("UI Grid Layout", "Grid",
-              "Description",
+              "Place elements in a grid at row and column indices",
               "Ui", "Layout")
         {
         }

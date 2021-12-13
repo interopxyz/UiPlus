@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_DataVis.Formatting
         /// </summary>
         public GH_ChartLegend()
           : base("Ui Chart Legend", "Chart Legend",
-              "Description",
+              "Apply a legend to a chart and modify",
               "Ui", "Chart")
         {
         }

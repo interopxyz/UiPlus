@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartArea()
           : base("Ui Area Chart", "Area Chart",
-              "Description",
+              "Visualize multiple data series as an area chart",
               "Ui", "Chart")
         {
         }

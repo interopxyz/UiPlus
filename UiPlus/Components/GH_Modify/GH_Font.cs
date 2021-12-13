@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_Modify
         /// </summary>
         public GH_Font()
           : base("Ui Set Font", "Font",
-              "Description",
+              "Change the font of an element",
               "Ui", "Modify")
         {
         }

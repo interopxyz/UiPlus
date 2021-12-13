@@ -67,6 +67,7 @@ namespace UiPlus.Elements
         {
             ElementType = ElementTypes.Border;
 
+            this.ctrl.MinWidth = 90;
             ctrl.SelectionMode = Wpf.SelectionMode.Extended;
 
             this.control = this.ctrl;

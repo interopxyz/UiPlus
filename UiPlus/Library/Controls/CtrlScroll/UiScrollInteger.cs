@@ -26,6 +26,9 @@ namespace UiPlus.Elements
             Xcd.IntegerUpDown ctrl = new Xcd.IntegerUpDown();
         Wpf.Button btnUp = new Wpf.Button();
         Wpf.Button btnDown = new Wpf.Button();
+        Wpf.Label label = new Wpf.Label();
+
+        bool wrap = false;
 
         #endregion
 
@@ -39,6 +42,8 @@ namespace UiPlus.Elements
         public UiScrollInteger(UiScrollInteger uiControl) : base(uiControl)
         {
             this.border = uiControl.border;
+
+            this.wrap = uiControl.wrap;
         }
 
         #endregion
@@ -69,6 +74,20 @@ namespace UiPlus.Elements
             set { ctrl.Increment = value; }
         }
 
+        public virtual bool Wrap
+        {
+            set { wrap = value; }
+            get { return wrap; }
+        }
+
+        public virtual string Label
+        {
+            get { return label.Content.ToString(); }
+            set
+            {
+                label.Content = value;
+            }
+        }
 
         #endregion
 
@@ -79,7 +98,14 @@ namespace UiPlus.Elements
             int temp = (int)ctrl.Value + (int)ctrl.Increment;
             if (temp > (int)ctrl.Maximum)
             {
-                ctrl.Value = ctrl.Maximum;
+                if (wrap)
+                {
+                    ctrl.Value = ctrl.Minimum + (ctrl.Value + ctrl.Increment - ctrl.Maximum);
+                }
+                else
+                {
+                    ctrl.Value = ctrl.Maximum;
+                }
             }
             else
             {
@@ -93,7 +119,14 @@ namespace UiPlus.Elements
             int temp = (int)ctrl.Value - (int)ctrl.Increment;
             if (temp < (int)ctrl.Minimum)
             {
-                ctrl.Value = ctrl.Minimum;
+                if (wrap)
+                {
+                    ctrl.Value = ctrl.Maximum - (ctrl.Value - ctrl.Minimum);
+                }
+                else
+                {
+                    ctrl.Value = ctrl.Minimum;
+                }
             }
             else
             {
@@ -112,7 +145,7 @@ namespace UiPlus.Elements
 
             Wm.Brush defaultBrush = Constants.MaterialBrush();
 
-            ctrl.MinWidth = 100;
+            ctrl.MinWidth = 60;
             ctrl.Height = 20;
             ctrl.TextAlignment = System.Windows.TextAlignment.Left;
             ctrl.HorizontalAlignment = Sw.HorizontalAlignment.Stretch;
@@ -121,6 +154,10 @@ namespace UiPlus.Elements
             ctrl.BorderBrush = defaultBrush;
             ctrl.Margin = new Sw.Thickness(0, 0, 0, 0);
             ctrl.ShowButtonSpinner = false;
+
+            label.VerticalContentAlignment = Sw.VerticalAlignment.Center;
+            label.Background = Wm.Brushes.Transparent;
+            label.Foreground = defaultBrush;
 
             btnDown.Width = 16;
             btnDown.Height = 20;
@@ -150,9 +187,10 @@ namespace UiPlus.Elements
             pnl.HorizontalAlignment = Sw.HorizontalAlignment.Left;
 
             this.control = this.ctrl;
-            pnl.Children.Add(btnDown);
-            pnl.Children.Add(btnUp);
+            pnl.Children.Add(this.btnDown);
+            pnl.Children.Add(this.btnUp);
             pnl.Children.Add(this.control);
+            pnl.Children.Add(this.label);
 
             border.Child = pnl;
             base.SetInputs();
@@ -168,12 +206,58 @@ namespace UiPlus.Elements
             base.SetPrimaryColors(color);
             Wm.Brush brush = color.ToSolidColorBrush();
 
+            ctrl.Foreground = brush;
+            ctrl.BorderBrush = brush;
             btnUp.Foreground = brush;
             btnUp.BorderBrush = brush;
             btnDown.Foreground = brush;
             btnDown.BorderBrush = brush;
-            ctrl.Foreground = brush;
-            ctrl.BorderBrush = brush;
+            label.Foreground = brush;
+        }
+
+        public override string FontFamily
+        {
+            set
+            {
+                SetFontFamily(ctrl, value);
+                SetFontFamily(label, value);
+            }
+        }
+
+        public override double FontSize
+        {
+            set
+            {
+                ctrl.FontSize = value;
+                label.FontSize = value;
+            }
+        }
+
+        public override bool IsBold
+        {
+            set
+            {
+                SetIsBold(ctrl, value);
+                SetIsBold(label, value);
+            }
+        }
+
+        public override bool IsItalic
+        {
+            set
+            {
+                SetIsItalic(ctrl, value);
+                SetIsItalic(label, value);
+            }
+        }
+
+        public override Justifications TextJustification
+        {
+            set
+            {
+                SetTextJustification(ctrl, value);
+                SetTextJustification(label, value);
+            }
         }
 
         public override void Update(Gk.GH_Component component)

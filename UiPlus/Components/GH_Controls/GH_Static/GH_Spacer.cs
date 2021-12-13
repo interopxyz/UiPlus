@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_Spacer()
           : base("UI Spacer", "Spacer",
-              "Description",
+              "Add a horizontal or vertical spacer with a fixed width",
               "Ui", "Display")
         {
         }
@@ -59,13 +59,13 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             if (DA.GetData(0, ref control)) Message = "Update";
 
             double width = 10.0;
-            DA.GetData(1, ref width);
+            bool hasWidth = DA.GetData(1, ref width);
 
             bool isHorizontal = false;
-            DA.GetData(2, ref isHorizontal);
+            bool hasHorizontal = DA.GetData(2, ref isHorizontal);
 
-            control.Width = width;
-            control.IsHorizontal = isHorizontal;
+            if(hasWidth) control.Width = width;
+            if(hasHorizontal) control.IsHorizontal = isHorizontal;
 
             DA.SetData(0, control);
         }

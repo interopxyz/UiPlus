@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_Gradient()
           : base("UI Gradient", "Gradient",
-              "Description",
+              "Create a gradient legend from colors and parameters with a min and max label",
               "Ui", "Display")
         {
         }

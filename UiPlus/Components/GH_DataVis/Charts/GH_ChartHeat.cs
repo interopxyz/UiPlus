@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartHeat()
           : base("Ui Heat Grid", "Heat Grid",
-              "Description",
+              "Visualize multiple data series of numbers as a heat grid",
               "Ui", "Chart")
         {
         }

@@ -5,17 +5,17 @@ using System.Collections.Generic;
 
 using UiPlus.Elements;
 
-namespace UiPlus.Components.GH_Controls
+namespace UiPlus.Components
 {
-    public class GH_ListBox : GH_EditBase
+    public class GH_ModifyWindow : GH_Component
     {
         /// <summary>
-        /// Initializes a new instance of the GH_ListBox class.
+        /// Initializes a new instance of the GH_ModifyWindow class.
         /// </summary>
-        public GH_ListBox()
-          : base("UI List Box", "List Box",
-              "Click on an item or items from a specified list of text",
-              "Ui", "Control")
+        public GH_ModifyWindow()
+          : base("Ui Modify Window", "Modify Win",
+              "Modify visibility and position of a Ui Window",
+              "Ui", "Window")
         {
         }
 
@@ -32,10 +32,15 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            base.RegisterInputParams(pManager);
-            pManager.AddTextParameter("Values", "V", "The control's values", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Index", "I", "The index of the selected list item", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Window", "W", "A Ui Window element.", GH_ParamAccess.item);
+            pManager[0].Optional = true;
+            pManager.AddPointParameter("Position", "P", "Position the window", GH_ParamAccess.item);
+            pManager[1].Optional = true;
+            pManager.AddBooleanParameter("Hide Controls", "C", "Hide the window controls", GH_ParamAccess.item);
             pManager[2].Optional = true;
+            pManager.AddBooleanParameter("Hide Title", "T", "Hide the title bar.", GH_ParamAccess.item);
+            pManager[3].Optional = true;
+
         }
 
         /// <summary>
@@ -43,8 +48,8 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            base.RegisterOutputParams(pManager);
-            pManager[0].Description = "Ui Element | List Box Control";
+            pManager.AddGenericParameter("Window", "W", "A Ui Window element.", GH_ParamAccess.item);
+
         }
 
         /// <summary>
@@ -53,19 +58,24 @@ namespace UiPlus.Components.GH_Controls
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            UiListBox control = new UiListBox();
-            if (DA.GetData(0, ref control)) Message = "Update";
+            UiWindow window = new UiWindow();
+            if (!DA.GetData(0, ref window)) return;
 
-            List<string> items = new List<string>();
-            if(!DA.GetDataList(1, items))return;
+            Point3d position = new Point3d();
+            bool hasPosition = DA.GetData(1, ref position);
 
-            int selected = -1;
-            bool isSelected = DA.GetData(2, ref selected);
+            bool controls = false;
+            bool hasControls = DA.GetData(2, ref controls);
 
-            control.Items = items;
-            if (isSelected) control.Index = selected;
+            bool title = false;
+            bool hasTitle = DA.GetData(3, ref title);
 
-            DA.SetData(0, control);
+            if (hasPosition) window.Position = position;
+            if (hasControls) window.AreControlsVisible = controls;
+            if (hasTitle) window.IsTitleBarVisible = title;
+
+            DA.SetData(0, window);
+            
         }
 
         /// <summary>
@@ -77,7 +87,7 @@ namespace UiPlus.Components.GH_Controls
             {
                 //You can add image files to your project resources and access them like this:
                 // return Resources.IconForThisComponent;
-                return Properties.Resources.UiPlus_Elements_ListBox_01;
+                return Properties.Resources.UiPlus_Window_Modify_01;
             }
         }
 
@@ -86,7 +96,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public override Guid ComponentGuid
         {
-            get { return new Guid("005b6972-fdb4-46bd-b1e4-077ab8acd3bf"); }
+            get { return new Guid("d5c696e0-2e0c-4baf-8416-b28a621af145"); }
         }
     }
 }

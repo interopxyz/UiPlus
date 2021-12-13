@@ -60,13 +60,13 @@ namespace UiPlus.Components.GH_Controls
             if (DA.GetData(0, ref control)) Message = "Update";
 
             DateTime time = DateTime.Now;
-            DA.GetData(1, ref time);
+            bool hasTime = DA.GetData(1, ref time);
 
             string format = "06/15/2009, 01:00:00 PM";
-            DA.GetData(2, ref format);
+            bool hasFormat = DA.GetData(2, ref format);
 
-            control.Time = time;
-            control.Format = format;
+            if(hasTime) control.Time = time;
+            if(hasFormat) control.Format = format;
 
             DA.SetData(0, control);
         }

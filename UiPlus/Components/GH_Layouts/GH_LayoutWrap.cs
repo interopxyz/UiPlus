@@ -15,7 +15,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutWrap()
           : base("UI Wrap Layout", "Wrap",
-              "Description",
+              "Sequentially places elements, wrapping when the extent is hit",
               "Ui", "Layout")
         {
         }

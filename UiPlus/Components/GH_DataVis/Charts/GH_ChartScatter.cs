@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartScatter()
           : base("Ui Scatter Chart", "Scatter Chart",
-              "Description",
+              "Visualize multiple data series of points as a scatter chart",
               "Ui", "Chart")
         {
         }

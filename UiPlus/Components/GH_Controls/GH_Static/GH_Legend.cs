@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_Legend()
           : base("UI Legend", "Legend",
-              "Description",
+              "Display a legend of color and value pairs",
               "Ui", "Display")
         {
         }

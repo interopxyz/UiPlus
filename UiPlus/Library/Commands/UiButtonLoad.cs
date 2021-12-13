@@ -114,6 +114,7 @@ namespace UiPlus.Elements
             button.Click -= (o, e) => { OpenDialog(); };
             button.Click += (o, e) => { OpenDialog(); };
 
+            this.button.MinWidth = 90;
             this.control = button;
             base.SetInputs(Alignment.Stretch);
         }

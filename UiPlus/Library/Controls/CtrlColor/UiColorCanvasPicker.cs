@@ -68,7 +68,7 @@ namespace UiPlus.Elements
             ElementType = ElementTypes.Border;
 
             this.ctrl.Background = Wm.Brushes.Transparent;
-            this.ctrl.Foreground = Wm.Brushes.Transparent;
+            this.ctrl.Foreground = Constants.MaterialBrush();
             this.ctrl.BorderBrush = Wm.Brushes.Transparent;
             this.ctrl.Margin = new Sw.Thickness(0);
             this.ctrl.Padding = new Sw.Thickness(0);

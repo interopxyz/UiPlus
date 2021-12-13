@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Contraols
         /// </summary>
         public GH_Radio()
           : base("UI Radio", "Radio",
-              "Description",
+              "Click to toggle a single item to true from a specified group",
               "Ui", "Control")
         {
         }

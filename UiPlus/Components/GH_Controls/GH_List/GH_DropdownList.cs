@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_DropdownList()
           : base("UI Dropdown List", "Dropdown List",
-              "Description",
+              "Select a single item from a dropdown list of text items",
               "Ui", "Control")
         {
         }

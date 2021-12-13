@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Modify
         /// </summary>
         public GH_Resize()
           : base("Ui Resize", "Resize",
-              "Description",
+              "Resize an element",
               "Ui", "Modify")
         {
         }

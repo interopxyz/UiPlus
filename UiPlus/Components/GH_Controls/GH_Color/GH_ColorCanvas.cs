@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_ColorCanvas()
           : base("UI Color Canvas", "Color Canvas",
-              "Description",
+              "Select a color from a canvas",
               "Ui", "Control")
         {
         }

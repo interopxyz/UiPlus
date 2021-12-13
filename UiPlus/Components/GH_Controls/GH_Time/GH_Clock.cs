@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_Clock()
           : base("UI Clock", "Clock",
-              "Description",
+              "Select a time from a clock widget",
               "Ui", "Control")
         {
         }
@@ -58,13 +58,13 @@ namespace UiPlus.Components.GH_Controls
             if (DA.GetData(0, ref control)) Message = "Update";
 
             DateTime date = DateTime.Now;
-            DA.GetData(1, ref date);
+            bool hasTime = DA.GetData(1, ref date);
 
             bool mode = false;
-            DA.GetData(2, ref mode);
+            bool hasMode = DA.GetData(2, ref mode);
 
-            control.Time = date;
-            control.Mode = mode;
+            if(hasTime) control.Time = date;
+            if(hasMode) control.Mode = mode;
 
             DA.SetData(0, control);
         }

@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_Image()
           : base("UI Image", "Image",
-              "Description",
+              "Display an image viewer",
               "Ui", "Display")
         {
         }
@@ -70,10 +70,10 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             bool hasBitmap = DA.GetData(1, ref bitmap);
 
             int fitting = 0;
-            DA.GetData(2, ref fitting);
+            bool hasFitting = DA.GetData(2, ref fitting);
 
-            if(hasBitmap)control.Content = bitmap;
-            control.FittingMode = (UiImage.FittingModes) fitting;
+            if(hasBitmap) control.Content = bitmap;
+            if(hasFitting) control.FittingMode = (UiImage.FittingModes) fitting;
 
             DA.SetData(0, control);
         }

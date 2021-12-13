@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_Label()
           : base("UI Label", "Label",
-              "Description",
+              "Display text in several visual styles",
               "Ui", "Display")
         {
         }
@@ -66,13 +66,13 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             if (DA.GetData(0, ref control)) Message = "Label";
 
             string text = "Title";
-            DA.GetData(1, ref text);
+            bool hasText = DA.GetData(1, ref text);
 
             int font = 2;
-            DA.GetData(2, ref font);
+            bool hasFont = DA.GetData(2, ref font);
 
-            control.Content = text;
-            control.Font = ((UiElement.FontStyles)font);
+            if(hasText) control.Content = text;
+            if(hasFont) control.Font = ((UiElement.FontStyles)font);
             
             DA.SetData(0, control);
         }

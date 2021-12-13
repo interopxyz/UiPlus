@@ -26,6 +26,7 @@ namespace UiPlus.Elements
         Xcd.ButtonSpinner ctrl = new Xcd.ButtonSpinner();
         Wpf.Button btnUp = new Wpf.Button();
         Wpf.Button btnDown = new Wpf.Button();
+        Wpf.Label label = new Wpf.Label();
 
         protected List<string> values = new List<string> { "Item 1", "Item 2", "Item 3" };
         protected int index = 0;
@@ -79,6 +80,15 @@ namespace UiPlus.Elements
             }
         }
 
+        public virtual string Label
+        {
+            get { return label.Content.ToString(); }
+            set
+            {
+                label.Content = value;
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -102,6 +112,16 @@ namespace UiPlus.Elements
             return index;
         }
 
+        public void StepUp()
+        {
+            Index += 1;
+        }
+
+        public void StepDown()
+        {
+            Index -= 1;
+        }
+
         #endregion
 
         #region Overrides
@@ -112,7 +132,7 @@ namespace UiPlus.Elements
 
             Wm.Brush defaultBrush = Constants.MaterialBrush();
 
-            ctrl.MinWidth = 100;
+            ctrl.MinWidth = 60;
             ctrl.Height = 20;
             ctrl.HorizontalAlignment = Sw.HorizontalAlignment.Stretch;
             ctrl.Background = Wm.Brushes.Transparent;
@@ -121,7 +141,11 @@ namespace UiPlus.Elements
             ctrl.Margin = new Sw.Thickness(0, 0, 0, 0);
             ctrl.ShowButtonSpinner = false;
             ctrl.Content = values[index];
-            
+
+            label.VerticalContentAlignment = Sw.VerticalAlignment.Center;
+            label.Background = Wm.Brushes.Transparent;
+            label.Foreground = defaultBrush;
+
             btnDown.Width = 16;
             btnDown.Height = 20;
             btnDown.Content = "▼";
@@ -156,20 +180,56 @@ namespace UiPlus.Elements
             pnl.Children.Add(btnDown);
             pnl.Children.Add(btnUp);
             pnl.Children.Add(control);
+            pnl.Children.Add(label);
 
             border.Child = pnl;
             base.SetInputs();
 
         }
 
-        public void StepUp()
+        public override string FontFamily
         {
-            Index += 1;
+            set
+            {
+                SetFontFamily(ctrl, value);
+                SetFontFamily(label, value);
+            }
         }
 
-        public void StepDown()
+        public override double FontSize
         {
-            Index -= 1;
+            set
+            {
+                ctrl.FontSize = value;
+                label.FontSize = value;
+            }
+        }
+
+        public override bool IsBold
+        {
+            set
+            {
+                SetIsBold(ctrl, value);
+                SetIsBold(label, value);
+            }
+        }
+
+        public override bool IsItalic
+        {
+            set
+            {
+                SetIsItalic(ctrl, value);
+                SetIsItalic(label, value);
+            }
+        }
+
+        public override Justifications TextJustification
+        {
+            set
+            {
+                SetTextJustification(ctrl, value);
+                SetTextJustification(label, value);
+            }
         }
 
         public override void Update(Gk.GH_Component component)
@@ -191,12 +251,13 @@ namespace UiPlus.Elements
             base.SetPrimaryColors(color);
             Wm.Brush brush = color.ToSolidColorBrush();
 
+            ctrl.Foreground = brush;
+            ctrl.BorderBrush = brush;
             btnUp.Foreground = brush;
             btnUp.BorderBrush = brush;
             btnDown.Foreground = brush;
             btnDown.BorderBrush = brush;
-            ctrl.Foreground = brush;
-            ctrl.BorderBrush = brush;
+            label.Foreground = brush;
         }
 
         public override List<object> GetValues()

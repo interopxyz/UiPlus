@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_Modify
         /// </summary>
         public GH_Align()
           : base("Ui Resize", "Resize",
-              "Description",
+              "Change the horizontal alignment of an element",
               "Ui", "Modify")
         {
         }

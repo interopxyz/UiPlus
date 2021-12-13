@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartGrid()
           : base("Ui Grid Chart", "Grid Chart",
-              "Description",
+              "Quickly display a list of data series in a visual table",
               "Ui", "Chart")
         {
         }

@@ -24,8 +24,8 @@ namespace UiPlus.Elements
 
         protected List<UiElement> elements = new List<UiElement>();
 
-        public enum Directions { Left = 0,Top = 1, Right = 2, Bottom = 3 };
-        protected Directions direction = Directions.Top;
+        public enum ObjectDirections { Left = 0,Top = 1, Right = 2, Bottom = 3 };
+        protected List<ObjectDirections> directions = new List<ObjectDirections>();
 
         #endregion
 
@@ -55,12 +55,12 @@ namespace UiPlus.Elements
             }
         }
 
-        public virtual Directions Direction
+        public virtual List<ObjectDirections> Directions
         {
-            get { return direction; }
+            get { return directions; }
             set
             {
-                direction = value;
+                directions = value;
                 SetInputs();
             }
         }
@@ -79,14 +79,25 @@ namespace UiPlus.Elements
             this.ElementType = ElementTypes.Layout;
             Wpf.DockPanel ctrl = new Wpf.DockPanel();
 
+            int countA = elements.Count;
+            int countB = directions.Count;
+
+            if (directions.Count < 1) directions.Add(ObjectDirections.Left);
+            for(int i = countB; i < countA; i++)
+            {
+                directions.Add(directions[countB - 1]);
+            }
+
+            int j = 0;
             foreach (UiElement uiElement in elements)
             {
                 uiElement.DetachParent();
                 uiElement.SetElement();
 
-                Wpf.DockPanel.SetDock(uiElement.Container, (Wpf.Dock)direction);
+                Wpf.DockPanel.SetDock(uiElement.Container, (Wpf.Dock)directions[j]);
 
                 ctrl.Children.Add(uiElement.Container);
+                j++;
             }
 
             this.layout = ctrl;

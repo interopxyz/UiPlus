@@ -106,6 +106,7 @@ namespace UiPlus.Elements
             button.Click -= (o, e) => { SaveDialog(); };
             button.Click += (o, e) => { SaveDialog(); };
 
+            this.button.MinWidth = 90;
             this.control = button;
             base.SetInputs(Alignment.Stretch);
         }

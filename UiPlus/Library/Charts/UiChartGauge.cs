@@ -105,8 +105,8 @@ namespace UiPlus.Elements
             brush.Opacity = 0.25;
 
             gauge.HorizontalAlignment = Sw.HorizontalAlignment.Stretch;
-            gauge.MinHeight = 100;
-            gauge.MinWidth = 100;
+            gauge.MinHeight = 90;
+            gauge.MinWidth = 90;
             gauge.GaugeBackground = brush;
 
             this.control = gauge;

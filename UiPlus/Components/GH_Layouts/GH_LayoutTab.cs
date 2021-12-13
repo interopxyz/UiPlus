@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutTabbed()
           : base("UI Tabbed Layout", "Tab",
-              "Description",
+              "Place elements in selected tabs",
               "Ui", "Layout")
         {
         }

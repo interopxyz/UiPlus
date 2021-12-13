@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_RangeSlider()
           : base("UI Range Slider", "Range Slider",
-              "Description",
+              "Click and drag handles to return the interval between",
               "Ui", "Control")
         {
         }
@@ -33,12 +33,14 @@ namespace UiPlus.Components.GH_Controls
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddIntervalParameter("Selection", "S", "The selection's upper and lower bounds", GH_ParamAccess.item, new Interval(0.25,0.75));
+            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "");
             pManager[1].Optional = true;
-            pManager.AddIntervalParameter("Bounds", "B", "The sliders upper and lower bounds", GH_ParamAccess.item, new Interval(0, 1));
+            pManager.AddIntervalParameter("Selection", "S", "The selection's upper and lower bounds", GH_ParamAccess.item, new Interval(0.25,0.75));
             pManager[2].Optional = true;
-            pManager.AddNumberParameter("Increment", "I", "The slider step increment", GH_ParamAccess.item, 0.1);
+            pManager.AddIntervalParameter("Bounds", "B", "The sliders upper and lower bounds", GH_ParamAccess.item, new Interval(0, 1));
             pManager[3].Optional = true;
+            pManager.AddNumberParameter("Increment", "I", "The slider step increment", GH_ParamAccess.item, 0.1);
+            pManager[4].Optional = true;
         }
 
         /// <summary>
@@ -59,18 +61,22 @@ namespace UiPlus.Components.GH_Controls
             UiRangeSlider control = new UiRangeSlider();
             if (DA.GetData(0, ref control)) Message = "Update";
 
+            string label = "";
+            bool hasLabel = DA.GetData(1, ref label);
+
             Interval selection = new Interval(0, 1);
-            DA.GetData(1, ref selection);
+            bool hasSelection = DA.GetData(2, ref selection);
 
             Interval domain = new Interval(0, 1);
-            DA.GetData(2, ref domain);
+            bool hasDomain = DA.GetData(3, ref domain);
 
             double increment = 0.1;
-            DA.GetData(3, ref increment);
+            bool hasIncrement = DA.GetData(4, ref increment);
 
-            control.CurrentValue = selection;
-            control.Increment = increment;
-            control.Domain = domain;
+            if (hasLabel) control.Label = label;
+            if (hasSelection) control.CurrentValue = selection;
+            if (hasDomain) control.Domain = domain;
+            if (hasIncrement) control.Increment = increment;
 
             DA.SetData(0, control);
         }

@@ -15,6 +15,7 @@ using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
 using Mah = MahApps.Metro.Controls;
 using Xcd = Xceed.Wpf.Toolkit;
+using System.Windows.Controls;
 
 namespace UiPlus.Elements
 {
@@ -32,6 +33,7 @@ namespace UiPlus.Elements
         protected double spacing = 0;
         protected Dictionary<string, Sd.Color> entries = new Dictionary<string, Sd.Color>();
         protected bool isLight = false;
+        protected List<Wpf.Label> labels = new List<Label>();
 
         #endregion
 
@@ -51,6 +53,7 @@ namespace UiPlus.Elements
             this.spacing = uiControl.spacing;
             this.entries = uiControl.entries;
             this.IsLight = uiControl.isLight;
+            this.labels = uiControl.labels;
 
         }
 
@@ -121,7 +124,7 @@ namespace UiPlus.Elements
         {
             wrapPanel.Margin = new Sw.Thickness(3);
             wrapPanel.Background = Wm.Brushes.Transparent;
-
+            labels.Clear();
             if (isHorizontal)
             {
                 border.HorizontalAlignment = Sw.HorizontalAlignment.Stretch;
@@ -213,6 +216,7 @@ namespace UiPlus.Elements
             panel.Children.Add(canvas);
             panel.Children.Add(text);
             panel.Children.Add(spacer);
+            labels.Add(text);
 
             return panel;
         }
@@ -229,6 +233,50 @@ namespace UiPlus.Elements
 
             SetLegend();
             base.SetInputs(Alignment.Stretch);
+        }
+
+        public override string FontFamily
+        {
+            set
+            {
+                foreach (Wpf.Label txt in labels)
+                {
+                    SetFontFamily(txt, value);
+                }
+            }
+        }
+
+        public override double FontSize
+        {
+            set
+            {
+                foreach (Wpf.Label txt in labels)
+                {
+                    txt.FontSize = value;
+                }
+            }
+        }
+
+        public override bool IsBold
+        {
+            set
+            {
+                foreach (Wpf.Label txt in labels)
+                {
+                    SetIsBold(txt, value);
+                }
+            }
+        }
+
+        public override bool IsItalic
+        {
+            set
+            {
+                foreach (Wpf.Label txt in labels)
+                {
+                    SetIsItalic(txt, value);
+                }
+            }
         }
 
         public override void SetAccentColors(Sd.Color color)

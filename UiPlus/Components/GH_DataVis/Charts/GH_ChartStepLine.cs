@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartStepLine()
           : base("Ui Step Line Chart", "Step Line Chart",
-              "Description",
+              "Visualize multiple data series of numbers as a step line chart",
               "Ui", "Chart")
         {
         }

@@ -16,6 +16,7 @@ using Mat = MaterialDesignThemes.Wpf;
 using Mah = MahApps.Metro.Controls;
 using Xcd = Xceed.Wpf.Toolkit;
 using Wmc = System.Windows.Controls.Primitives;
+using System.Windows.Controls;
 
 namespace UiPlus.Elements
 {
@@ -93,6 +94,12 @@ namespace UiPlus.Elements
             ctrl.Foreground = color.ToSolidColorBrush();
             label.Foreground = color.ToSolidColorBrush();
         }
+
+        public override string FontFamily { set => SetFontFamily(label,value); }
+        public override double FontSize { set => label.FontSize = value; }
+        public override bool IsBold { set => SetIsBold(label, value); }
+        public override bool IsItalic { set => SetIsItalic(label,value); }
+        public override Justifications TextJustification { set => SetTextJustification(label,value); }
 
         public override void Update(Gk.GH_Component component)
         {

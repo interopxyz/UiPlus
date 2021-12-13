@@ -15,8 +15,8 @@ namespace UiPlus.Components.GH_DataVis
         /// Initializes a new instance of the GH_DataSet class.
         /// </summary>
         public GH_DataSet()
-          : base("UI Data Set", "Data Set",
-              "Description",
+          : base("UI Data Series", "Data Series",
+              "Compile a list of data, similar to a column in a spreadsheet as a single item.",
               "Ui", "Chart")
         {
         }

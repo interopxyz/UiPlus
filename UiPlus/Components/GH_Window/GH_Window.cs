@@ -10,12 +10,14 @@ namespace UiPlus.Components
 {
     public class GH_Window : GH_Component
     {
+        UiWindow window = new UiWindow();
+
         /// <summary>
         /// Initializes a new instance of the GH_Window class.
         /// </summary>
         public GH_Window()
           : base("UI Window", "Window",
-              "Description",
+              "Populate a Ui Window's elements and open it",
               "Ui", "Window")
         {
         }
@@ -34,13 +36,15 @@ namespace UiPlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Elements", "E", "The Controls, Layouts, Charts and other Ui Elements", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Owner", "O", "The application that owns the new Window", GH_ParamAccess.item,1);
+            pManager.AddTextParameter("Title", "T", "The window title", GH_ParamAccess.item, "Ui+ Viewer");
             pManager[1].Optional = true;
-            pManager.AddBooleanParameter("Scroll", "S", "If true a scroll bar will be added to the main window", GH_ParamAccess.item);
+            pManager.AddIntegerParameter("Owner", "O", "The application that owns the new Window", GH_ParamAccess.item,1);
             pManager[2].Optional = true;
+            pManager.AddBooleanParameter("Scroll", "S", "If true a scroll bar will be added to the main window", GH_ParamAccess.item);
+            pManager[3].Optional = true;
             pManager.AddBooleanParameter("Launch", "L", "Opens the Window", GH_ParamAccess.item, false);
 
-            Param_Integer param = (Param_Integer)pManager[1];
+            Param_Integer param = (Param_Integer)pManager[2];
             foreach (UiWindow.Arrangments value in Enum.GetValues(typeof(UiWindow.Arrangments)))
             {
                 param.AddNamedValue(value.ToString(), (int)value);
@@ -64,17 +68,20 @@ namespace UiPlus.Components
             List<UiElement> elements = new List<UiElement>();
             if (!DA.GetDataList(0, elements)) return;
 
+            string title = "Ui+ Viewer";
+            bool hasTitle = DA.GetData(1, ref title);
+
             int mode = 0;
-            DA.GetData(1, ref mode);
+            DA.GetData(2, ref mode);
 
             bool scroll = false;
-            bool hasScroll = DA.GetData(2, ref scroll);
+            bool hasScroll = DA.GetData(3, ref scroll);
 
             bool launch = false;
-            if (!DA.GetData(3, ref launch)) return;
+            if (!DA.GetData(4, ref launch)) return;
 
-            UiWindow window = new UiWindow(elements);
             window.Arrangment = (UiWindow.Arrangments)mode;
+            window.Elements = elements;
 
             if (hasScroll)
             {
@@ -92,7 +99,12 @@ namespace UiPlus.Components
                 window.ScrollVisible = UiWindow.ScrollVisibily.Auto;
             }
 
-            if (launch) window.Launch();
+            if (launch)
+            {
+                window.Launch();
+            }
+
+            if (hasTitle) window.Title = title;
 
             DA.SetData(0, window);
         }

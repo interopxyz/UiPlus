@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_Modify
         /// </summary>
         public GH_Offset()
           : base("Ui Margin/Padding", "Margin/Padding",
-              "Description",
+              "Set the margin or padding offset per side",
               "Ui", "Modify")
         {
         }

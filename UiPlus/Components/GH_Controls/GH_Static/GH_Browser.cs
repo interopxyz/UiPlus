@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_Browser()
           : base("UI Browser", "Browser",
-              "Description",
+              "Display an interactive web browser at a specified address",
               "Ui", "Display")
         {
         }
@@ -56,9 +56,9 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             if (DA.GetData(0, ref control)) Message = "Update";
 
             string address = "https://www.google.com/";
-            DA.GetData(1, ref address);
+            bool hasAddress = DA.GetData(1, ref address);
 
-            control.Address = address;
+            if(hasAddress) control.Address = address;
 
             DA.SetData(0, control);
         }

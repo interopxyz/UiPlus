@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_PickTime()
           : base("UI Pick Time", "Pick Time",
-              "Description",
+              "Select or specify a time",
               "Ui", "Control")
         {
         }
@@ -58,13 +58,13 @@ namespace UiPlus.Components.GH_Controls
             if (DA.GetData(0, ref control)) Message = "Update";
 
             DateTime date = DateTime.Now;
-            DA.GetData(1, ref date);
+            bool hasDate = DA.GetData(1, ref date);
 
             bool mode = false;
-            DA.GetData(2, ref mode);
+            bool hasMode = DA.GetData(2, ref mode);
 
-            control.Time = date;
-            control.Long = mode;
+            if(hasDate) control.Time = date;
+            if(hasMode) control.Long = mode;
 
             DA.SetData(0, control);
         }

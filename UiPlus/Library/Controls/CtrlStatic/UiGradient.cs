@@ -15,6 +15,7 @@ using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
 using Mah = MahApps.Metro.Controls;
 using Xcd = Xceed.Wpf.Toolkit;
+using System.Drawing;
 
 namespace UiPlus.Elements
 {
@@ -22,6 +23,10 @@ namespace UiPlus.Elements
     {
 
         #region Members
+
+        Wpf.Label minLabel = new Wpf.Label();
+        Wpf.Label maxLabel = new Wpf.Label();
+
         public enum TextAlignments { Right, Center, Left }
 
         protected TextAlignments textAlignment = TextAlignments.Right;
@@ -35,6 +40,10 @@ namespace UiPlus.Elements
         protected string maxValue = "High";
 
         protected Sd.Color textColor = Sd.Color.Black;
+
+        protected string family = "Arial";
+        protected bool isBold = true;
+        protected bool isItalic = false;
 
         #endregion
 
@@ -59,6 +68,11 @@ namespace UiPlus.Elements
             this.maxValue = uiControl.maxValue;
 
             this.textColor = uiControl.textColor;
+
+            this.family = uiControl.family;
+            this.isBold = uiControl.isBold;
+            this.isItalic = uiControl.isItalic;
+
             base.SetInputs();
         }
 
@@ -143,19 +157,17 @@ namespace UiPlus.Elements
         public void SetGradient()
         {
             Wpf.Grid ctrl = new Wpf.Grid();
-
-
-            Wpf.Label minLabel = new Wpf.Label();
-            Wpf.Label maxLabel = new Wpf.Label();
+            minLabel = new Wpf.Label();
+            maxLabel = new Wpf.Label();
 
             Wm.Brush brush = new Wm.SolidColorBrush(this.textColor.ToMediaColor());
 
-            minLabel.FontFamily = new Wm.FontFamily("Arial");
-            minLabel.FontWeight = Sw.FontWeights.Bold;
+            SetFontFamily( minLabel,family);
+            SetIsBold(minLabel, isBold);
             minLabel.Foreground = brush;
 
-            maxLabel.FontFamily = new Wm.FontFamily("Arial");
-            maxLabel.FontWeight = Sw.FontWeights.Bold;
+            SetFontFamily(maxLabel, family);
+            SetIsBold(maxLabel, isBold);
             maxLabel.Foreground = brush;
 
             minLabel.Content = minValue;
@@ -273,16 +285,58 @@ namespace UiPlus.Elements
         {
             this.ElementType = ElementTypes.Border;
 
+            border.CornerRadius = new Sw.CornerRadius(Constants.DefaultRadius());
+            border.Padding = new Sw.Thickness(Constants.DefaultPadding());
+            border.Margin = new Sw.Thickness(1);
+
             SetGradient();
-            base.SetInputs(Alignment.Stretch);
         }
 
-        public override void SetAccentColors(Sd.Color color)
+        public override string FontFamily
+        {
+            set
+            {
+                this.family = value;
+                SetFontFamily(minLabel, value);
+                SetFontFamily(maxLabel, value);
+            }
+        }
+
+        public override double FontSize
+        {
+            set
+            {
+                minLabel.FontSize = value;
+                maxLabel.FontSize = value;
+            }
+        }
+
+        public override bool IsBold
+        {
+            set
+            {
+                this.isBold = value;
+                SetIsBold(minLabel, value);
+                SetIsBold(maxLabel, value);
+            }
+        }
+
+        public override bool IsItalic
+        {
+            set
+            {
+                this.isItalic = value;
+                SetIsItalic(minLabel, value);
+                SetIsItalic(maxLabel, value);
+            }
+        }
+
+        public override void SetAccentColors(Color color)
         {
 
         }
 
-        public override void SetPrimaryColors(Sd.Color color)
+        public override void SetPrimaryColors(Color color)
         {
             TextColor = color;
         }

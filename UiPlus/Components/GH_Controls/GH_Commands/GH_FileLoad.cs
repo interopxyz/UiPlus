@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Commands
         /// </summary>
         public GH_FileLoad()
           : base("UI Load Button", "Load Btn",
-              "Description",
+              "Launch a file load dialog when clicked and return a directory path",
               "Ui", "Command")
         {
         }

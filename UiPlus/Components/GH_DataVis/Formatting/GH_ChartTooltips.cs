@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_DataVis.Formatting
         /// </summary>
         public GH_ChartTooltips()
           : base("Ui Chart Tooltips", "Ds Tooltips",
-              "Description",
+              "Apply tooltips to a chart and modify",
               "Ui", "Chart")
         {
         }
@@ -38,7 +38,7 @@ namespace UiPlus.Components.GH_DataVis.Formatting
             pManager.AddGenericParameter("Chart Element", "Ec", "The chart element to update.", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Format", "F", "The chart tooltip format", GH_ParamAccess.item, 1);
             pManager[1].Optional = true;
-            pManager.AddBooleanParameter("Show Series", "S", "Show the series name", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Show Set", "S", "Show the set name", GH_ParamAccess.item, false);
             pManager[2].Optional = true;
 
             Param_Integer paramA = (Param_Integer)pManager[1];

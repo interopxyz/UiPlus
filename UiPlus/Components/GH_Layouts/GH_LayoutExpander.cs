@@ -15,7 +15,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutExpander()
           : base("UI Expander Layout", "Expander",
-              "Description",
+              "Place elements in an expandable layout",
               "Ui", "Layout")
         {
         }

@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Contraols
         /// </summary>
         public GH_Slider()
           : base("UI Slider", "Slider",
-              "Description",
+              "Click and drag to change a numeric value",
               "Ui", "Control")
         {
         }
@@ -33,12 +33,14 @@ namespace UiPlus.Components.GH_Contraols
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddNumberParameter("Value", "V", "The slider value", GH_ParamAccess.item, 0.5);
+            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "");
             pManager[1].Optional = true;
-            pManager.AddIntervalParameter("Bounds", "B", "The sliders upper and lower bounds", GH_ParamAccess.item, new Interval(0, 1));
+            pManager.AddNumberParameter("Value", "V", "The slider value", GH_ParamAccess.item, 0.5);
             pManager[2].Optional = true;
-            pManager.AddNumberParameter("Increment", "I", "The slider step increment", GH_ParamAccess.item, 0.1);
+            pManager.AddIntervalParameter("Bounds", "B", "The sliders upper and lower bounds", GH_ParamAccess.item, new Interval(0, 1));
             pManager[3].Optional = true;
+            pManager.AddNumberParameter("Increment", "I", "The slider step increment", GH_ParamAccess.item, 0.1);
+            pManager[4].Optional = true;
         }
 
         /// <summary>
@@ -60,15 +62,19 @@ namespace UiPlus.Components.GH_Contraols
             bool update = DA.GetData(0, ref control);
             if (update) Message = "Update";
 
+            string label = "";
+            bool hasLabel = DA.GetData(1, ref label);
+
             double val = 0.5;
-            bool hasValue = DA.GetData(1, ref val);
+            bool hasValue = DA.GetData(2, ref val);
 
             Interval domain = new Interval(0,1);
-            bool hasDomain = DA.GetData(2, ref domain);
+            bool hasDomain = DA.GetData(3, ref domain);
 
             double increment = 0.1;
-            bool hasIncrement = DA.GetData(3, ref increment);
+            bool hasIncrement = DA.GetData(4, ref increment);
 
+            if (hasLabel) control.Label = label;
             if (hasValue) control.CurrentValue = val;
             if (hasDomain) control.Increment = increment;
             if (hasIncrement) control.Domain = domain;

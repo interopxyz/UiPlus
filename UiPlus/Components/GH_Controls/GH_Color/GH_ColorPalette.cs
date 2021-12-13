@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_ColorPalette()
           : base("UI Color Palette", "Color Palette",
-              "Description",
+              "Select a color from a palette of swatches",
               "Ui", "Control")
         {
         }

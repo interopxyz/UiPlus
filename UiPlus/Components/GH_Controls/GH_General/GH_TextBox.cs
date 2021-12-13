@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_TextBox()
           : base("UI Text Box", "Text Box",
-              "Description",
+              "Click to edit and return text",
               "Ui", "Control")
         {
         }

@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_Modify
         /// </summary>
         public GH_OffsetEven()
           : base("Ui Even Margin/Padding", "Even Margin/Padding",
-              "Description",
+              "Uniformly set the margin or padding",
               "Ui", "Modify")
         {
         }

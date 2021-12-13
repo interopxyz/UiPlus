@@ -23,9 +23,9 @@ namespace UiPlus.Elements
 
         #region Members
 
-        public enum Alignment { Left, Center, Right,Stretch}
-       
-        public enum ElementTypes { Control, Layout, Border, Image , Block, Browser , Host, Chart, Window };
+        public enum Alignment { Left, Center, Right, Stretch }
+
+        public enum ElementTypes { Control, Layout, Border, Image, Block, Browser, Host, Chart, Window };
         public ElementTypes ElementType = ElementTypes.Control;
 
         public enum FontStyles { Body, Bold, Title, Subtitle, Subtext };
@@ -106,13 +106,13 @@ namespace UiPlus.Elements
 
         }
 
-        public void SetFont(FontStyles fontStyle, Wpf.Control wpfControl = null)
+        public virtual void SetFont(FontStyles fontStyle, Wpf.Control wpfControl = null)
         {
-            switch(fontStyle)
+            switch (fontStyle)
             {
                 default:
                     AssignFont("Calibri", 12, false, false, Sw.HorizontalAlignment.Left, Sw.VerticalAlignment.Top, wpfControl);
-                break;
+                    break;
                 case FontStyles.Bold:
                     AssignFont("Arial", 24, false, true, Sw.HorizontalAlignment.Left, Sw.VerticalAlignment.Top, wpfControl);
                     break;
@@ -133,20 +133,33 @@ namespace UiPlus.Elements
 
         public virtual string FontFamily
         {
-            set { control.FontFamily = new Sw.Media.FontFamily(value); }
+            set
+            {
+
+                switch (ElementType)
+                {
+                    case ElementTypes.Control:
+                        SetFontFamily(control, value);
+                        break;
+                    case ElementTypes.Border:
+                        if (control != null) SetFontFamily(control, value);
+                        break;
+                }
+            }
         }
 
         public virtual bool IsBold
         {
             set
             {
-                if (value)
+                switch (ElementType)
                 {
-                    control.FontWeight = Sw.FontWeights.Bold;
-                }
-                else
-                {
-                    control.FontWeight = Sw.FontWeights.Normal;
+                    case ElementTypes.Control:
+                        SetIsBold(control, value);
+                        break;
+                    case ElementTypes.Border:
+                        if (control != null) SetIsBold(control, value);
+                        break;
                 }
             }
         }
@@ -155,66 +168,130 @@ namespace UiPlus.Elements
         {
             set
             {
-                if (value)
+                switch (ElementType)
                 {
-                    control.FontStyle = Sw.FontStyles.Italic;
-                }
-                else
-                {
-                    control.FontStyle = Sw.FontStyles.Normal;
+                    case ElementTypes.Control:
+                        SetIsItalic(control, value);
+                        break;
+                    case ElementTypes.Border:
+                        if (control != null) SetIsItalic(control, value);
+                        break;
                 }
             }
         }
 
         public virtual double FontSize
         {
-            set { control.FontSize = value; }
+            set
+            {
+                switch (ElementType)
+                {
+                    case ElementTypes.Control:
+                        control.FontSize = value;
+                        break;
+                    case ElementTypes.Border:
+                        if (control != null) control.FontSize = value;
+                        break;
+                }
+            }
         }
 
         public virtual Justifications TextJustification
         {
             set
             {
-                switch (value)
+                switch (ElementType)
                 {
-                    case Justifications.BottomLeft:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Left;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Bottom;
+                    case ElementTypes.Control:
+                        SetTextJustification(control, value);
                         break;
-                    case Justifications.BottomMiddle:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Center;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Bottom;
-                        break;
-                    case Justifications.BottomRight:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Right;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Bottom;
-                        break;
-                    case Justifications.CenterLeft:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Left;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Center;
-                        break;
-                    case Justifications.CenterMiddle:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Center;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Center;
-                        break;
-                    case Justifications.CenterRight:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Right;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Center;
-                        break;
-                    case Justifications.TopLeft:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Left;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Top;
-                        break;
-                    case Justifications.TopMiddle:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Center;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Top;
-                        break;
-                    case Justifications.TopRight:
-                        control.HorizontalContentAlignment = Sw.HorizontalAlignment.Right;
-                        control.VerticalContentAlignment = Sw.VerticalAlignment.Top;
+                    case ElementTypes.Border:
+                        if (control != null) SetTextJustification(control, value);
                         break;
                 }
             }
+        }
+
+        protected virtual void SetFontFamily(Wpf.Control ctrl, string family)
+        {
+            ctrl.FontFamily = new Sw.Media.FontFamily(family);
+        }
+
+        protected virtual void SetIsBold(Wpf.Control ctrl, bool status)
+        {
+            if (status)
+            {
+                ctrl.FontWeight = Sw.FontWeights.Bold;
+            }
+            else
+            {
+                ctrl.FontWeight = Sw.FontWeights.Normal;
+            }
+        }
+
+        protected virtual void SetIsItalic(Wpf.Control ctrl, bool status)
+        {
+            if (status)
+            {
+                ctrl.FontStyle = Sw.FontStyles.Italic;
+            }
+            else
+            {
+                ctrl.FontStyle = Sw.FontStyles.Normal;
+            }
+        }
+
+        protected virtual Sw.HorizontalAlignment GetHAlignment(Justifications justification)
+        {
+            switch (justification)
+            {
+                case Justifications.BottomLeft:
+                case Justifications.CenterLeft:
+                case Justifications.TopLeft:
+                    return Sw.HorizontalAlignment.Left;
+                    break;
+                case Justifications.BottomMiddle:
+                case Justifications.CenterMiddle:
+                case Justifications.TopMiddle:
+                    return Sw.HorizontalAlignment.Center;
+                    break;
+                case Justifications.BottomRight:
+                case Justifications.CenterRight:
+                case Justifications.TopRight:
+                    return Sw.HorizontalAlignment.Right;
+                    break;
+            }
+            return Sw.HorizontalAlignment.Left;
+        }
+        protected virtual Sw.VerticalAlignment GetVAlignment(Justifications justification)
+        {
+
+            switch (justification)
+            {
+                case Justifications.BottomLeft:
+                case Justifications.BottomMiddle:
+                case Justifications.BottomRight:
+                    return Sw.VerticalAlignment.Bottom;
+                    break;
+                case Justifications.CenterLeft:
+                case Justifications.CenterMiddle:
+                case Justifications.CenterRight:
+                    return Sw.VerticalAlignment.Center;
+                    break;
+                case Justifications.TopLeft:
+                case Justifications.TopMiddle:
+                case Justifications.TopRight:
+                    return Sw.VerticalAlignment.Top;
+                    break;
+            }
+            return Sw.VerticalAlignment.Bottom;
+        }
+
+
+        protected virtual void SetTextJustification(Wpf.Control ctrl, Justifications justification)
+        {
+            ctrl.HorizontalContentAlignment = GetHAlignment(justification);
+            ctrl.VerticalContentAlignment = GetVAlignment(justification);
         }
 
         private void AssignFont(string fontFamily, double size, bool isItalic, bool isBold, Sw.HorizontalAlignment horizontalAlignment, Sw.VerticalAlignment verticalAlignment, Wpf.Control wpfControl = null)
@@ -420,13 +497,13 @@ namespace UiPlus.Elements
             }
         }
 
-        public virtual void SetSizing(double width = 0,double height = 0)
+        public virtual void SetSizing(double width = 0, double height = 0)
         {
             switch (ElementType)
             {
                 case ElementTypes.Control:
-                    if (width>0)control.Width = width;
-                    if (height > 0) control.Height= height;
+                    if (width > 0) control.Width = width;
+                    if (height > 0) control.Height = height;
                     break;
                 case ElementTypes.Border:
                     if (width > 0) border.Width = width;
@@ -494,7 +571,7 @@ namespace UiPlus.Elements
             this.control.Margin = new Sw.Thickness(2);
         }
 
-        public virtual void SetHorizontalAlignment( Alignment alignment = Alignment.Stretch)
+        public virtual void SetHorizontalAlignment(Alignment alignment = Alignment.Stretch)
         {
             switch (ElementType)
             {

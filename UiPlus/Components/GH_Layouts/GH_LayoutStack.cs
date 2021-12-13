@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutStack()
           : base("UI Stack Layout", "Stack",
-              "Description",
+              "Sequentially place elements",
               "Ui", "Layout")
         {
         }

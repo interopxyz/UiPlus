@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_Toggle()
           : base("UI Toggle", "Toggle",
-              "Description",
+              "Click to toggle between true and false",
               "Ui", "Control")
         {
         }

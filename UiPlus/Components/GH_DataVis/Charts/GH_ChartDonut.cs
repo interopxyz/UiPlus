@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartDonut()
           : base("Ui Donut Chart", "Donut Chart",
-              "Description",
+              "Visualize multiple data series of numbers as a donut chart",
               "Ui", "Chart")
         {
         }

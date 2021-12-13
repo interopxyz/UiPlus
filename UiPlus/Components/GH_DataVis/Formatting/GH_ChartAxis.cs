@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_DataVis.Formatting
         /// </summary>
         public GH_ChartAxis()
           : base("Ui Modify Chart", "Modify Chart",
-              "Description",
+              "Apply axis to a chart and modify",
               "Ui", "Chart")
         {
         }

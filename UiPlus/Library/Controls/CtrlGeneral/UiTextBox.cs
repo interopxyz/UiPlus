@@ -84,6 +84,7 @@ namespace UiPlus.Elements
         {
             ElementType = ElementTypes.Border;
 
+            this.ctrl.MinWidth = 90;
             this.control = this.ctrl;
             this.border.Child = control;
             base.SetInputs();

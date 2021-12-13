@@ -15,7 +15,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutDock()
           : base("UI Dock Layout", "Dock",
-              "Description",
+              "Place elements and specify their dock direction",
               "Ui", "Layout")
         {
         }
@@ -34,11 +34,11 @@ namespace UiPlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Elements", "E", "The Elements or Layouts", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Direction", "D", "The dock direction", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Direction", "D", "A dock direction corresponding to each element", GH_ParamAccess.list, 0);
             pManager[1].Optional = true;
 
             Param_Integer param = (Param_Integer)pManager[1];
-            foreach (UiLayoutDock.Directions value in Enum.GetValues(typeof(UiLayoutDock.Directions)))
+            foreach (UiLayoutDock.ObjectDirections value in Enum.GetValues(typeof(UiLayoutDock.ObjectDirections)))
             {
                 param.AddNamedValue(value.ToString(), (int)value);
             }
@@ -61,12 +61,18 @@ namespace UiPlus.Components
             List<UiElement> elements = new List<UiElement>();
             if (!DA.GetDataList(0, elements)) return;
 
-            int direction = 0;
-            DA.GetData(1, ref direction);
+            List<int> directions = new List<int>();
+            DA.GetDataList(1, directions);
+
+            List<UiLayoutDock.ObjectDirections> objectDirections = new List<UiLayoutDock.ObjectDirections>();
+            foreach (int dir in directions)
+            {
+                objectDirections.Add((UiLayoutDock.ObjectDirections)dir);
+            }
 
             UiLayoutDock layout = new UiLayoutDock();
             layout.Elements = elements;
-            layout.Direction = (UiLayoutDock.Directions)direction;
+            layout.Directions = objectDirections;
 
             DA.SetData(0, layout);
         }

@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_ScrollText()
           : base("UI Scroll Text", "Scroll Text",
-              "Description",
+              "Scroll through a list of text items",
               "Ui", "Control")
         {
         }
@@ -34,12 +34,14 @@ namespace UiPlus.Components.GH_Controls
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddTextParameter("Values", "V", "The values to select from.", GH_ParamAccess.list);
+            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "");
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Index", "I", "The control selected index.", GH_ParamAccess.item, 0);
+            pManager.AddTextParameter("Values", "V", "The values to select from.", GH_ParamAccess.list);
             pManager[2].Optional = true;
-            pManager.AddBooleanParameter("Wrap", "W", "If true the values will cycle. If false the values will be capped at the min and max.", GH_ParamAccess.item, false);
+            pManager.AddIntegerParameter("Index", "I", "The control selected index.", GH_ParamAccess.item, 0);
             pManager[3].Optional = true;
+            pManager.AddBooleanParameter("Wrap", "W", "If true the values will cycle. If false the values will be capped at the min and max.", GH_ParamAccess.item, false);
+            pManager[4].Optional = true;
         }
 
         /// <summary>
@@ -60,19 +62,22 @@ namespace UiPlus.Components.GH_Controls
             UiScrollText control = new UiScrollText();
             if (DA.GetData(0, ref control)) Message = "Update";
 
+            string label = "";
+            bool hasLabel = DA.GetData(1, ref label);
+
             List<string> values = new List<string>();
-            DA.GetDataList(1, values);
+            bool hasValues = DA.GetDataList(2, values);
 
             int index = 0;
-            DA.GetData(2, ref index);
+            bool hasIndex = DA.GetData(3, ref index);
 
             bool wrap = false;
-            DA.GetData(3, ref wrap);
+            bool hasWrap = DA.GetData(4, ref wrap);
 
-
-            control.Index = index;
-            control.Wrap = wrap;
-            if(values.Count>0)control.Values = values;
+            if (hasLabel) control.Label = label;
+            if (hasIndex) control.Index = index;
+            if (hasWrap) control.Wrap = wrap;
+            if (hasValues) if(values.Count>0)control.Values = values;
 
             DA.SetData(0, control);
         }

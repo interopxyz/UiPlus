@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls.GH_Color
         /// </summary>
         public GH_ColorPaletteDropdown()
           : base("UI Color Palette Dropdown", "Color Palette Dropdown",
-              "Description",
+              "Select a color from a dropdown palette of swatches",
               "Ui", "Control")
         {
         }

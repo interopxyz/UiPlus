@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutPlacement()
           : base("UI Placement Layout", "Placement",
-              "Description",
+              "Place elements at a specific pixel location",
               "Ui", "Layout")
         {
         }

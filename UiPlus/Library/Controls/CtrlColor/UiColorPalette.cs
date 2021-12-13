@@ -105,7 +105,7 @@ namespace UiPlus.Elements
                                    displayName: "PaletteTheme",
                                    baseColorScheme: "Light",
                                    colorScheme: "CustomAccent",
-                                   primaryAccentColor: Wm.Colors.Transparent,
+                                   primaryAccentColor: Constants.MaterialMediaColor(),
                                    showcaseBrush: Constants.MaterialBrush(),
                                    isRuntimeGenerated: true,
                                    isHighContrast: false);

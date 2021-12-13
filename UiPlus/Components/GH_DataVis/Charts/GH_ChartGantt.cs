@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartGantt()
           : base("Ui Gantt Chart", "Gantt Chart",
-              "Description",
+              "Visualize multiple data series of intervals as a gantt chart",
               "Ui", "Chart")
         {
         }

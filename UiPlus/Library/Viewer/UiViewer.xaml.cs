@@ -33,6 +33,7 @@ namespace UiPlus.Elements
 
         public void OpenWindow()
         {
+            
             Show();
 
         }

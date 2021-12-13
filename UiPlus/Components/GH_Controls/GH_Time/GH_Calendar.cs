@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_Calendar()
           : base("UI Calendar", "Calendar",
-              "Description",
+              "Select a date or range of dates from a Calendar widget",
               "Ui", "Control")
         {
         }
@@ -66,17 +66,17 @@ namespace UiPlus.Components.GH_Controls
             if (DA.GetData(0, ref control)) Message = "Update";
 
             DateTime time = DateTime.Now;
-            DA.GetData(1, ref time);
+            bool hasTime = DA.GetData(1, ref time);
 
             bool single = false;
-            DA.GetData(2, ref single);
+            bool hasSingle = DA.GetData(2, ref single);
 
             int mode = 0;
-            DA.GetData(3, ref mode);
+            bool hasMode = DA.GetData(3, ref mode);
 
-            control.Time = time;
-            control.SelectSingle = single;
-            control.DisplayMode = (UiCalendar.Modes)mode;
+            if(hasTime) control.Time = time;
+            if(hasSingle) control.SelectSingle = single;
+            if(hasMode) control.DisplayMode = (UiCalendar.Modes)mode;
 
             DA.SetData(0, control);
         }

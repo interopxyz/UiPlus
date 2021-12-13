@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_TextBlock()
           : base("UI Text Block", "Text Block",
-              "Description",
+              "Display a block of text",
               "Ui", "Display")
         {
         }
@@ -56,9 +56,9 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             if (DA.GetData(0, ref control)) Message = "Update";
 
             string text = "No text supplied";
-            DA.GetData(1, ref text);
+            bool hasText = DA.GetData(1, ref text);
 
-            control.Content = text;
+            if(hasText) control.Content = text;
 
             DA.SetData(0, control);
         }

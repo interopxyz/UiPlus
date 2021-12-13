@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// </summary>
         public GH_LayoutCard()
           : base("UI Card Layout", "Card",
-              "Description",
+              "Place elements in a labeled card",
               "Ui", "Layout")
         {
         }

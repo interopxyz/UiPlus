@@ -82,6 +82,7 @@ namespace UiPlus.Elements
             button.Click -= (o, e) => { RunCommands(); };
             button.Click += (o, e) => { RunCommands(); };
 
+            this.button.MinWidth = 90;
             this.control = button;
             base.SetInputs(Alignment.Stretch);
         }

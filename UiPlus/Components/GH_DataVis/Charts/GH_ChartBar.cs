@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartBar()
           : base("Ui Bar Chart", "Bar Chart",
-              "Description",
+              "Visualize multiple data series of numbers as a bar chart",
               "Ui", "Chart")
         {
         }

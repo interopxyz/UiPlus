@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_ChartGauge()
           : base("Ui Gantt Chart", "Gantt Chart",
-              "Description",
+              "Visualize a value within a specified domain as a gauge",
               "Ui", "Chart")
         {
         }

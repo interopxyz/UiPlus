@@ -17,7 +17,7 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         public GH_TableCellGraphics()
           : base("Ui Cell Graphics", "Cell Graphics",
-              "Description",
+              "Modify the individual graphics of each item of a data series",
               "Ui", "Chart")
         {
         }

@@ -171,6 +171,7 @@
     <Compile Include="Components\GH_Modify\GH_Resize.cs" />
     <Compile Include="Components\GH_Utilities\GH_Capture.cs" />
     <Compile Include="Components\GH_Utilities\GH_Print.cs" />
+    <Compile Include="Components\GH_Window\GH_ModifyWindow.cs" />
     <Compile Include="Library\Base\UiDataVis.cs" />
     <Compile Include="Library\Charts\UiChartGrid.cs" />
     <Compile Include="Components\GH_Layouts\GH_LayoutBorder.cs" />
@@ -184,7 +185,7 @@
     <Compile Include="Components\GH_Layouts\GH_LayoutTab.cs" />
     <Compile Include="Components\GH_Layouts\GH_LayoutWrap.cs" />
     <Compile Include="Components\GH_Utilities\GH_ElementValues.cs" />
-    <Compile Include="Components\GH_Window.cs" />
+    <Compile Include="Components\GH_Window\GH_Window.cs" />
     <Compile Include="Library\Base\UiDataSet.cs" />
     <Compile Include="Library\Base\UiElement.cs" />
     <Compile Include="Library\Base\UiGraphic.cs" />
@@ -513,6 +514,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UiPlus-Modify-Align-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Window-Modify-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

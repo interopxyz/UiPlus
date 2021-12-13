@@ -21,7 +21,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         public GH_Print()
           : base("Ui Print", "Print",
-              "Description",
+              "Launch a pdf print dialog for a window",
               "Ui", "Window")
         {
         }

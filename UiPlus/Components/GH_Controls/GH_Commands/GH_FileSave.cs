@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Commands
         /// </summary>
         public GH_FileSave()
           : base("UI Save Button", "Save Btn",
-              "Description",
+              "Launch a file load dialog when clicked and return a new file path",
               "Ui", "Command")
         {
         }

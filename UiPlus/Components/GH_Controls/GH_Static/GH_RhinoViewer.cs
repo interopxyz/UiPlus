@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// </summary>
         public GH_RhinoViewer()
           : base("UI Rhino Viewer", "Rhino Viewer",
-              "Description",
+              "Display a Rhino viewport",
               "Ui", "Display")
         {
         }

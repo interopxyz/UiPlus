@@ -111,6 +111,7 @@ namespace UiPlus.Elements
             button.Click -= (o, e) => { SelectObjects(); };
             button.Click += (o, e) => { SelectObjects(); };
 
+            this.button.MinWidth = 90;
             this.control = button;
             base.SetInputs(Alignment.Stretch);
         }

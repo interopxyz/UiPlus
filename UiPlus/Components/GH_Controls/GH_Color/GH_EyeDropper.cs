@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls
         /// </summary>
         public GH_EyeDropper()
           : base("UI Eye Dropper", "Eye Dropper",
-              "Description",
+              "Select a color by hovering over it",
               "Ui", "Control")
         {
         }
