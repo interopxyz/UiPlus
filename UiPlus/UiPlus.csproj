@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5458C9DD-475A-4814-B5D8-529AA4913D8B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UiPlus</RootNamespace>
+    <AssemblyName>UiPlus</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ControlzEx, Version=4.0.0.0, Culture=neutral, PublicKeyToken=69f1c32f803d307e, processorArchitecture=MSIL">
+      <HintPath>packages\ControlzEx.4.4.0\lib\net45\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="Eto, Version=2.5.0.0, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>packages\RhinoCommon.6.35.21222.17001\lib\net45\Eto.dll</HintPath>
+    </Reference>
+    <Reference Include="GH_IO, Version=6.35.21222.17000, Culture=neutral, PublicKeyToken=6a29997d2e6b4f97, processorArchitecture=MSIL">
+      <HintPath>packages\Grasshopper.6.35.21222.17001\lib\net45\GH_IO.dll</HintPath>
+    </Reference>
+    <Reference Include="Grasshopper, Version=6.35.21222.17000, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
+      <HintPath>packages\Grasshopper.6.35.21222.17001\lib\net45\Grasshopper.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Core.0.9.8\lib\net40\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>packages\LiveCharts.Wpf.Core.0.9.8\lib\net40\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=2.0.0.0, Culture=neutral, PublicKeyToken=51482d6f650b2b3f, processorArchitecture=MSIL">
+      <HintPath>packages\MahApps.Metro.2.4.7\lib\net452\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.3.2, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignColors.2.0.3\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.MahApps, Version=0.1.9.2, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignThemes.MahApps.0.1.9\lib\net452\MaterialDesignThemes.MahApps.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.2.1.2, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignThemes.4.2.1\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Xaml.Behaviors.Wpf.1.1.19\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Rhino.UI, Version=6.35.21222.17000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>packages\RhinoCommon.6.35.21222.17001\lib\net45\Rhino.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="RhinoCommon, Version=6.35.21222.17000, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
+      <HintPath>packages\RhinoCommon.6.35.21222.17001\lib\net45\RhinoCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.1.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.1.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Components\GH_Controls\Base\GH_EditBase.cs" />
+    <Compile Include="Components\GH_Controls\GH_Color\GH_ColorCanvasDropdown.cs" />
+    <Compile Include="Components\GH_Controls\GH_Color\GH_ColorPaletteDropdown.cs" />
+    <Compile Include="Components\GH_Controls\GH_Color\GH_ColorSlider.cs" />
+    <Compile Include="Components\GH_Controls\GH_Commands\GH_FileLoad.cs" />
+    <Compile Include="Components\GH_Controls\GH_Commands\GH_FileSave.cs" />
+    <Compile Include="Components\GH_Controls\GH_Commands\GH_RhinoCommand.cs" />
+    <Compile Include="Components\GH_Controls\GH_Commands\GH_RhinoSelect.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_Button.cs" />
+    <Compile Include="Components\GH_Controls\GH_Scroll\GH_ScrollInteger.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_Gradient.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_Image.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_Label.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_Browser.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_Legend.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_RhinoViewer.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_Spacer.cs" />
+    <Compile Include="Components\GH_Controls\GH_Static\GH_TextBlock.cs" />
+    <Compile Include="Components\GH_Controls\GH_Time\GH_Calendar.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_CheckBox.cs" />
+    <Compile Include="Components\GH_Controls\GH_List\GH_CheckList.cs" />
+    <Compile Include="Components\GH_Controls\GH_Time\GH_Clock.cs" />
+    <Compile Include="Components\GH_Controls\GH_Color\GH_ColorCanvas.cs" />
+    <Compile Include="Components\GH_Controls\GH_Color\GH_ColorPalette.cs" />
+    <Compile Include="Components\GH_Controls\GH_Time\GH_DateTime.cs" />
+    <Compile Include="Components\GH_Controls\GH_Color\GH_EyeDropper.cs" />
+    <Compile Include="Components\GH_Controls\GH_List\GH_ListBox.cs" />
+    <Compile Include="Components\GH_Controls\GH_Time\GH_PickDate.cs" />
+    <Compile Include="Components\GH_Controls\GH_Time\GH_PickTime.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_Radio.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_RangeSlider.cs" />
+    <Compile Include="Components\GH_Controls\GH_Scroll\GH_ScrollNumber.cs" />
+    <Compile Include="Components\GH_Controls\GH_Scroll\GH_ScrollText.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_Slider.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_TextBox.cs" />
+    <Compile Include="Components\GH_Controls\GH_General\GH_Toggle.cs" />
+    <Compile Include="Components\GH_Controls\GH_List\GH_DropdownList.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartArea.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartBar.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartDonut.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartGantt.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartGauge.cs" />
+    <Compile Include="Components\GH_DataVis\Formatting\GH_ChartAxis.cs" />
+    <Compile Include="Components\GH_DataVis\Formatting\GH_ChartLegend.cs" />
+    <Compile Include="Components\GH_DataVis\Formatting\GH_ChartTooltips.cs" />
+    <Compile Include="Components\GH_DataVis\Tables\GH_ChartGrid.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartHeat.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartLine.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartScatter.cs" />
+    <Compile Include="Components\GH_DataVis\Charts\GH_ChartStepLine.cs" />
+    <Compile Include="Components\GH_DataVis\Tables\GH_ChartTable.cs" />
+    <Compile Include="Components\GH_DataVis\Formatting\GH_TableCellGraphics.cs" />
+    <Compile Include="Components\GH_DataVis\Formatting\GH_DataSeriesLabel.cs" />
+    <Compile Include="Components\GH_DataVis\GH_DataSet.cs" />
+    <Compile Include="Components\GH_DataVis\Formatting\GH_DataSeriesGraphics.cs" />
+    <Compile Include="Components\GH_Modify\GH_Align.cs" />
+    <Compile Include="Components\GH_Modify\GH_Font.cs" />
+    <Compile Include="Components\GH_Modify\GH_Graphics.cs" />
+    <Compile Include="Components\GH_Modify\GH_Offset.cs" />
+    <Compile Include="Components\GH_Modify\GH_OffsetEven.cs" />
+    <Compile Include="Components\GH_Modify\GH_Resize.cs" />
+    <Compile Include="Components\GH_Utilities\GH_Capture.cs" />
+    <Compile Include="Components\GH_Utilities\GH_Print.cs" />
+    <Compile Include="Components\GH_Window\GH_ModifyWindow.cs" />
+    <Compile Include="Library\Base\UiDataVis.cs" />
+    <Compile Include="Library\Charts\UiChartGrid.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutBorder.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutCard.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutDock.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutExpander.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutGrid.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutPlacement.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutScroll.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutStack.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutTab.cs" />
+    <Compile Include="Components\GH_Layouts\GH_LayoutWrap.cs" />
+    <Compile Include="Components\GH_Utilities\GH_ElementValues.cs" />
+    <Compile Include="Components\GH_Window\GH_Window.cs" />
+    <Compile Include="Library\Base\UiDataSet.cs" />
+    <Compile Include="Library\Base\UiElement.cs" />
+    <Compile Include="Library\Base\UiGraphic.cs" />
+    <Compile Include="Library\Base\UiInput.cs" />
+    <Compile Include="Library\Charts\UiChartBar.cs" />
+    <Compile Include="Library\Charts\UiChartGantt.cs" />
+    <Compile Include="Library\Charts\UiChartGauge.cs" />
+    <Compile Include="Library\Charts\UiChartHeat.cs" />
+    <Compile Include="Library\Charts\UiChartArea.cs" />
+    <Compile Include="Library\Charts\UiChartStepLine.cs" />
+    <Compile Include="Library\Charts\UiChartScatter.cs" />
+    <Compile Include="Library\Charts\UiChartLine.cs" />
+    <Compile Include="Library\Charts\UiChartDonut.cs" />
+    <Compile Include="Library\Charts\UiChartTable.cs" />
+    <Compile Include="Library\Commands\UiButtonCommand.cs" />
+    <Compile Include="Library\Commands\UiButtonLoad.cs" />
+    <Compile Include="Library\Commands\UiButtonSave.cs" />
+    <Compile Include="Library\Commands\UiButtonSelect.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorCanvasPicker.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorEyeDropper.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorPalette.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorSlider.cs" />
+    <Compile Include="Library\Extensions\UiPrint.cs" />
+    <Compile Include="Library\Layouts\UiLayoutBorder.cs" />
+    <Compile Include="Library\Layouts\UiLayoutCard.cs" />
+    <Compile Include="Library\Layouts\UiLayoutDock.cs" />
+    <Compile Include="Library\Layouts\UiLayoutExpander.cs" />
+    <Compile Include="Library\Layouts\UiLayoutGrid.cs" />
+    <Compile Include="Library\Layouts\UiLayoutPlacement.cs" />
+    <Compile Include="Library\Layouts\UiLayoutScroll.cs" />
+    <Compile Include="Library\Layouts\UiLayoutStack.cs" />
+    <Compile Include="Library\Layouts\UiLayoutTab.cs" />
+    <Compile Include="Library\Layouts\UiLayoutViewBox.cs" />
+    <Compile Include="Library\Layouts\UiLayoutWrap.cs" />
+    <Compile Include="Library\Controls\CtrlLists\UiCheckList.cs" />
+    <Compile Include="Library\Controls\CtrlLists\UiDropdownList.cs" />
+    <Compile Include="Library\Controls\CtrlLists\UiListBox.cs" />
+    <Compile Include="Library\Controls\CtrlScroll\UiScrollNumber.cs" />
+    <Compile Include="Library\Controls\CtrlScroll\UiScrollText.cs" />
+    <Compile Include="Library\Controls\CtrlScroll\UiScrollInteger.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiButton.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiCalendar.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiCheckBox.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiClock.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorCanvas.cs" />
+    <Compile Include="Library\Controls\CtrlColor\UiColorPalettePicker.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiPickDate.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiPickTime.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiRadio.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiRangeSlider.cs" />
+    <Compile Include="Library\Controls\CtrlDateTime\UiDateTime.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiSlider.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiTextBox.cs" />
+    <Compile Include="Library\Controls\CtrlGeneral\UiToggle.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiGradient.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiImage.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiLabel.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiBrowser.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiLegend.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiRhinoViewer.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiSpacer.cs" />
+    <Compile Include="Library\Controls\CtrlStatic\UiTextBlock.cs" />
+    <Compile Include="Library\Extensions\GraphicConversions.cs" />
+    <Compile Include="Library\Extensions\Constants.cs" />
+    <Compile Include="Library\Viewer\UiViewer.xaml.cs">
+      <DependentUpon>UiViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Viewer\UiWindow.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UiPlusInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Resources\UiPlus_Logo-24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Button-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Window-Launch-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus_Logo-16alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Pie-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Library\Viewer\UiViewer.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Toggle-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Utility-Listen-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Utility-Update-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Slider-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Radio-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-CheckBox-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-RangeSlider-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-TextBox-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-PickDate-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-PickTime-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Clock-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-DateTime-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Calendar-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorPicker-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorCanvas-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ListBox-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Checklist-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Dropdown-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ScrollText-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorEyeDropper2-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-TextBlock-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Label-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Image-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Browser-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Spacer-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Legend-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Gradients-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Tabs-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Wrap-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Border-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Card-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Dock-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Expander-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Grid-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Placement-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Scroller-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Layouts-Stack-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-RhinoViewer-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-Integer-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ScrollNumber-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorCanvasDrop-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorPickerDrop-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-CommandLoad-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-CommandGet-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-CommandSave-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-CommandRun-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Donut-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Line-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Bar-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Scatter-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Heat-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-StepLine-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Area-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Gantt-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Gauge-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Data-DataSet-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Grid-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Chart-Table-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-Graphics-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-OffsetEven-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-Offset-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Elements-ColorSlider-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataGraphics-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataLabels-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataSetGraphics-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataSetAxis-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataPopups-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataSetLegend-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-ModChart-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-DataCell-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-Resize-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-Font-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Export-Image-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Export-Print-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-Align-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Window-Modify-01.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).gha"
+Erase "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+  <Import Project="packages\RhinoCommon.6.35.21222.17001\build\net45\RhinoCommon.targets" Condition="Exists('packages\RhinoCommon.6.35.21222.17001\build\net45\RhinoCommon.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\RhinoCommon.6.35.21222.17001\build\net45\RhinoCommon.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\RhinoCommon.6.35.21222.17001\build\net45\RhinoCommon.targets'))" />
+    <Error Condition="!Exists('packages\Grasshopper.6.35.21222.17001\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grasshopper.6.35.21222.17001\build\net45\Grasshopper.targets'))" />
+  </Target>
+  <Import Project="packages\Grasshopper.6.35.21222.17001\build\net45\Grasshopper.targets" Condition="Exists('packages\Grasshopper.6.35.21222.17001\build\net45\Grasshopper.targets')" />
+</Project>

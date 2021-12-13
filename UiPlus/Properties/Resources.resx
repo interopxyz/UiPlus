@@ -1,0 +1,364 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="UiPlus_Chart_Area_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Area-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Bar_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Bar-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Donut_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Donut-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Gantt_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Gantt-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Gauge_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Gauge-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Grid_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Grid-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Heat_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Heat-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Line_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Line-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Pie_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Pie-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Scatter_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Scatter-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_StepLine_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-StepLine-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Chart_Table_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Chart-Table-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Data_DataSet_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Data-DataSet-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Browser_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Browser-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Button_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Button-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Calendar_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Calendar-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_CheckBox_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-CheckBox-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Checklist_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Checklist-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Clock_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Clock-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorCanvasDrop_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorCanvasDrop-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorCanvas_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorCanvas-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorEyeDropper2_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorEyeDropper2-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorPickerDrop_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorPickerDrop-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorPicker_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorPicker-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ColorSlider_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ColorSlider-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_CommandGet_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-CommandGet-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_CommandLoad_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-CommandLoad-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_CommandRun_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-CommandRun-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_CommandSave_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-CommandSave-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_DateTime_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-DateTime-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Dropdown_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Dropdown-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Gradients_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Gradients-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Image_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Image-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Integer_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Integer-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Label_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Label-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Legend_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Legend-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ListBox_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ListBox-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_PickDate_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-PickDate-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_PickTime_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-PickTime-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Radio_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Radio-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_RangeSlider_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-RangeSlider-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_RhinoViewer_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-RhinoViewer-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ScrollNumber_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ScrollNumber-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_ScrollText_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-ScrollText-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Slider_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Slider-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Spacer_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Spacer-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_TextBlock_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-TextBlock-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_TextBox_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-TextBox-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Elements_Toggle_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Elements-Toggle-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Export_Image_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Export-Image-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Export_Print_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Export-Print-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Border_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Border-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Card_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Card-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Dock_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Dock-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Expander_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Expander-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Grid_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Grid-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Placement_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Placement-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Scroller_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Scroller-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Stack_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Stack-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Tabs_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Tabs-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Layouts_Wrap_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Layouts-Wrap-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Logo_16alt" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus_Logo-16alt.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Logo_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus_Logo-24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_Align_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-Align-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataCell_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataCell-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataGraphics_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataGraphics-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataLabels_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataLabels-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataPopups_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataPopups-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataSetAxis_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataSetAxis-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataSetGraphics_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataSetGraphics-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_DataSetLegend_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-DataSetLegend-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_Font_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-Font-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_Graphics_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-Graphics-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_ModChart_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-ModChart-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_OffsetEven_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-OffsetEven-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_Offset_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-Offset-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Modify_Resize_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Modify-Resize-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Utility_Listen_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Utility-Listen-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Utility_Update_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Utility-Update-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Window_Launch_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Window-Launch-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UiPlus_Window_Modify_01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UiPlus-Window-Modify-01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+</root>
