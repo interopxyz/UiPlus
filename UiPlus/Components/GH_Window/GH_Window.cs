@@ -40,7 +40,7 @@ namespace UiPlus.Components
             pManager[1].Optional = true;
             pManager.AddIntegerParameter("Owner", "O", "The application that owns the new Window", GH_ParamAccess.item,1);
             pManager[2].Optional = true;
-            pManager.AddBooleanParameter("Scroll", "S", "If true a scroll bar will be added to the main window", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Scroll", "S", "If true a scroll bar will be added to the main window", GH_ParamAccess.item,false);
             pManager[3].Optional = true;
             pManager.AddBooleanParameter("Launch", "L", "Opens the Window", GH_ParamAccess.item, false);
 
@@ -79,6 +79,11 @@ namespace UiPlus.Components
 
             bool launch = false;
             if (!DA.GetData(4, ref launch)) return;
+
+            if (launch)
+            {
+                window.Close();
+            }
 
             window.Arrangment = (UiWindow.Arrangments)mode;
             window.Elements = elements;

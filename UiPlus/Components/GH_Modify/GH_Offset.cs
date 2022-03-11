@@ -36,7 +36,6 @@ namespace UiPlus.Components.GH_Modify
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Element", "E", "The Element to update.", GH_ParamAccess.item);
-            pManager[0].Optional = true;
             pManager.AddBooleanParameter("Margin", "M", "If true the control's margin will be modified, if false the control's padding", GH_ParamAccess.item);
             pManager[1].Optional = true;
             pManager.AddNumberParameter("Top", "T", "The control top offset distance", GH_ParamAccess.item,0);

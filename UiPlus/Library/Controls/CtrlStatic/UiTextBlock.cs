@@ -15,6 +15,7 @@ using Wpf = System.Windows.Controls;
 using Mat = MaterialDesignThemes.Wpf;
 using Mah = MahApps.Metro.Controls;
 using Xcd = Xceed.Wpf.Toolkit;
+using System.Windows.Controls;
 
 namespace UiPlus.Elements
 {

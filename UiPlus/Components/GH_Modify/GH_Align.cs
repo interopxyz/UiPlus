@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Modify
         /// Initializes a new instance of the GH_Align class.
         /// </summary>
         public GH_Align()
-          : base("Ui Resize", "Resize",
+          : base("Ui Align", "Align",
               "Change the horizontal alignment of an element",
               "Ui", "Modify")
         {
@@ -36,7 +36,6 @@ namespace UiPlus.Components.GH_Modify
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Element", "E", "The Element to update.", GH_ParamAccess.item);
-            pManager[0].Optional = true;
             pManager.AddIntegerParameter("Alignment", "A", "The horizontal alignment", GH_ParamAccess.item);
             pManager[1].Optional = true;
 

@@ -23,7 +23,7 @@ namespace UiPlus.Elements
 
         #region Members
 
-        Wpf.Label labelCtrl = new Wpf.Label();
+        Wpf.Label ctrl = new Wpf.Label();
 
         #endregion
 
@@ -36,7 +36,7 @@ namespace UiPlus.Elements
 
         public UiLabel(UiLabel uiControl) : base(uiControl)
         {
-            this.layout = uiControl.layout;
+            this.border = uiControl.border;
         }
 
         #endregion
@@ -45,13 +45,13 @@ namespace UiPlus.Elements
 
         public virtual string Content
         {
-            get { return labelCtrl.Content.ToString(); }
-            set { labelCtrl.Content = value; }
+            get { return ctrl.Content.ToString(); }
+            set { ctrl.Content = value; }
         }
 
         public virtual FontStyles Font
         {
-            set { this.SetFont(value, labelCtrl); }
+            set { this.SetFont(value, ctrl); }
         }
 
         #endregion
@@ -68,7 +68,8 @@ namespace UiPlus.Elements
         {
             this.ElementType = ElementTypes.Border;
 
-            this.border.Child = labelCtrl;
+            this.control = this.ctrl;
+            this.border.Child = control;
             base.SetInputs();
         }
 

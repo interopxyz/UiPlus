@@ -46,8 +46,7 @@ namespace UiPlus.Elements
         public virtual string Label
         {
             get { return ctrl.Content.ToString(); }
-            set
-            { ctrl.Content = value; }
+            set { ctrl.Content = value; }
         }
 
         public virtual bool State

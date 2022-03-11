@@ -145,6 +145,7 @@ namespace UiPlus.Elements
                         break;
                     case ElementTypes.Border:
                         if (control != null) SetFontFamily(control, value);
+                        if (block != null) SetFontFamily(block, value);
                         break;
                 }
             }
@@ -161,6 +162,7 @@ namespace UiPlus.Elements
                         break;
                     case ElementTypes.Border:
                         if (control != null) SetIsBold(control, value);
+                        if (block != null) SetIsBold(block, value);
                         break;
                 }
             }
@@ -177,6 +179,7 @@ namespace UiPlus.Elements
                         break;
                     case ElementTypes.Border:
                         if (control != null) SetIsItalic(control, value);
+                        if (block != null) SetIsItalic(block, value);
                         break;
                 }
             }
@@ -193,6 +196,7 @@ namespace UiPlus.Elements
                         break;
                     case ElementTypes.Border:
                         if (control != null) control.FontSize = value;
+                        if (block != null) block.FontSize = value;
                         break;
                 }
             }
@@ -209,6 +213,7 @@ namespace UiPlus.Elements
                         break;
                     case ElementTypes.Border:
                         if (control != null) SetTextJustification(control, value);
+                        if (block != null) SetTextJustification(block, value);
                         break;
                 }
             }
@@ -216,7 +221,12 @@ namespace UiPlus.Elements
 
         protected virtual void SetFontFamily(Wpf.Control ctrl, string family)
         {
-            ctrl.FontFamily = new Sw.Media.FontFamily(family);
+            ctrl.FontFamily = new Wm.FontFamily(family);
+        }
+
+        protected virtual void SetFontFamily(Wpf.TextBlock block, string family)
+        {
+            block.FontFamily = new Wm.FontFamily(family);
         }
 
         protected virtual void SetIsBold(Wpf.Control ctrl, bool status)
@@ -228,6 +238,18 @@ namespace UiPlus.Elements
             else
             {
                 ctrl.FontWeight = Sw.FontWeights.Normal;
+            }
+        }
+
+        protected virtual void SetIsBold(Wpf.TextBlock block, bool status)
+        {
+            if (status)
+            {
+                block.FontWeight = Sw.FontWeights.Bold;
+            }
+            else
+            {
+                block.FontWeight = Sw.FontWeights.Normal;
             }
         }
 
@@ -243,6 +265,18 @@ namespace UiPlus.Elements
             }
         }
 
+        protected virtual void SetIsItalic(Wpf.TextBlock block, bool status)
+        {
+            if (status)
+            {
+                block.FontStyle = Sw.FontStyles.Italic;
+            }
+            else
+            {
+                block.FontStyle = Sw.FontStyles.Normal;
+            }
+        }
+
         protected virtual Sw.HorizontalAlignment GetHAlignment(Justifications justification)
         {
             switch (justification)
@@ -251,20 +285,18 @@ namespace UiPlus.Elements
                 case Justifications.CenterLeft:
                 case Justifications.TopLeft:
                     return Sw.HorizontalAlignment.Left;
-                    break;
                 case Justifications.BottomMiddle:
                 case Justifications.CenterMiddle:
                 case Justifications.TopMiddle:
                     return Sw.HorizontalAlignment.Center;
-                    break;
                 case Justifications.BottomRight:
                 case Justifications.CenterRight:
                 case Justifications.TopRight:
                     return Sw.HorizontalAlignment.Right;
-                    break;
             }
             return Sw.HorizontalAlignment.Left;
         }
+
         protected virtual Sw.VerticalAlignment GetVAlignment(Justifications justification)
         {
 
@@ -289,11 +321,35 @@ namespace UiPlus.Elements
             return Sw.VerticalAlignment.Bottom;
         }
 
+        protected virtual Sw.TextAlignment GetTextAlignment(Justifications justification)
+        {
+            switch (justification)
+            {
+                case Justifications.BottomLeft:
+                case Justifications.CenterLeft:
+                case Justifications.TopLeft:
+                    return Sw.TextAlignment.Left;
+                case Justifications.BottomMiddle:
+                case Justifications.CenterMiddle:
+                case Justifications.TopMiddle:
+                    return Sw.TextAlignment.Center;
+                case Justifications.BottomRight:
+                case Justifications.CenterRight:
+                case Justifications.TopRight:
+                    return Sw.TextAlignment.Right;
+            }
+            return Sw.TextAlignment.Left;
+        }
 
         protected virtual void SetTextJustification(Wpf.Control ctrl, Justifications justification)
         {
             ctrl.HorizontalContentAlignment = GetHAlignment(justification);
             ctrl.VerticalContentAlignment = GetVAlignment(justification);
+        }
+
+        protected virtual void SetTextJustification(Wpf.TextBlock block, Justifications justification)
+        {
+            block.TextAlignment = GetTextAlignment(justification);
         }
 
         private void AssignFont(string fontFamily, double size, bool isItalic, bool isBold, Sw.HorizontalAlignment horizontalAlignment, Sw.VerticalAlignment verticalAlignment, Wpf.Control wpfControl = null)
@@ -346,6 +402,8 @@ namespace UiPlus.Elements
                     control.Foreground = color.ToSolidColorBrush();
                     break;
                 case ElementTypes.Border:
+                    if(block!=null) block.Foreground = color.ToSolidColorBrush();
+                    break;
                 case ElementTypes.Layout:
                 case ElementTypes.Image:
                 case ElementTypes.Browser:

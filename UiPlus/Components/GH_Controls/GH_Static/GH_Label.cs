@@ -35,9 +35,9 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "Label");
+            pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item);
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Style", "S", "The text font style", GH_ParamAccess.item, 2);
+            pManager.AddIntegerParameter("Style", "S", "The text font style", GH_ParamAccess.item);
             pManager[2].Optional = true;
 
             Param_Integer param = (Param_Integer)pManager[2];
@@ -63,7 +63,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             UiLabel control = new UiLabel();
-            if (DA.GetData(0, ref control)) Message = "Label";
+            if (DA.GetData(0, ref control)) Message = "Update";
 
             string text = "Title";
             bool hasText = DA.GetData(1, ref text);

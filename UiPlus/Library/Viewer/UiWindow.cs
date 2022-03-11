@@ -119,6 +119,11 @@ namespace UiPlus.Elements
 
         #region Methods
 
+        public void Close()
+        {
+            this.Reset();
+            this.viewer.Close();
+        }
 
         public void Launch()
         {
@@ -152,6 +157,7 @@ namespace UiPlus.Elements
             viewer.Closing -= (o, e) => { Reset(); };
             viewer.Closing += (o, e) => { Reset(); };
 
+            //viewer.ResizeMode = Sw.ResizeMode.NoResize;
             viewer.SizeToContent = Sw.SizeToContent.Height;
             viewer.Width = 502;
             viewer.AllowsTransparency = allowTransparency;
@@ -179,7 +185,7 @@ namespace UiPlus.Elements
 
         protected void Reset()
         {
-            Stack.Children.Clear();
+            if(Stack!=null)Stack.Children.Clear();
             this.isClosed = true;
         }
 

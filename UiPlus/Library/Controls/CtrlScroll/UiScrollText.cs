@@ -139,7 +139,7 @@ namespace UiPlus.Elements
             ctrl.Foreground = defaultBrush;
             ctrl.BorderBrush = defaultBrush;
             ctrl.Margin = new Sw.Thickness(0, 0, 0, 0);
-            ctrl.ShowButtonSpinner = false;
+            ctrl.ShowSpinner = false;
             ctrl.Content = values[index];
 
             label.VerticalContentAlignment = Sw.VerticalAlignment.Center;
