@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Contraols
         /// Initializes a new instance of the GH_Radio class.
         /// </summary>
         public GH_Radio()
-          : base("UI Radio", "Radio",
+          : base("Ui Radio", "Radio",
               "Click to toggle a single item to true from a specified group",
               "Ui", "Control")
         {

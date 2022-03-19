@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_ColorCanvas class.
         /// </summary>
         public GH_ColorCanvas()
-          : base("UI Color Canvas", "Color Canvas",
+          : base("Ui Color Canvas", "Color Canvas",
               "Select a color from a canvas",
               "Ui", "Control")
         {

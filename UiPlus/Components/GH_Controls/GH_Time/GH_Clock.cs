@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_Clock class.
         /// </summary>
         public GH_Clock()
-          : base("UI Clock", "Clock",
+          : base("Ui Clock", "Clock",
               "Select a time from a clock widget",
               "Ui", "Control")
         {

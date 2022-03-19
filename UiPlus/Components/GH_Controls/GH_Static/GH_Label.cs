@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_Label class.
         /// </summary>
         public GH_Label()
-          : base("UI Label", "Label",
+          : base("Ui Label", "Label",
               "Display text in several visual styles",
               "Ui", "Display")
         {

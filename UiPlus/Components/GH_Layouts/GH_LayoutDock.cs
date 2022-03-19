@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutDock class.
         /// </summary>
         public GH_LayoutDock()
-          : base("UI Dock Layout", "Dock",
+          : base("Ui Dock Layout", "Dock",
               "Place elements and specify their dock direction",
               "Ui", "Layout")
         {

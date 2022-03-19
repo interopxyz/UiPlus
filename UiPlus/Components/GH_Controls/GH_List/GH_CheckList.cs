@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_CheckList class.
         /// </summary>S
         public GH_CheckList()
-          : base("UI Check List", "Check List",
+          : base("Ui Check List", "Check List",
               "Description",
               "Ui", "Control")
         {

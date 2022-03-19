@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutScroll class.
         /// </summary>
         public GH_LayoutScroll()
-          : base("UI Scroll Layout", "Scroll",
+          : base("Ui Scroll Layout", "Scroll",
               "Add scrollers to an element collection",
               "Ui", "Layout")
         {

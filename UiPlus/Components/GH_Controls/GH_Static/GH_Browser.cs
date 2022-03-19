@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_Slideshow class.
         /// </summary>
         public GH_Browser()
-          : base("UI Browser", "Browser",
+          : base("Ui Browser", "Browser",
               "Display an interactive web browser at a specified address",
               "Ui", "Display")
         {

@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_Calendar class.
         /// </summary>
         public GH_Calendar()
-          : base("UI Calendar", "Calendar",
+          : base("Ui Calendar", "Calendar",
               "Select a date or range of dates from a Calendar widget",
               "Ui", "Control")
         {

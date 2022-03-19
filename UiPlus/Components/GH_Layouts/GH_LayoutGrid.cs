@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutGrid class.
         /// </summary>
         public GH_LayoutGrid()
-          : base("UI Grid Layout", "Grid",
+          : base("Ui Grid Layout", "Grid",
               "Place elements in a grid at row and column indices",
               "Ui", "Layout")
         {

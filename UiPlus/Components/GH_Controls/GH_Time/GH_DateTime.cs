@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_DateTime class.
         /// </summary>
         public GH_DateTime()
-          : base("UI Date Time", "Date Time",
+          : base("Ui Date Time", "Date Time",
               "Description",
               "Ui", "Control")
         {

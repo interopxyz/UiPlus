@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH__DropdownList class.
         /// </summary>
         public GH_DropdownList()
-          : base("UI Dropdown List", "Dropdown List",
+          : base("Ui Dropdown List", "Dropdown List",
               "Select a single item from a dropdown list of text items",
               "Ui", "Control")
         {

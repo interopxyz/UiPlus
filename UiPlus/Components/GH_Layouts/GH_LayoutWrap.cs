@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutWrap class.
         /// </summary>
         public GH_LayoutWrap()
-          : base("UI Wrap Layout", "Wrap",
+          : base("Ui Wrap Layout", "Wrap",
               "Sequentially places elements, wrapping when the extent is hit",
               "Ui", "Layout")
         {

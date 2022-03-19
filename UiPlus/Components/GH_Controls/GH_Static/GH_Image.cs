@@ -16,7 +16,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_Image class.
         /// </summary>
         public GH_Image()
-          : base("UI Image", "Image",
+          : base("Ui Image", "Image",
               "Display an image viewer",
               "Ui", "Display")
         {

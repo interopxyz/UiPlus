@@ -20,7 +20,7 @@ namespace UiPlus.Components.GH_Utilities
         /// Initializes a new instance of the GH_ElementValues class.
         /// </summary>
         public GH_ElementValues()
-          : base("UI Values", "Get Values",
+          : base("Ui Values", "Get Values",
               "Return element specific values from an element",
               "Ui", "Get")
         {

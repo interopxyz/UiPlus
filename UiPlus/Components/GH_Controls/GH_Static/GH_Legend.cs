@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_Legend class.
         /// </summary>
         public GH_Legend()
-          : base("UI Legend", "Legend",
+          : base("Ui Legend", "Legend",
               "Display a legend of color and value pairs",
               "Ui", "Display")
         {

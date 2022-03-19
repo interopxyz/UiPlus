@@ -16,7 +16,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_Window class.
         /// </summary>
         public GH_Window()
-          : base("UI Window", "Window",
+          : base("Ui Window", "Window",
               "Populate a Ui Window's elements and open it",
               "Ui", "Window")
         {

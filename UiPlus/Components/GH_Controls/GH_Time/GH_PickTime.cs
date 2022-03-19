@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_PickTime class.
         /// </summary>
         public GH_PickTime()
-          : base("UI Pick Time", "Pick Time",
+          : base("Ui Pick Time", "Pick Time",
               "Select or specify a time",
               "Ui", "Control")
         {

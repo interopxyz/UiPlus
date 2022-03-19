@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_ListBox class.
         /// </summary>
         public GH_ListBox()
-          : base("UI List Box", "List Box",
+          : base("Ui List Box", "List Box",
               "Click on an item or items from a specified list of text",
               "Ui", "Control")
         {

@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_EyeDropper class.
         /// </summary>
         public GH_EyeDropper()
-          : base("UI Eye Dropper", "Eye Dropper",
+          : base("Ui Eye Dropper", "Eye Dropper",
               "Select a color by hovering over it",
               "Ui", "Control")
         {

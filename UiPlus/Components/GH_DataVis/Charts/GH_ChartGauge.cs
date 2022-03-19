@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_DataVis
         /// Initializes a new instance of the GH_ChartGauge class.
         /// </summary>
         public GH_ChartGauge()
-          : base("Ui Gantt Chart", "Gantt Chart",
+          : base("Ui Gauge Chart", "Gauge Chart",
               "Visualize a value within a specified domain as a gauge",
               "Ui", "Chart")
         {

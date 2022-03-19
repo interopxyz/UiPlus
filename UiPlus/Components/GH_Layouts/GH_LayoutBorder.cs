@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutBorder class.
         /// </summary>
         public GH_LayoutBorder()
-          : base("UI Border Layout", "Border",
+          : base("Ui Border Layout", "Border",
               "Place elements in a labeled border",
               "Ui", "Layout")
         {

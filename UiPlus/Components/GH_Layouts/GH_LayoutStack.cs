@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutStack class.
         /// </summary>
         public GH_LayoutStack()
-          : base("UI Stack Layout", "Stack",
+          : base("Ui Stack Layout", "Stack",
               "Sequentially place elements",
               "Ui", "Layout")
         {

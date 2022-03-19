@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_Spacer class.
         /// </summary>
         public GH_Spacer()
-          : base("UI Spacer", "Spacer",
+          : base("Ui Spacer", "Spacer",
               "Add a horizontal or vertical spacer with a fixed width",
               "Ui", "Display")
         {

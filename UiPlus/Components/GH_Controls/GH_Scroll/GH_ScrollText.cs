@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_ScrollText class.
         /// </summary>
         public GH_ScrollText()
-          : base("UI Scroll Text", "Scroll Text",
+          : base("Ui Scroll Text", "Scroll Text",
               "Scroll through a list of text items",
               "Ui", "Control")
         {

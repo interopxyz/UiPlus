@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls.GH_Scroll
         /// Initializes a new instance of the GH_ScrollInteger class.
         /// </summary>
         public GH_ScrollInteger()
-          : base("UI Scroll Integer", "Scroll Integer",
+          : base("Ui Scroll Integer", "Scroll Integer",
               "Scroll through integers between a specified interval",
               "Ui", "Control")
         {

@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_Gradient class.
         /// </summary>
         public GH_Gradient()
-          : base("UI Gradient", "Gradient",
+          : base("Ui Gradient", "Gradient",
               "Create a gradient legend from colors and parameters with a min and max label",
               "Ui", "Display")
         {

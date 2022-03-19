@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_RangeSlider class.
         /// </summary>
         public GH_RangeSlider()
-          : base("UI Range Slider", "Range Slider",
+          : base("Ui Range Slider", "Range Slider",
               "Click and drag handles to return the interval between",
               "Ui", "Control")
         {

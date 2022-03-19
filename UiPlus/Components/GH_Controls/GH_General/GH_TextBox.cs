@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_TextBox class.
         /// </summary>
         public GH_TextBox()
-          : base("UI Text Box", "Text Box",
+          : base("Ui Text Box", "Text Box",
               "Click to edit and return text",
               "Ui", "Control")
         {

@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_Button class.
         /// </summary>
         public GH_Button()
-          : base("UI Button", "Button",
+          : base("Ui Button", "Button",
               "Updates the solution once when clicked",
               "Ui", "Control")
         {

@@ -15,7 +15,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_ColorSlider class.
         /// </summary>
         public GH_ColorPalette()
-          : base("UI Color Palette", "Color Palette",
+          : base("Ui Color Palette", "Color Palette",
               "Select a color from a palette of swatches",
               "Ui", "Control")
         {

@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Contraols
         /// Initializes a new instance of the GH_Slider class.
         /// </summary>
         public GH_Slider()
-          : base("UI Slider", "Slider",
+          : base("Ui Slider", "Slider",
               "Click and drag to change a numeric value",
               "Ui", "Control")
         {

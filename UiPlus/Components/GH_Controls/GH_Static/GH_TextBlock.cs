@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_TextBlock class.
         /// </summary>
         public GH_TextBlock()
-          : base("UI Text Block", "Text Block",
+          : base("Ui Text Block", "Text Block",
               "Display a block of text",
               "Ui", "Display")
         {

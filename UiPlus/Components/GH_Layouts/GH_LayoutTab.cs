@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutTabbed class.
         /// </summary>
         public GH_LayoutTabbed()
-          : base("UI Tabbed Layout", "Tab",
+          : base("Ui Tabbed Layout", "Tab",
               "Place elements in selected tabs",
               "Ui", "Layout")
         {

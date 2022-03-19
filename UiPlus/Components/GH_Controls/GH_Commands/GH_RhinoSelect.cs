@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls.GH_Commands
         /// Initializes a new instance of the GH_RhinoSelect class.
         /// </summary>
         public GH_RhinoSelect()
-          : base("UI Rhino Select Button", "Rh Sel Btn",
+          : base("Ui Rhino Select Button", "Rh Sel Btn",
               "Click to select objects from Rhino and return their GUIDs",
               "Ui", "Command")
         {

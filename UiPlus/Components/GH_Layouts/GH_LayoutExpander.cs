@@ -14,7 +14,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutExpander class.
         /// </summary>
         public GH_LayoutExpander()
-          : base("UI Expander Layout", "Expander",
+          : base("Ui Expander Layout", "Expander",
               "Place elements in an expandable layout",
               "Ui", "Layout")
         {

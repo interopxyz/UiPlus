@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutCard class.
         /// </summary>
         public GH_LayoutCard()
-          : base("UI Card Layout", "Card",
+          : base("Ui Card Layout", "Card",
               "Place elements in a labeled card",
               "Ui", "Layout")
         {

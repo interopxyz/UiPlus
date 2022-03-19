@@ -14,8 +14,8 @@ namespace UiPlus.Components.GH_Controls.GH_Commands
         /// Initializes a new instance of the GH_FileSave class.
         /// </summary>
         public GH_FileSave()
-          : base("UI Save Button", "Save Btn",
-              "Launch a file load dialog when clicked and return a new file path",
+          : base("Ui Save Button", "Save Btn",
+              "Launch a file save dialog when clicked and return a new file path",
               "Ui", "Command")
         {
         }

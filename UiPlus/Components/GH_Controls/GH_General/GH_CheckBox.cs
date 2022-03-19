@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_CheckBox class.
         /// </summary>
         public GH_CheckBox()
-          : base("UI Check Box", "Check Box",
+          : base("Ui Check Box", "Check Box",
               "Click to toggle between true and false",
               "Ui", "Control")
         {

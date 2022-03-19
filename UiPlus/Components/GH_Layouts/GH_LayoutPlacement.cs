@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_LayoutPlacement class.
         /// </summary>
         public GH_LayoutPlacement()
-          : base("UI Placement Layout", "Placement",
+          : base("Ui Placement Layout", "Placement",
               "Place elements at a specific pixel location",
               "Ui", "Layout")
         {

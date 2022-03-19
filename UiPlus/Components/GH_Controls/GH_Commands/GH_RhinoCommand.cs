@@ -13,7 +13,7 @@ namespace UiPlus.Components.GH_Controls.GH_Commands
         /// Initializes a new instance of the GH_RhinoCommand class.
         /// </summary>
         public GH_RhinoCommand()
-          : base("UI Rhino Command Button", "Rh Cmd Btn",
+          : base("Ui Rhino Command Button", "Rh Cmd Btn",
               "Run a specified command when clicked",
               "Ui", "Command")
         {

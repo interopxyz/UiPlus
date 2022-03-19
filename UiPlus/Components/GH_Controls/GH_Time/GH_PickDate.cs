@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls
         /// Initializes a new instance of the GH_PickDate class.
         /// </summary>
         public GH_PickDate()
-          : base("UI Pick Date", "Pick Date",
+          : base("Ui Pick Date", "Pick Date",
               "Select or specify a date",
               "Ui", "Control")
         {

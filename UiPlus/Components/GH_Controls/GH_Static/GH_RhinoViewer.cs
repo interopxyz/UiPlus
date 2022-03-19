@@ -14,7 +14,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         /// Initializes a new instance of the GH_RhinoViewer class.
         /// </summary>
         public GH_RhinoViewer()
-          : base("UI Rhino Viewer", "Rhino Viewer",
+          : base("Ui Rhino Viewer", "Rhino Viewer",
               "Display a Rhino viewport",
               "Ui", "Display")
         {

@@ -13,7 +13,7 @@ namespace UiPlus.Components
         /// Initializes a new instance of the GH_Toggle class.
         /// </summary>
         public GH_Toggle()
-          : base("UI Toggle", "Toggle",
+          : base("Ui Toggle", "Toggle",
               "Click to toggle between true and false",
               "Ui", "Control")
         {
