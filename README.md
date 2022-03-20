@@ -8,10 +8,12 @@ The Ui Plus plugin is an easy-to-use toolkit for building custom user interfaces
 [Download the Plugin at Food4Rhino](https://www.food4rhino.com/en/app/ui)
 
 ![definition](https://user-images.githubusercontent.com/25797596/158019225-422c2d0d-d6cf-4dee-a07f-e614914c25c1.png)
-
 ![definition](https://user-images.githubusercontent.com/25797596/158019227-2f436954-a2b5-4dcf-9c35-9bc21a212600.png)
-
 ![definition](https://user-images.githubusercontent.com/25797596/158019222-b4cc6bba-bc8b-4c2d-bb3f-79ddda3818a4.png)
+
+## Learn More
+
+[Plugin Documentation](https://interopxyz.gitbook.io/ui-plus/)
 
 ### Dependencies
  - [Rhinoceros 3d](https://www.rhino3d.com/)
