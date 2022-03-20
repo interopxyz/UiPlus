@@ -36,7 +36,7 @@ namespace UiPlus.Components.GH_Controls
             base.RegisterInputParams(pManager);
             pManager.AddTimeParameter("DateTime", "D", "The control date time.", GH_ParamAccess.item, DateTime.Now);
             pManager[1].Optional = true;
-            pManager.AddBooleanParameter("Long", "L", "Long", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Long", "L", "Is the date in a long format", GH_ParamAccess.item, false);
             pManager[2].Optional = true;
         }
 

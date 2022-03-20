@@ -34,12 +34,12 @@ namespace UiPlus.Components.GH_DataVis
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Data Series", "Ds", "The data series to modify.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Data Series", "Ds", "A Ui Data Series object to modify.", GH_ParamAccess.item);
             pManager.AddColourParameter("Color", "C", "The label color", GH_ParamAccess.item);
             pManager[1].Optional = true;
             pManager.AddTextParameter("Prefix", "P", "Optional label prefix", GH_ParamAccess.item);
             pManager[2].Optional = true;
-            pManager.AddTextParameter("Suffix", "S", "Optional label suffix", GH_ParamAccess.item);
+            pManager.AddTextParameter("Suffix", "S", "S", GH_ParamAccess.item);
             pManager[3].Optional = true;
 
         }

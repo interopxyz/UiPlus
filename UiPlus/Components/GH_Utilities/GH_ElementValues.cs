@@ -47,8 +47,8 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Values", "V", "Control values", GH_ParamAccess.list);
-            pManager.AddTextParameter("Debug", "D", "Description", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Values", "V", "Element Value. Varies based on the element type that was input.", GH_ParamAccess.list);
+            //pManager.AddTextParameter("Debug", "D", "Description", GH_ParamAccess.item);
         }
 
         protected override void BeforeSolveInstance()

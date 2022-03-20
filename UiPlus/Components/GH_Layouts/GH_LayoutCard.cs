@@ -33,7 +33,7 @@ namespace UiPlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddGenericParameter("Elements", "E", "The Elements or Layouts", GH_ParamAccess.list);
-            pManager.AddTextParameter("Title", "T", "The layout's title", GH_ParamAccess.item, " ");
+            pManager.AddTextParameter("Title", "T", "The layout title", GH_ParamAccess.item, " ");
             pManager[1].Optional = true;
         }
 

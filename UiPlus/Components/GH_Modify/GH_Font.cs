@@ -42,9 +42,9 @@ namespace UiPlus.Components.GH_Modify
             pManager[2].Optional = true;
             pManager.AddIntegerParameter("Justification", "J", "The text justification", GH_ParamAccess.item);
             pManager[3].Optional = true;
-            pManager.AddBooleanParameter("Bold", "B", "Specifies if the font is bold or regular", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Bold", "B", "Specifies if the font is bold", GH_ParamAccess.item);
             pManager[4].Optional = true;
-            pManager.AddBooleanParameter("Italic", "I", "Specifies if the font is italic or regular", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Italic", "I", "Specifies if the font is italic", GH_ParamAccess.item);
             pManager[5].Optional = true;
             //pManager.AddBooleanParameter("Underline", "U", "Specifies if the font is underlined or regular", GH_ParamAccess.item, false);
             //pManager[6].Optional = true;

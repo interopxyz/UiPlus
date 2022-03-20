@@ -35,7 +35,7 @@ namespace UiPlus.Components.GH_Controls.GH_Scroll
             base.RegisterInputParams(pManager);
             pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "");
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Integer", "I", "The control's current integer.", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Selected Integer", "S", "The control starting integer selection.", GH_ParamAccess.item, 0);
             pManager[2].Optional = true;
             pManager.AddBooleanParameter("Wrap", "W", "If true the values will cycle. If false the values will be capped at the min and max.", GH_ParamAccess.item, false);
             pManager[3].Optional = true;

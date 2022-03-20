@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using Sd = System.Drawing;
 
 using UiPlus.Elements;
+using Grasshopper.Kernel.Types;
 
 namespace UiPlus.Components.GH_Controls.GH_Static
 {
@@ -36,7 +37,7 @@ namespace UiPlus.Components.GH_Controls.GH_Static
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddGenericParameter("Bitmap", "B", "The control text.", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Bitmap", "B", "A bitmap or image filepath to display.", GH_ParamAccess.item);
             pManager[1].Optional = true;
             pManager.AddIntegerParameter("Fitting", "F", "The image fitting mode", GH_ParamAccess.item, 1);
             pManager[2].Optional = true;
@@ -66,8 +67,18 @@ namespace UiPlus.Components.GH_Controls.GH_Static
             UiImage control = new UiImage();
             if (DA.GetData(0, ref control)) Message = "Update";
 
+            IGH_Goo goo = null;
+            bool hasBitmap = DA.GetData(1, ref goo);
             Sd.Bitmap bitmap = null;
-            bool hasBitmap = DA.GetData(1, ref bitmap);
+            string message = string.Empty;
+            if (hasBitmap)
+            {
+                if (!goo.TryGetBitmap(out bitmap, out message))
+                {
+                    this.AddRuntimeMessage(GH_RuntimeMessageLevel.Error, message);
+                    return;
+                }
+            }
 
             int fitting = 0;
             bool hasFitting = DA.GetData(2, ref fitting);
