@@ -24,7 +24,7 @@ namespace UiPlus
     {
         #region Members
 
-        public enum DataTypes { Text, Integer, Number, Point, Domain };
+        public enum DataTypes { Text=0, Integer=1, Number=2, Point=3, Domain=4 };
         public enum Markers { None, Circle, Square, Diamond };
 
         protected string name = string.Empty;

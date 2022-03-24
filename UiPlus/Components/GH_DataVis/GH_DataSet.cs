@@ -36,7 +36,7 @@ namespace UiPlus.Components.GH_DataVis
         {
             pManager.AddTextParameter("Label", "L", "The collection label. (Try to make this value unique)", GH_ParamAccess.item);
             pManager.AddGenericParameter("Data", "D", "The list of data associated with each element", GH_ParamAccess.list);
-            pManager.AddIntegerParameter("Type", "T", "The datatype of the data", GH_ParamAccess.item,0);
+            pManager.AddIntegerParameter("Type", "T", "The datatype of the data", GH_ParamAccess.item,5);
             pManager[2].Optional = true;
 
             Param_Integer paramA = (Param_Integer)pManager[2];
@@ -44,6 +44,7 @@ namespace UiPlus.Components.GH_DataVis
             {
                 paramA.AddNamedValue(value.ToString(), (int)value);
             }
+            paramA.AddNamedValue("Auto", 5);
         }
 
         /// <summary>
@@ -139,6 +140,55 @@ namespace UiPlus.Components.GH_DataVis
                         if (obj.CastTo<Interval>(out domain)) domains.Add(domain);
                     }
                     uiDataSet = new UiDataSet(domains, name);
+                    break;
+                default:
+                    List<string> texts = new List<string>();
+                    List<int> ints = new List<int>();
+                    List<double> nums = new List<double>();
+                    List<Interval> doms = new List<Interval>();
+                    List<Point3d> pnts = new List<Point3d>();
+
+
+                    foreach (IGH_Goo obj in data)
+                    {
+                        string txt = string.Empty;
+                        int txtInt = 0;
+                        double txtDbl = 0;
+                        Point3d txtPnt = Point3d.Unset;
+                        Interval txtDom = Interval.Unset;
+                        if (obj.CastTo<Point3d>(out txtPnt)) 
+                        { 
+                            txt = txtPnt.ToString();
+                            pnts.Add(txtPnt);
+                        }
+                        else if (obj.CastTo<Interval>(out txtDom)) 
+                        { 
+                            txt = txtDom.ToString();
+                            doms.Add(txtDom);
+                        }
+                        else if (obj.CastTo<int>(out txtInt)) 
+                        { 
+                            txt = Convert.ToString(txtInt);
+                            ints.Add(txtInt);
+                        }
+                        else if (obj.CastTo<double>(out txtDbl)) 
+                        { 
+                            txt = Convert.ToString(txtDbl);
+                            nums.Add(txtDbl);
+                        }
+                        else if (obj.CastTo<string>(out txt)) 
+                        {
+                        }
+
+                        texts.Add(txt);
+                    }
+                    uiDataSet = new UiDataSet(texts, name);
+
+                    if (pnts.Count == texts.Count) uiDataSet = new UiDataSet(pnts, name);
+                    if (doms.Count == texts.Count) uiDataSet = new UiDataSet(doms, name);
+                    if (ints.Count == texts.Count) uiDataSet = new UiDataSet(ints, name);
+                    if (nums.Count == texts.Count) uiDataSet = new UiDataSet(nums, name);
+
                     break;
             }
 

@@ -87,7 +87,7 @@ namespace UiPlus.Components.GH_Utilities
             }
 
             DA.SetDataList(0, uiElement.GetValues());
-            DA.SetData(1, uiElement.Control);
+            //DA.SetData(1, uiElement.Control);
         }
 
         /// <summary>
