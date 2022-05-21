@@ -54,7 +54,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Bitmap", "B", "Bitmap", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Bitmap", "B", "A Bitmap of window contents", GH_ParamAccess.item);
 
         }
 

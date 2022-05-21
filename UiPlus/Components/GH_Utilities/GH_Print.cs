@@ -44,7 +44,7 @@ namespace UiPlus.Components.GH_Utilities
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Elements", "E", "Elements", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Window", "W", "A Ui Window object", GH_ParamAccess.item);
         }
 
         /// <summary>

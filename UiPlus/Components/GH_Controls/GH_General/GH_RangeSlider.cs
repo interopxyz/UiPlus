@@ -35,11 +35,11 @@ namespace UiPlus.Components.GH_Controls
             base.RegisterInputParams(pManager);
             pManager.AddTextParameter("Label", "L", "The control label.", GH_ParamAccess.item, "");
             pManager[1].Optional = true;
-            pManager.AddIntervalParameter("Selection", "S", "The selection's upper and lower bounds", GH_ParamAccess.item, new Interval(0.25,0.75));
+            pManager.AddIntervalParameter("Selection", "S", "The  upper and lower bounds of the selection", GH_ParamAccess.item, new Interval(0.25,0.75));
             pManager[2].Optional = true;
-            pManager.AddIntervalParameter("Bounds", "B", "The sliders upper and lower bounds", GH_ParamAccess.item, new Interval(0, 1));
+            pManager.AddIntervalParameter("Bounds", "B", "The upper and lower bounds of the slider", GH_ParamAccess.item, new Interval(0, 1));
             pManager[3].Optional = true;
-            pManager.AddNumberParameter("Increment", "I", "The slider step increment", GH_ParamAccess.item, 0.1);
+            pManager.AddNumberParameter("Increment", "I", "The step increment of the slider", GH_ParamAccess.item, 0.1);
             pManager[4].Optional = true;
         }
 

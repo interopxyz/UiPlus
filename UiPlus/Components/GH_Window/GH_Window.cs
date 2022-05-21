@@ -35,10 +35,10 @@ namespace UiPlus.Components
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Elements", "E", "The Controls, Layouts, Charts and other Ui Elements", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Elements", "E", "A list of Controls, Layouts, Charts and other Ui Element", GH_ParamAccess.list);
             pManager.AddTextParameter("Title", "T", "The window title", GH_ParamAccess.item, "Ui+ Viewer");
             pManager[1].Optional = true;
-            pManager.AddIntegerParameter("Owner", "O", "The application that owns the new Window", GH_ParamAccess.item,1);
+            pManager.AddIntegerParameter("Owner", "O", "The application that owns the new Window. (In Rhino Inside Revit, use Rhino as the owner.)", GH_ParamAccess.item,1);
             pManager[2].Optional = true;
             pManager.AddBooleanParameter("Scroll", "S", "If true a scroll bar will be added to the main window", GH_ParamAccess.item,false);
             pManager[3].Optional = true;

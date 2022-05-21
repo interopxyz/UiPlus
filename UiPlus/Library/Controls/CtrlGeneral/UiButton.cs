@@ -24,6 +24,7 @@ namespace UiPlus.Elements
         #region Members
 
         Wpf.Button ctrl = new Wpf.Button();
+        bool status = false;
 
         #endregion
 
@@ -74,13 +75,27 @@ namespace UiPlus.Elements
 
         public override void Update(Gk.GH_Component component)
         {
-            ctrl.Click -= (o, e) => { component.ExpireSolution(true); };
-            ctrl.Click += (o, e) => { component.ExpireSolution(true); };
+            ctrl.PreviewMouseLeftButtonDown -= (o, e) => {
+                status = true;
+                component.ExpireSolution(true);
+            };
+            ctrl.PreviewMouseLeftButtonDown += (o, e) => {
+                status = true;
+                component.ExpireSolution(true);
+            };
+            ctrl.PreviewMouseLeftButtonUp -= (o, e) => {
+                status = false;
+                component.ExpireSolution(true);
+            };
+            ctrl.PreviewMouseLeftButtonUp += (o, e) => {
+                status = false;
+                component.ExpireSolution(true);
+            };
         }
 
         public override List<object> GetValues()
         {
-            return new List<object> { this.State };
+            return new List<object> { this.status };
         }
 
         public override string ToString()
