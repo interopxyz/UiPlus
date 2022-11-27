@@ -1,5 +1,5 @@
 # Ui +
-WPF based interactive dashboards for Grasshopper 3D.
+WPF interactive dashboard composer for Grasshopper 3D.
 
 ---
 
