@@ -1,4 +1,4 @@
-# Ui Plus (Ui+)
+# Ui +
 WPF based interactive dashboards for Grasshopper 3D.
 
 ---
