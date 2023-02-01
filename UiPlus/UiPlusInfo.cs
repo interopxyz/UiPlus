@@ -55,6 +55,14 @@ namespace UiPlus
                 return "interopxyz@gmail.com";
             }
         }
+
+        public override string AssemblyVersion
+        {
+            get
+            {
+                return "1.7.0.0";
+            }
+        }
     }
 
     public class UiPlusCategoryIcon : GH_AssemblyPriority
