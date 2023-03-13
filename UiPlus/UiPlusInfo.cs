@@ -60,7 +60,7 @@ namespace UiPlus
         {
             get
             {
-                return "1.7.0.0";
+                return "1.8.0.0";
             }
         }
     }
