@@ -84,11 +84,11 @@ namespace UiPlus.Components.GH_Modify
 
             if (margin)
             {
-                control.SetMargin(top,left,bottom,right);
+                control.SetMargin(left,top,right,bottom);
             }
             else
             {
-                control.SetPadding(top, left, bottom, right);
+                control.SetPadding(left, top, right, bottom);
             }
 
             DA.SetData(0, control);
