@@ -164,6 +164,7 @@
     <Compile Include="Components\GH_DataVis\GH_DataSet.cs" />
     <Compile Include="Components\GH_DataVis\Formatting\GH_DataSeriesGraphics.cs" />
     <Compile Include="Components\GH_Modify\GH_Align.cs" />
+    <Compile Include="Components\GH_Modify\GH_BackgroundImage.cs" />
     <Compile Include="Components\GH_Modify\GH_Font.cs" />
     <Compile Include="Components\GH_Modify\GH_Graphics.cs" />
     <Compile Include="Components\GH_Modify\GH_Offset.cs" />
@@ -517,6 +518,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\UiPlus-Window-Modify-01.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UiPlus-Modify-Image-01.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

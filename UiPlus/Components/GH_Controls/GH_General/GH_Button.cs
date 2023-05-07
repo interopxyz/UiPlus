@@ -33,8 +33,10 @@ namespace UiPlus.Components
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             base.RegisterInputParams(pManager);
-            pManager.AddTextParameter("Label", "L", "The control label", GH_ParamAccess.item, "Ok");
+            pManager.AddTextParameter("Label", "L", "The control label text", GH_ParamAccess.item, "Ok");
             pManager[1].Optional = true;
+            pManager.AddTextParameter("Icon", "I", "The control icon name."+Environment.NewLine+"See https://fonts.google.com/icons for more details.", GH_ParamAccess.item);
+            pManager[2].Optional = true;
         }
 
         /// <summary>
@@ -58,6 +60,8 @@ namespace UiPlus.Components
             string label = "Ok";
             DA.GetData(1, ref label);
 
+            string icon = "CheckCircleOutline";
+            if(DA.GetData(2,ref icon)) control.Icon = icon;
             control.Label = label;
 
             DA.SetData(0, control);

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,19 @@ namespace UiPlus
 {
     public static class GraphicConversions
     {
+
+        public static string DashToCamelCase(this string input)
+        {
+            string[] text = input.Split('-');
+            StringBuilder output = new StringBuilder();
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            foreach (string txt in text)
+            {
+                output.Append(textInfo.ToTitleCase(txt));
+            }
+            return output.ToString();
+        }
+
         public static Eto.Drawing.Color ToEto(this Sd.Color color)
         {
             return new Eto.Drawing.Color((float)(color.R/255.0), (float)(color.G/255.0), (float)(color.B/255.0), (float)(color.A/255.0));

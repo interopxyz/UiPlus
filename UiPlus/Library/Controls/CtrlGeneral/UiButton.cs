@@ -22,8 +22,11 @@ namespace UiPlus.Elements
     {
 
         #region Members
-
+        Wpf.StackPanel contents = new Wpf.StackPanel();
+        Mat.PackIcon icon = new Mat.PackIcon();
+        Wpf.TextBlock text = new Wpf.TextBlock();
         Wpf.Button ctrl = new Wpf.Button();
+
         bool status = false;
 
         #endregion
@@ -38,6 +41,9 @@ namespace UiPlus.Elements
         public UiButton(UiButton uiControl) : base(uiControl)
         {
             this.control = uiControl.Control;
+            this.icon = uiControl.icon;
+            this.text = uiControl.text;
+            this.contents = uiControl.contents;
         }
 
         #endregion
@@ -46,8 +52,24 @@ namespace UiPlus.Elements
 
         public virtual string Label
         {
-            get { return ctrl.Content.ToString(); }
-            set { ctrl.Content = value; }
+            get { return text.Text.ToString(); }
+            set { text.Text = value; }
+        }
+
+        public virtual string Icon
+        {
+            get { return this.icon.Kind.ToString(); }
+            set {
+                if (Enum.IsDefined(typeof(Mat.PackIconKind), value))
+                {
+                    this.icon.Kind = (Mat.PackIconKind)Enum.Parse(typeof(Mat.PackIconKind), value);
+                    if (this.contents.Children.Count < 2) this.contents.Children.Insert(0,this.icon);
+                }
+                else
+                {
+                    if ( this.contents.Children.Count > 1 ) this.contents.Children.RemoveAt(0);
+                }
+                }
         }
 
         public virtual bool State
@@ -68,6 +90,15 @@ namespace UiPlus.Elements
         {
             Mat.ButtonAssist.SetCornerRadius(ctrl, new Sw.CornerRadius(Constants.DefaultRadius()));
 
+            this.icon.Kind = Mat.PackIconKind.Check;
+
+            this.icon.VerticalAlignment = Sw.VerticalAlignment.Center;
+            this.text.Text = "Ok";
+
+            contents.Orientation = Wpf.Orientation.Horizontal;
+            contents.Children.Add(text);
+
+            this.ctrl.Content = contents;
             this.ctrl.MinWidth = 90;
             this.control = this.ctrl;
             base.SetInputs();

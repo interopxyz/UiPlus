@@ -25,6 +25,8 @@ namespace UiPlus.Elements
 
         public enum Alignment { Left, Center, Right, Stretch }
 
+        public enum Fitting { None, Fill, Uniform, UniformFill}
+
         public enum ElementTypes { Control, Layout, Border, Image, Block, Browser, Host, Chart, Window };
         public ElementTypes ElementType = ElementTypes.Control;
 
@@ -392,6 +394,34 @@ namespace UiPlus.Elements
         #endregion
 
         #region Graphics
+        public virtual void SetBackgroundImage(Sd.Bitmap image, Fitting fitting = Fitting.None)
+        {
+            Wm.ImageBrush brush =  new Wm.ImageBrush(image.ToImageSource());
+            brush.Stretch = (Wm.Stretch)fitting;
+            switch (ElementType)
+            {
+                case ElementTypes.Control:
+                    control.Background = brush;
+                    break;
+                case ElementTypes.Border:
+                    border.Background = brush;
+                    break;
+                case ElementTypes.Block:
+                    block.Background = brush;
+                    break;
+                case ElementTypes.Layout:
+                    layout.Background = brush;
+                    break;
+                case ElementTypes.Image:
+                case ElementTypes.Host:
+                    host.Background = brush;
+                    break;
+                case ElementTypes.Window:
+                    viewer.Background = brush;
+                    break;
+            }
+
+        }
 
         public virtual void SetPrimaryColors(Sd.Color color)
         {
