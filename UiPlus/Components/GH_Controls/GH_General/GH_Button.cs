@@ -35,7 +35,7 @@ namespace UiPlus.Components
             base.RegisterInputParams(pManager);
             pManager.AddTextParameter("Label", "L", "The control label text", GH_ParamAccess.item, "Ok");
             pManager[1].Optional = true;
-            pManager.AddTextParameter("Icon", "I", "The control icon name."+Environment.NewLine+"See https://fonts.google.com/icons for more details.", GH_ParamAccess.item);
+            pManager.AddTextParameter("Icon", "I", "The control icon name or filepath to custom icon image."+Environment.NewLine+"See https://fonts.google.com/icons for more details.", GH_ParamAccess.item);
             pManager[2].Optional = true;
         }
 
