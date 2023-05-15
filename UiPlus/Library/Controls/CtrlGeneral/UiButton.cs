@@ -82,7 +82,7 @@ namespace UiPlus.Elements
                         case ".bmp":
                             Sd.Bitmap bitmap = new Sd.Bitmap(value, false);
                             this.image.Source = bitmap.ToImageSource();
-                            this.contents.Children.Insert(0, this.image);
+                            if (this.contents.Children.Count < 2) this.contents.Children.Insert(0, this.image);
                             break;
 
                         default:
