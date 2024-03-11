@@ -46,7 +46,7 @@ namespace UiPlus.Elements
         protected Wpf.Border border = new Wpf.Border();
         protected Wpf.Image image = new Wpf.Image();
         protected Wpf.TextBlock block = new Wpf.TextBlock();
-        protected Wpf.WebBrowser browser = new Wpf.WebBrowser();
+        protected Microsoft.Web.WebView2.Wpf.WebView2 browser = new Microsoft.Web.WebView2.Wpf.WebView2();
         protected Swf.WindowsFormsHost host = new Swf.WindowsFormsHost();
 
         public bool AllowTransparency = true;
@@ -308,17 +308,14 @@ namespace UiPlus.Elements
                 case Justifications.BottomMiddle:
                 case Justifications.BottomRight:
                     return Sw.VerticalAlignment.Bottom;
-                    break;
                 case Justifications.CenterLeft:
                 case Justifications.CenterMiddle:
                 case Justifications.CenterRight:
                     return Sw.VerticalAlignment.Center;
-                    break;
                 case Justifications.TopLeft:
                 case Justifications.TopMiddle:
                 case Justifications.TopRight:
                     return Sw.VerticalAlignment.Top;
-                    break;
             }
             return Sw.VerticalAlignment.Bottom;
         }

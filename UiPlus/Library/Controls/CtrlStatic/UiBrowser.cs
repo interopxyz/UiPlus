@@ -45,7 +45,11 @@ namespace UiPlus.Elements
 
         public virtual string Address
         {
-            set { browser.Navigate(value); }
+            set {
+                browser.BeginInit();
+                browser.Source = new Uri(value);
+                browser.CoreWebView2.Navigate(value);
+            }
         }
 
         #endregion
@@ -61,11 +65,14 @@ namespace UiPlus.Elements
         public override void SetInputs()
         {
             this.ElementType = ElementTypes.Browser;
-
+            
             browser.VerticalAlignment = Sw.VerticalAlignment.Stretch;
             browser.HorizontalAlignment = Sw.HorizontalAlignment.Stretch;
 
             browser.MinHeight = 400;
+
+            browser.Height = 400;
+            browser.Width = 800;
         }
 
         public override List<object> GetValues()
