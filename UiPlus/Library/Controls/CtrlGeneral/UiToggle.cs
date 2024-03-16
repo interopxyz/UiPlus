@@ -24,8 +24,8 @@ namespace UiPlus.Elements
     {
 
         #region Members
-
         Wmc.ToggleButton ctrl = new Wmc.ToggleButton();
+        //Mah.ToggleSwitch ctrl = new Mah.ToggleSwitch();
         Wpf.StackPanel stackPanel = new Wpf.StackPanel();
         Wpf.Label label = new Wpf.Label();
 
@@ -51,6 +51,8 @@ namespace UiPlus.Elements
         {
             get { return (bool)ctrl.IsChecked; }
             set { ctrl.IsChecked = value; }
+            //get { return (bool)ctrl.IsOn; }
+            //set { ctrl.IsOn = value; }
         }
 
         public virtual string Label
@@ -74,10 +76,8 @@ namespace UiPlus.Elements
             ElementType = ElementTypes.Border;
             ctrl.HorizontalAlignment = Sw.HorizontalAlignment.Left;
             ctrl.Margin = new Sw.Thickness(2, 2, 0, 2);
-
             stackPanel.Orientation = Wpf.Orientation.Horizontal;
             stackPanel.Background = Wm.Brushes.Transparent;
-            
             this.control = this.ctrl;
 
             stackPanel.Children.Add(this.control);
@@ -89,7 +89,8 @@ namespace UiPlus.Elements
 
         public override void SetPrimaryColors(Sd.Color color)
         {
-            Mat.ToggleButtonAssist.SetSwitchTrackOnBackground(ctrl, color.ToSolidColorBrush());
+            
+            //Mat.ToggleButtonAssist.SetSwitchTrackOnBackground(ctrl, color.ToSolidColorBrush());
             ctrl.Background = color.ToSolidColorBrush();
             ctrl.Foreground = color.ToSolidColorBrush();
             label.Foreground = color.ToSolidColorBrush();
@@ -103,6 +104,8 @@ namespace UiPlus.Elements
 
         public override void Update(Gk.GH_Component component)
         {
+            //ctrl.Toggled -= (o, e) => { component.ExpireSolution(true); };
+            //ctrl.Toggled += (o, e) => { component.ExpireSolution(true); };
             ctrl.Click -= (o, e) => { component.ExpireSolution(true); };
             ctrl.Click += (o, e) => { component.ExpireSolution(true); };
         }

@@ -60,7 +60,7 @@ namespace UiPlus
         {
             get
             {
-                return "1.9.3.0";
+                return "1.9.4.0";
             }
         }
     }

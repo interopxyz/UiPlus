@@ -34,7 +34,6 @@ namespace UiPlus.Elements
 
         public enum Justifications { BottomLeft, BottomMiddle, BottomRight, CenterLeft, CenterMiddle, CenterRight, TopLeft, TopMiddle, TopRight };
 
-
         protected string name = string.Empty;
         protected string id = string.Empty;
         public Mat.ColorZone Container = new Mat.ColorZone();
@@ -308,17 +307,14 @@ namespace UiPlus.Elements
                 case Justifications.BottomMiddle:
                 case Justifications.BottomRight:
                     return Sw.VerticalAlignment.Bottom;
-                    break;
                 case Justifications.CenterLeft:
                 case Justifications.CenterMiddle:
                 case Justifications.CenterRight:
                     return Sw.VerticalAlignment.Center;
-                    break;
                 case Justifications.TopLeft:
                 case Justifications.TopMiddle:
                 case Justifications.TopRight:
                     return Sw.VerticalAlignment.Top;
-                    break;
             }
             return Sw.VerticalAlignment.Bottom;
         }
