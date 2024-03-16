@@ -34,7 +34,6 @@ namespace UiPlus.Elements
 
         public enum Justifications { BottomLeft, BottomMiddle, BottomRight, CenterLeft, CenterMiddle, CenterRight, TopLeft, TopMiddle, TopRight };
 
-
         protected string name = string.Empty;
         protected string id = string.Empty;
         public Mat.ColorZone Container = new Mat.ColorZone();
@@ -46,7 +45,7 @@ namespace UiPlus.Elements
         protected Wpf.Border border = new Wpf.Border();
         protected Wpf.Image image = new Wpf.Image();
         protected Wpf.TextBlock block = new Wpf.TextBlock();
-        protected Microsoft.Web.WebView2.Wpf.WebView2 browser = new Microsoft.Web.WebView2.Wpf.WebView2();
+        protected Wpf.WebBrowser browser = new Wpf.WebBrowser();
         protected Swf.WindowsFormsHost host = new Swf.WindowsFormsHost();
 
         public bool AllowTransparency = true;
